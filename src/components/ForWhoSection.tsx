@@ -1,39 +1,32 @@
 import { useState } from "react";
-import { Wrench, Building, Users, CalendarCheck } from "lucide-react";
+import { Hammer, Building, Briefcase } from "lucide-react";
 
 const audiences = [
   {
-    id: "artisans",
-    icon: Wrench,
-    title: "Artisans indépendants",
-    description: "Vous travaillez seul ou avec quelques collaborateurs. Provia BASE vous aide à structurer votre activité sans complexité.",
-    benefits: ["Gestion simplifiée", "Gain de temps immédiat", "Tout au même endroit"],
+    id: "tpe-artisans",
+    icon: Hammer,
+    title: "TPE Artisans",
+    description: "Vous travaillez seul ou avec une petite équipe. Provia BASE vous aide à organiser votre activité, suivre vos interventions et simplifier votre gestion au quotidien.",
+    benefits: ["Gestion simplifiée", "Suivi des interventions", "Organisation quotidienne"],
   },
   {
-    id: "tpe-pme",
+    id: "pme-artisans",
     icon: Building,
-    title: "TPE – PME de services",
-    description: "Votre entreprise grandit et vous avez besoin d'un système fiable pour coordonner vos équipes et vos clients.",
-    benefits: ["Organisation centralisée", "Suivi en temps réel", "Croissance maîtrisée"],
+    title: "PME Artisans",
+    description: "Vous avez plusieurs équipes terrain et avez besoin d'un système fiable pour coordonner les missions, suivre les employés et garder un œil sur votre entreprise.",
+    benefits: ["Coordination des équipes", "Suivi des employés", "Vision globale"],
   },
   {
-    id: "terrain",
-    icon: Users,
-    title: "Entreprises avec employés terrain",
-    description: "Vos employés sont sur le terrain et vous avez besoin de visibilité sur leur activité au quotidien.",
-    benefits: ["Suivi des interventions en direct", "Communication simplifiée", "Fin des appels répétitifs"],
-  },
-  {
-    id: "interventions",
-    icon: CalendarCheck,
-    title: "Structures avec interventions quotidiennes",
-    description: "Vous organisez des interventions chaque jour et avez besoin d'un système fiable pour tout coordonner.",
-    benefits: ["Organisation optimisée", "Historique complet des interventions", "Zéro papier, zéro oubli"],
+    id: "entreprises-services",
+    icon: Briefcase,
+    title: "Entreprises de services (TPE – PME)",
+    description: "Vous intervenez régulièrement chez vos clients et gérez des interventions quotidiennes. Provia BASE centralise votre organisation, vos clients et vos équipes dans un seul espace.",
+    benefits: ["Organisation centralisée", "Gestion des clients", "Équipes coordonnées"],
   },
 ];
 
 export const ForWhoSection = () => {
-  const [active, setActive] = useState("artisans");
+  const [active, setActive] = useState("tpe-artisans");
   const activeAudience = audiences.find((a) => a.id === active)!;
 
   return (
@@ -46,7 +39,7 @@ export const ForWhoSection = () => {
             Pour <span className="text-gradient-orange">qui</span> est Provia BASE ?
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
-            Provia BASE n'est pas fait pour un métier, mais pour un mode d'organisation. Si vous gérez des employés terrain ou des interventions quotidiennes, Provia BASE est pensé pour vous.
+            Provia BASE est conçu pour les artisans TPE/PME et les entreprises de services qui interviennent chaque jour chez leurs clients. Si vous avez une équipe terrain, Provia BASE est pensé pour vous.
           </p>
         </div>
 
