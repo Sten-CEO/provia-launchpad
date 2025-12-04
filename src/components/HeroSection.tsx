@@ -1,10 +1,7 @@
+import { Link } from "react-router-dom";
 import { FileText, Bell, Calendar, Check } from "lucide-react";
 
-interface HeroSectionProps {
-  onOpenDemo: () => void;
-}
-
-export const HeroSection = ({ onOpenDemo }: HeroSectionProps) => {
+export const HeroSection = () => {
   const benefits = [
     { icon: FileText, text: "Devis & factures en quelques clics" },
     { icon: Bell, text: "Relances automatiques & paiements suivis" },
@@ -47,9 +44,9 @@ export const HeroSection = ({ onOpenDemo }: HeroSectionProps) => {
               <a href="#tarifs" className="btn-primary text-center text-base lg:text-lg px-8 py-4">
                 Commencer maintenant
               </a>
-              <button onClick={onOpenDemo} className="btn-secondary text-center text-base lg:text-lg px-8 py-4">
+              <Link to="/demo" className="btn-secondary text-center text-base lg:text-lg px-8 py-4">
                 Réserver une démo avec un expert
-              </button>
+              </Link>
             </div>
 
             <p className="text-sm text-muted-foreground flex flex-wrap items-center gap-2">

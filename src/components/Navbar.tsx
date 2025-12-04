@@ -1,10 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import proviaLogo from "@/assets/provia-logo.png";
-
-interface NavbarProps {
-  onOpenDemo: () => void;
-}
 
 const navLinks = [
   { label: "Fonctionnalités", href: "#features" },
@@ -14,7 +11,7 @@ const navLinks = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export const Navbar = ({ onOpenDemo }: NavbarProps) => {
+export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -48,9 +45,9 @@ export const Navbar = ({ onOpenDemo }: NavbarProps) => {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-3">
-              <button onClick={onOpenDemo} className="btn-secondary text-sm">
+              <Link to="/demo" className="btn-secondary text-sm">
                 Réserver une démo
-              </button>
+              </Link>
               <a href="#tarifs" className="btn-primary text-sm">
                 Commencer maintenant
               </a>
@@ -101,9 +98,9 @@ export const Navbar = ({ onOpenDemo }: NavbarProps) => {
               </div>
 
               <div className="flex flex-col gap-3 pt-6 border-t border-border">
-                <button onClick={() => { onOpenDemo(); setIsOpen(false); }} className="btn-secondary w-full text-center">
+                <Link to="/demo" onClick={() => setIsOpen(false)} className="btn-secondary w-full text-center">
                   Réserver une démo
-                </button>
+                </Link>
                 <a href="#tarifs" onClick={() => setIsOpen(false)} className="btn-primary w-full text-center">
                   Commencer maintenant
                 </a>

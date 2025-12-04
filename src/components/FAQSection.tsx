@@ -1,9 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
-
-interface FAQSectionProps {
-  onOpenDemo: () => void;
-}
 
 const faqs = [
   {
@@ -32,7 +29,7 @@ const faqs = [
   },
 ];
 
-export const FAQSection = ({ onOpenDemo }: FAQSectionProps) => {
+export const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -78,9 +75,9 @@ export const FAQSection = ({ onOpenDemo }: FAQSectionProps) => {
             <a href="mailto:contact@provia.fr" className="btn-secondary px-6 py-3">
               Contactez-nous
             </a>
-            <button onClick={onOpenDemo} className="btn-primary px-6 py-3">
+            <Link to="/demo" className="btn-primary px-6 py-3">
               Réserver une démo
-            </button>
+            </Link>
           </div>
         </div>
       </div>
