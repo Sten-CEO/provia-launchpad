@@ -4,6 +4,7 @@ import { ForWhoSection } from "@/components/ForWhoSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { VisionSection } from "@/components/VisionSection";
 import { HowItWorks } from "@/components/HowItWorks";
+import { OnboardingSection } from "@/components/OnboardingSection";
 import { PricingSection } from "@/components/PricingSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FAQSection } from "@/components/FAQSection";
@@ -28,6 +29,8 @@ const Index = () => {
       <VisionSection />
       <SectionDivider />
       <HowItWorks />
+      <SectionDivider />
+      <OnboardingSection />
       <SectionDivider />
       <PricingSection />
       <SectionDivider />
