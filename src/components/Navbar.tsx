@@ -5,6 +5,7 @@ import proviaLogo from "@/assets/provia-logo.png";
 
 const navLinks = [
   { label: "Fonctionnalités", href: "/fonctionnalites", isPage: true },
+  { label: "Installation", href: "/installation", isPage: true },
   { label: "Pour qui ?", href: "#pour-qui", isPage: false },
   { label: "Tarifs", href: "#tarifs", isPage: false },
   { label: "Avis clients", href: "#avis", isPage: false },
