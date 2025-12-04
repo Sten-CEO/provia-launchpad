@@ -1,0 +1,73 @@
+import { Star } from "lucide-react";
+
+const testimonials = [
+  {
+    name: "Sophie Martin",
+    role: "Gérante, Plomberie Martin à Lyon",
+    content: "Avant Provia BASE, je passais mes soirées à faire des devis sur Word. Maintenant, c'est fait en 5 minutes sur le chantier. Un vrai gain de temps !",
+    rating: 5,
+  },
+  {
+    name: "Jean-Pierre Durand",
+    role: "Dirigeant, Durand Électricité (12 employés)",
+    content: "Le planning partagé a changé notre façon de travailler. Toute l'équipe sait où aller, et les clients reçoivent leurs factures rapidement. Moins d'impayés !",
+    rating: 5,
+  },
+  {
+    name: "Marie Lefèvre",
+    role: "Artisan paysagiste indépendante",
+    content: "L'interface est vraiment simple. Pas besoin d'être une experte en informatique pour créer des devis pro. Et le support répond vite quand j'ai une question.",
+    rating: 5,
+  },
+];
+
+export const TestimonialsSection = () => {
+  return (
+    <section id="avis" className="relative py-20 lg:py-32 overflow-hidden">
+      <div className="glow-orange top-0 left-1/4" />
+
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            Ce que disent nos{" "}
+            <span className="text-gradient-orange">clients</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Des artisans et dirigeants du BTP partagent leur expérience avec Provia BASE.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="glass-card-hover p-6">
+              {/* Stars */}
+              <div className="flex gap-1 mb-4">
+                {Array.from({ length: testimonial.rating }).map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                ))}
+              </div>
+
+              {/* Content */}
+              <p className="text-foreground mb-6 leading-relaxed">
+                "{testimonial.content}"
+              </p>
+
+              {/* Author */}
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                  <span className="text-primary font-semibold">
+                    {testimonial.name.split(" ").map((n) => n[0]).join("")}
+                  </span>
+                </div>
+                <div>
+                  <p className="font-medium text-sm">{testimonial.name}</p>
+                  <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
