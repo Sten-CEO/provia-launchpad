@@ -4,11 +4,11 @@ import { Menu, X } from "lucide-react";
 import proviaLogo from "@/assets/provia-logo.png";
 
 const navLinks = [
-  { label: "Fonctionnalités", href: "#features" },
-  { label: "Pour qui ?", href: "#pour-qui" },
-  { label: "Tarifs", href: "#tarifs" },
-  { label: "Avis clients", href: "#avis" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Fonctionnalités", href: "/fonctionnalites", isPage: true },
+  { label: "Pour qui ?", href: "#pour-qui", isPage: false },
+  { label: "Tarifs", href: "#tarifs", isPage: false },
+  { label: "Avis clients", href: "#avis", isPage: false },
+  { label: "FAQ", href: "#faq", isPage: false },
 ];
 
 export const Navbar = () => {
@@ -20,27 +20,34 @@ export const Navbar = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3">
               <img src={proviaLogo} alt="Provia BASE" className="h-10 w-10 object-contain" />
               <span className="text-xl font-bold text-foreground">
                 Provia <span className="text-gradient-orange">BASE</span>
               </span>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {link.label}
-                </a>
+                link.isPage ? (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                )
               ))}
-              <a href="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                Connexion
-              </a>
             </div>
 
             {/* Desktop CTA */}
@@ -83,18 +90,26 @@ export const Navbar = () => {
               
               <div className="flex flex-col gap-4 flex-1">
                 {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
-                  >
-                    {link.label}
-                  </a>
+                  link.isPage ? (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                    >
+                      {link.label}
+                    </a>
+                  )
                 ))}
-                <a href="#" className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2">
-                  Connexion
-                </a>
               </div>
 
               <div className="flex flex-col gap-3 pt-6 border-t border-border">
