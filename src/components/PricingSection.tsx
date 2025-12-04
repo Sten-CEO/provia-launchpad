@@ -6,42 +6,42 @@ const plans = [
     id: "monthly",
     name: "Mensuel",
     subtitle: "Sans engagement",
-    price: "XX",
+    price: "31,99",
     period: "/utilisateur/mois",
     popular: false,
     features: [
       "Toutes les fonctionnalités Provia BASE",
+      "Application terrain Provia FIELD",
       "Résiliable à tout moment",
       "Support par email",
-      "Mises à jour incluses",
     ],
   },
   {
     id: "yearly",
     name: "Engagement 1 an",
-    subtitle: "Économisez 20%",
-    price: "XX",
+    subtitle: "Économisez 12%",
+    price: "28",
     period: "/utilisateur/mois",
     popular: true,
     features: [
       "Toutes les fonctionnalités Provia BASE",
-      "Économisez 20% par rapport au mensuel",
+      "Application terrain Provia FIELD",
+      "Économisez 12% par rapport au mensuel",
       "Support prioritaire",
-      "Mises à jour incluses",
     ],
   },
   {
     id: "biennial",
     name: "Engagement 2 ans",
-    subtitle: "Économisez 35%",
-    price: "XX",
+    subtitle: "Économisez 25%",
+    price: "24",
     period: "/utilisateur/mois",
     popular: false,
     features: [
       "Toutes les fonctionnalités Provia BASE",
-      "Économisez 35% par rapport au mensuel",
+      "Application terrain Provia FIELD",
+      "Économisez 25% par rapport au mensuel",
       "Support VIP dédié",
-      "Mises à jour incluses",
     ],
   },
 ];
@@ -54,11 +54,10 @@ export const PricingSection = () => {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Un seul Provia BASE,{" "}
-            <span className="text-gradient-orange">trois options</span> d'engagement
+            Un prix <span className="text-gradient-orange">clair</span>. Pour chaque personne dans votre équipe.
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Choisissez la durée qui correspond à votre vision. Le prix est toujours par utilisateur.
+            Choisissez la durée qui correspond à votre vision. Simple et transparent.
           </p>
         </div>
 

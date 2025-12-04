@@ -1,32 +1,39 @@
 import { useState } from "react";
-import { User, Users, Building2 } from "lucide-react";
+import { Briefcase, Users, Building2, CalendarCheck } from "lucide-react";
 
 const audiences = [
   {
-    id: "solo",
-    icon: User,
-    title: "Artisan solo",
-    description: "Vous travaillez seul et gérez tout vous-même. Provia BASE simplifie vos devis, factures et relances pour vous concentrer sur votre métier.",
-    benefits: ["Devis professionnels en 2 minutes", "Relances automatiques", "Suivi de trésorerie simplifié"],
+    id: "terrain",
+    icon: Briefcase,
+    title: "Entrepreneurs avec équipe terrain",
+    description: "Vous gérez des employés qui interviennent chez vos clients. Provia BASE vous donne une vision complète de leur activité en temps réel.",
+    benefits: ["Suivi des interventions en direct", "Communication simplifiée", "Fin des appels répétitifs"],
   },
   {
-    id: "pme",
+    id: "mobile",
     icon: Users,
-    title: "PME BTP 3–20 personnes",
-    description: "Votre équipe grandit et la coordination devient complexe. Provia BASE centralise toutes les informations pour une meilleure organisation.",
-    benefits: ["Planning d'équipe partagé", "Gestion des droits utilisateurs", "Tableau de bord centralisé"],
+    title: "PME avec employés mobiles",
+    description: "Vos équipes sont souvent en déplacement et vous perdez du temps à coordonner. Provia BASE centralise tout au même endroit.",
+    benefits: ["Planning partagé instantané", "Informations clients accessibles partout", "Validation terrain en temps réel"],
   },
   {
-    id: "multi",
+    id: "services",
     icon: Building2,
-    title: "Multi-équipes / multi-chantiers",
-    description: "Plusieurs équipes, plusieurs chantiers simultanés. Provia BASE vous donne une vision globale en temps réel.",
-    benefits: ["Vue multi-chantiers", "Suivi par équipe et par projet", "Rapports et analyses avancées"],
+    title: "Entreprises de services",
+    description: "Quel que soit votre secteur, si vous avez des interventions à gérer, Provia BASE s'adapte à votre réalité.",
+    benefits: ["Multi-secteurs compatible", "Personnalisation des workflows", "Tableaux de bord adaptés"],
+  },
+  {
+    id: "interventions",
+    icon: CalendarCheck,
+    title: "Structures avec interventions quotidiennes",
+    description: "Vous organisez des interventions chaque jour et avez besoin d'un système fiable pour tout coordonner.",
+    benefits: ["Organisation optimisée", "Historique complet des interventions", "Zéro papier, zéro oubli"],
   },
 ];
 
 export const ForWhoSection = () => {
-  const [active, setActive] = useState("pme");
+  const [active, setActive] = useState("terrain");
   const activeAudience = audiences.find((a) => a.id === active)!;
 
   return (
@@ -39,7 +46,7 @@ export const ForWhoSection = () => {
             Pour <span className="text-gradient-orange">qui</span> est Provia BASE ?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Que vous soyez artisan indépendant ou dirigeant d'une PME du BTP, Provia BASE s'adapte à votre réalité.
+            Provia BASE n'est pas fait pour un métier, mais pour un mode d'organisation. Si vous avez une équipe terrain, c'est fait pour vous.
           </p>
         </div>
 

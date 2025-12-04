@@ -1,36 +1,47 @@
 import { Link } from "react-router-dom";
-import { UserPlus, Settings, Send, Zap } from "lucide-react";
+import { UserPlus, Users, FileText, Smartphone } from "lucide-react";
+import sunsetImage from "@/assets/sunset-vision.jpeg";
 
 const steps = [
   {
     icon: UserPlus,
     number: "01",
-    title: "Créez votre compte",
-    description: "Inscrivez-vous en 2 minutes et ajoutez votre équipe si besoin.",
+    title: "Créez votre espace Provia BASE",
+    description: "Inscrivez-vous en quelques clics et configurez votre entreprise.",
   },
   {
-    icon: Settings,
+    icon: Users,
     number: "02",
-    title: "Paramétrez vos modèles",
-    description: "Configurez vos devis types, taux de TVA et bibliothèque d'articles.",
+    title: "Invitez vos employés",
+    description: "Le CRM leur crée automatiquement un accès terrain personnalisé.",
   },
   {
-    icon: Send,
+    icon: FileText,
     number: "03",
-    title: "Envoyez vos premiers devis",
-    description: "Créez et envoyez des devis professionnels, suivez les réponses clients.",
+    title: "Préparez vos devis, factures et clients",
+    description: "Centralisez toutes vos informations métier en un seul endroit.",
   },
   {
-    icon: Zap,
+    icon: Smartphone,
     number: "04",
-    title: "Automatisez & suivez",
-    description: "Laissez Provia relancer automatiquement et suivez votre trésorerie.",
+    title: "Suivez vos employés sur Provia FIELD",
+    description: "Vos équipes terrain ont leur app, vous avez la visibilité complète.",
   },
 ];
 
 export const HowItWorks = () => {
   return (
     <section className="relative py-20 lg:py-32 overflow-hidden">
+      {/* Subtle background with sunset image fade */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-1/2 bg-cover bg-bottom opacity-10"
+        style={{ backgroundImage: `url(${sunsetImage})` }}
+      />
+      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-background to-transparent" />
+      
+      {/* Glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-provia-orange/10 rounded-full blur-[100px]" />
+
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">

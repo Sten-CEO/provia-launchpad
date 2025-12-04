@@ -3,20 +3,20 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     name: "Sophie Martin",
-    role: "Gérante, Plomberie Martin à Lyon",
-    content: "Avant Provia BASE, je passais mes soirées à faire des devis sur Word. Maintenant, c'est fait en 5 minutes sur le chantier. Un vrai gain de temps !",
+    role: "Gérante, Martin Services",
+    content: "Provia BASE nous a permis de reprendre le contrôle. On sait enfin où on en est à tout moment.",
     rating: 5,
   },
   {
     name: "Jean-Pierre Durand",
-    role: "Dirigeant, Durand Électricité (12 employés)",
-    content: "Le planning partagé a changé notre façon de travailler. Toute l'équipe sait où aller, et les clients reçoivent leurs factures rapidement. Moins d'impayés !",
+    role: "Dirigeant, Durand & Fils (12 employés)",
+    content: "L'app terrain a changé la communication avec mes employés. Fini les appels à répétition pour savoir où ils en sont.",
     rating: 5,
   },
   {
     name: "Marie Lefèvre",
-    role: "Artisan paysagiste indépendante",
-    content: "L'interface est vraiment simple. Pas besoin d'être une experte en informatique pour créer des devis pro. Et le support répond vite quand j'ai une question.",
+    role: "Responsable opérations, ABC Services",
+    content: "Tout centraliser nous a fait gagner un temps énorme. On se demande comment on faisait avant.",
     rating: 5,
   },
 ];
@@ -33,7 +33,7 @@ export const TestimonialsSection = () => {
             <span className="text-gradient-orange">clients</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Des artisans et dirigeants du BTP partagent leur expérience avec Provia BASE.
+            Des dirigeants et responsables partagent leur expérience avec Provia BASE.
           </p>
         </div>
 
