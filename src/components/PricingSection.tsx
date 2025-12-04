@@ -1,8 +1,5 @@
+import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
-
-interface PricingSectionProps {
-  onOpenDemo: () => void;
-}
 
 const plans = [
   {
@@ -49,7 +46,7 @@ const plans = [
   },
 ];
 
-export const PricingSection = ({ onOpenDemo }: PricingSectionProps) => {
+export const PricingSection = () => {
   return (
     <section id="tarifs" className="relative py-20 lg:py-32 overflow-hidden">
       <div className="glow-teal top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]" />
@@ -115,9 +112,9 @@ export const PricingSection = ({ onOpenDemo }: PricingSectionProps) => {
 
         <p className="text-center mt-8 text-muted-foreground">
           Besoin d'en parler ?{" "}
-          <button onClick={onOpenDemo} className="text-primary hover:underline">
+          <Link to="/demo" className="text-primary hover:underline">
             Réserver une démo
-          </button>
+          </Link>
         </p>
       </div>
     </section>

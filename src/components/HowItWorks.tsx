@@ -1,8 +1,5 @@
+import { Link } from "react-router-dom";
 import { UserPlus, Settings, Send, Zap } from "lucide-react";
-
-interface HowItWorksProps {
-  onOpenDemo: () => void;
-}
 
 const steps = [
   {
@@ -31,7 +28,7 @@ const steps = [
   },
 ];
 
-export const HowItWorks = ({ onOpenDemo }: HowItWorksProps) => {
+export const HowItWorks = () => {
   return (
     <section className="relative py-20 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
@@ -82,9 +79,9 @@ export const HowItWorks = ({ onOpenDemo }: HowItWorksProps) => {
           <a href="#tarifs" className="btn-primary text-center px-8 py-4">
             Commencer maintenant
           </a>
-          <button onClick={onOpenDemo} className="btn-secondary text-center px-8 py-4">
+          <Link to="/demo" className="btn-secondary text-center px-8 py-4">
             Réserver une démo
-          </button>
+          </Link>
         </div>
       </div>
     </section>
