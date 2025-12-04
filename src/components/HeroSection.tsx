@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { FileText, Bell, Calendar, Check } from "lucide-react";
+import { Eye, Heart, Rocket, Check } from "lucide-react";
 
 export const HeroSection = () => {
   const benefits = [
-    { icon: FileText, text: "Devis & factures en quelques clics" },
-    { icon: Bell, text: "Relances automatiques & paiements suivis" },
-    { icon: Calendar, text: "Planning chantiers clair pour toute l'équipe" },
+    { icon: Eye, text: "Prenez le contrôle de votre entreprise d'un seul regard" },
+    { icon: Heart, text: "Offrez à vos employés un outil simple et pensé pour eux" },
+    { icon: Rocket, text: "Avancez plus vite, ensemble" },
   ];
 
   return (
@@ -20,13 +20,12 @@ export const HeroSection = () => {
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in">
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-              Le QG de vos{" "}
-              <span className="text-gradient-orange">devis, factures</span>{" "}
-              et chantiers BTP
+              Votre activité enfin{" "}
+              <span className="text-gradient-orange">centralisée</span>, du bureau jusqu'au terrain
             </h1>
             
             <p className="text-lg lg:text-xl text-muted-foreground max-w-xl">
-              Provia BASE centralise vos clients, devis, factures, relances et planning de chantiers dans un seul logiciel pensé pour les artisans et PME du BTP.
+              Provia BASE devient le cœur de votre entreprise : devis, factures, clients, organisation interne et application mobile dédiée à vos employés.
             </p>
 
             <ul className="space-y-4">
@@ -58,12 +57,12 @@ export const HeroSection = () => {
             </p>
           </div>
 
-          {/* Right - Dashboard Mockup */}
+          {/* Right - Dashboard + Mobile Preview Card */}
           <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <div className="glass-card p-4 lg:p-6 animate-float">
               {/* Dashboard Header */}
               <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-foreground">Tableau de bord</h3>
+                <h3 className="font-semibold text-foreground">Votre QG centralisé</h3>
                 <div className="flex gap-2">
                   <div className="w-3 h-3 rounded-full bg-destructive/60" />
                   <div className="w-3 h-3 rounded-full bg-provia-yellow/60" />
@@ -82,41 +81,54 @@ export const HeroSection = () => {
                   <p className="text-xs text-muted-foreground">Devis en attente</p>
                 </div>
                 <div className="glass-card p-3 text-center">
-                  <p className="text-2xl font-bold text-provia-teal">3</p>
-                  <p className="text-xs text-muted-foreground">Chantiers actifs</p>
+                  <p className="text-2xl font-bold text-provia-teal">8</p>
+                  <p className="text-xs text-muted-foreground">Employés actifs</p>
                 </div>
               </div>
 
-              {/* Chart Placeholder */}
-              <div className="glass-card p-4 mb-4">
-                <p className="text-xs text-muted-foreground mb-2">Évolution du CA</p>
-                <div className="flex items-end gap-2 h-24">
-                  {[40, 65, 45, 80, 60, 90, 75].map((height, i) => (
-                    <div key={i} className="flex-1 rounded-t" style={{ 
-                      height: `${height}%`, 
-                      background: `linear-gradient(180deg, hsl(var(--provia-yellow)) 0%, hsl(var(--provia-orange)) 100%)`,
-                      opacity: 0.6 + (i * 0.05)
-                    }} />
-                  ))}
+              {/* Two Columns: CRM Preview + Mobile Preview */}
+              <div className="grid grid-cols-2 gap-3">
+                {/* CRM Mini Widget */}
+                <div className="glass-card p-3">
+                  <p className="text-xs text-muted-foreground mb-2">Clients récents</p>
+                  <div className="space-y-2">
+                    {["Martin SARL", "Dupont & Fils", "ABC Services"].map((client, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
+                          <span className="text-xs text-primary font-medium">{client[0]}</span>
+                        </div>
+                        <span className="text-xs text-foreground truncate">{client}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              <div className="flex justify-between mt-2 text-xs text-muted-foreground">
-                  <span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span>
+
+                {/* Mobile Preview */}
+                <div className="glass-card p-3 flex flex-col items-center justify-center">
+                  <div className="w-12 h-20 rounded-lg bg-background/50 border border-border/50 flex flex-col items-center justify-center mb-2">
+                    <div className="w-8 h-1 rounded-full bg-muted mb-2" />
+                    <div className="w-6 h-6 rounded bg-primary/20 flex items-center justify-center">
+                      <span className="text-[8px] text-primary font-bold">APP</span>
+                    </div>
+                    <div className="w-6 h-1 rounded-full bg-muted mt-2" />
+                  </div>
+                  <p className="text-[10px] text-muted-foreground text-center">App terrain</p>
                 </div>
               </div>
 
               {/* Tasks List */}
-              <div className="glass-card p-3">
-                <p className="text-xs text-muted-foreground mb-2">Prochaines échéances</p>
+              <div className="glass-card p-3 mt-3">
+                <p className="text-xs text-muted-foreground mb-2">Activité équipe</p>
                 <div className="space-y-2">
                   {[
-                    { title: "Facture #1234 - Martin", date: "Demain", urgent: true },
-                    { title: "Devis cuisine - Dupont", date: "Dans 3 jours", urgent: false },
-                    { title: "Intervention plomberie", date: "Lun. 9h", urgent: false },
+                    { title: "Marc - Intervention client", status: "En cours" },
+                    { title: "Julie - Devis envoyé", status: "Terminé" },
+                    { title: "Pierre - En route", status: "Actif" },
                   ].map((task, i) => (
                     <div key={i} className="flex items-center justify-between py-1.5 border-b border-border/50 last:border-0">
-                      <span className="text-sm text-foreground truncate">{task.title}</span>
-                      <span className={`text-xs px-2 py-0.5 rounded ${task.urgent ? 'bg-destructive/20 text-destructive' : 'text-muted-foreground'}`}>
-                        {task.date}
+                      <span className="text-xs text-foreground truncate">{task.title}</span>
+                      <span className="text-[10px] px-2 py-0.5 rounded bg-provia-teal/20 text-provia-teal">
+                        {task.status}
                       </span>
                     </div>
                   ))}
