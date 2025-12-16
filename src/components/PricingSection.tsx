@@ -65,12 +65,12 @@ export const PricingSection = () => {
           {plans.map((plan) => (
             <div
               key={plan.id}
-              className={`glass-card-hover p-6 lg:p-8 relative ${
+              className={`glass-card-hover overflow-visible p-6 lg:p-8 relative ${
                 plan.popular ? "border-primary/50 scale-105 z-10 mt-2" : ""
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
                   <span className="badge-popular whitespace-nowrap">Le plus populaire</span>
                 </div>
               )}
