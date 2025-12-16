@@ -61,17 +61,17 @@ export const PricingSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto pt-4">
           {plans.map((plan) => (
             <div
               key={plan.id}
               className={`glass-card-hover p-6 lg:p-8 relative ${
-                plan.popular ? "border-primary/50 scale-105 z-10" : ""
+                plan.popular ? "border-primary/50 scale-105 z-10 mt-2" : ""
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="badge-popular">Le plus populaire</span>
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
+                  <span className="badge-popular whitespace-nowrap">Le plus populaire</span>
                 </div>
               )}
 
@@ -81,8 +81,11 @@ export const PricingSection = () => {
               </div>
 
               <div className="text-center mb-6">
-                <span className="text-4xl lg:text-5xl font-bold">{plan.price} €</span>
-                <span className="text-muted-foreground text-sm">{plan.period}</span>
+                <div className="flex items-baseline justify-center">
+                  <span className="text-3xl lg:text-4xl font-bold">{plan.price}</span>
+                  <span className="text-3xl lg:text-4xl font-bold ml-1">€</span>
+                </div>
+                <span className="text-muted-foreground text-sm block">{plan.period}</span>
               </div>
 
               <ul className="space-y-3 mb-8">
