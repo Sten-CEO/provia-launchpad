@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Eye, EyeOff, Loader2, CheckCircle } from "lucide-react";
+import { ArrowLeft, Eye, EyeOff, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 import proviaLogo from "@/assets/provia-logo.png";
+import { signUp } from "@/services/auth";
 
 const SignupAnnuel = () => {
   const [email, setEmail] = useState("");
@@ -9,14 +10,28 @@ const SignupAnnuel = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [emailConfirmationRequired, setEmailConfirmationRequired] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    setError(null);
+
+    const result = await signUp({
+      email,
+      password,
+      plan: 'annuel',
+    });
+
     setIsSubmitting(false);
-    setIsSuccess(true);
+
+    if (result.success) {
+      setEmailConfirmationRequired(result.emailConfirmationRequired || false);
+      setIsSuccess(true);
+    } else {
+      setError(result.error || 'Une erreur est survenue.');
+    }
   };
 
   return (
@@ -46,6 +61,13 @@ const SignupAnnuel = () => {
                   28 €/utilisateur/mois • Économisez 12%
                 </p>
               </div>
+
+              {error && (
+                <div className="mb-6 p-4 rounded-lg bg-red-500/10 border border-red-500/20 flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                  <p className="text-sm text-red-500">{error}</p>
+                </div>
+              )}
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
@@ -118,7 +140,9 @@ const SignupAnnuel = () => {
               </div>
               <h2 className="text-2xl font-bold mb-2">Compte créé !</h2>
               <p className="text-muted-foreground mb-6">
-                Bienvenue dans Provia BASE. Vérifiez votre email pour confirmer votre compte.
+                {emailConfirmationRequired
+                  ? "Un email de confirmation vous a été envoyé. Veuillez vérifier votre boîte de réception pour activer votre compte."
+                  : "Bienvenue dans Provia BASE. Votre compte a été créé avec succès."}
               </p>
               <Link to="/" className="btn-primary px-6 py-3 rounded-xl font-semibold inline-block">
                 Retour à l'accueil
