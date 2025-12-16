@@ -6,10 +6,10 @@ import proviaLogo from "@/assets/provia-logo.png";
 const navLinks = [
   { label: "Fonctionnalités", href: "/fonctionnalites", isPage: true },
   { label: "Installation", href: "/installation", isPage: true },
-  { label: "Pour qui ?", href: "#pour-qui", isPage: false },
-  { label: "Tarifs", href: "#tarifs", isPage: false },
-  { label: "Avis clients", href: "#avis", isPage: false },
-  { label: "FAQ", href: "#faq", isPage: false },
+  { label: "Pour qui ?", href: "/#pour-qui", isPage: true },
+  { label: "Tarifs", href: "/#tarifs", isPage: true },
+  { label: "Avis clients", href: "/#avis", isPage: true },
+  { label: "FAQ", href: "/#faq", isPage: true },
 ];
 
 export const Navbar = () => {
@@ -31,23 +31,13 @@ export const Navbar = () => {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
-                link.isPage ? (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                )
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </Link>
               ))}
             </div>
 
@@ -56,9 +46,9 @@ export const Navbar = () => {
               <Link to="/demo" className="btn-secondary text-sm">
                 Réserver une démo
               </Link>
-              <a href="#tarifs" className="btn-primary text-sm">
+              <Link to="/#tarifs" className="btn-primary text-sm">
                 Commencer maintenant
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -91,25 +81,14 @@ export const Navbar = () => {
               
               <div className="flex flex-col gap-4 flex-1">
                 {navLinks.map((link) => (
-                  link.isPage ? (
-                    <Link
-                      key={link.href}
-                      to={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
-                    >
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
-                    >
-                      {link.label}
-                    </a>
-                  )
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                  >
+                    {link.label}
+                  </Link>
                 ))}
               </div>
 
@@ -117,9 +96,9 @@ export const Navbar = () => {
                 <Link to="/demo" onClick={() => setIsOpen(false)} className="btn-secondary w-full text-center">
                   Réserver une démo
                 </Link>
-                <a href="#tarifs" onClick={() => setIsOpen(false)} className="btn-primary w-full text-center">
+                <Link to="/#tarifs" onClick={() => setIsOpen(false)} className="btn-primary w-full text-center">
                   Commencer maintenant
-                </a>
+                </Link>
               </div>
             </div>
           </div>
