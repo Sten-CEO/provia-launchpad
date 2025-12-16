@@ -9,6 +9,9 @@ import Demo from "./pages/Demo";
 import Fonctionnalites from "./pages/Fonctionnalites";
 import Installation from "./pages/Installation";
 import NotFound from "./pages/NotFound";
+import SignupMensuel from "./pages/SignupMensuel";
+import SignupAnnuel from "./pages/SignupAnnuel";
+import SignupBiennal from "./pages/SignupBiennal";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +27,9 @@ const App = () => (
           <Route path="/demo" element={<Demo />} />
           <Route path="/fonctionnalites" element={<Fonctionnalites />} />
           <Route path="/installation" element={<Installation />} />
+          <Route path="/mensuel" element={<SignupMensuel />} />
+          <Route path="/engagement-1-an" element={<SignupAnnuel />} />
+          <Route path="/engagement-2-ans" element={<SignupBiennal />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

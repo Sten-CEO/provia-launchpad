@@ -9,6 +9,7 @@ const plans = [
     price: "31,99",
     period: "/utilisateur/mois",
     popular: false,
+    signupUrl: "/mensuel",
     features: [
       "Toutes les fonctionnalités Provia BASE",
       "Application terrain Provia FIELD",
@@ -23,6 +24,7 @@ const plans = [
     price: "28",
     period: "/utilisateur/mois",
     popular: true,
+    signupUrl: "/engagement-1-an",
     features: [
       "Toutes les fonctionnalités Provia BASE",
       "Application terrain Provia FIELD",
@@ -37,6 +39,7 @@ const plans = [
     price: "24",
     period: "/utilisateur/mois",
     popular: false,
+    signupUrl: "/engagement-2-ans",
     features: [
       "Toutes les fonctionnalités Provia BASE",
       "Application terrain Provia FIELD",
@@ -99,15 +102,16 @@ export const PricingSection = () => {
                 ))}
               </ul>
 
-              <button
-                className={`w-full py-3 rounded-xl font-semibold transition-all ${
+              <Link
+                to={plan.signupUrl}
+                className={`w-full py-3 rounded-xl font-semibold transition-all text-center block ${
                   plan.popular
                     ? "btn-primary"
                     : "btn-secondary"
                 }`}
               >
                 Commencer maintenant
-              </button>
+              </Link>
             </div>
           ))}
         </div>
