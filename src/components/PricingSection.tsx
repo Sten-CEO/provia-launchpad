@@ -48,7 +48,7 @@ const plans = [
 
 export const PricingSection = () => {
   return (
-    <section id="tarifs" className="relative py-20 lg:py-32 overflow-hidden">
+    <section id="tarifs" className="relative py-20 lg:py-32 overflow-x-clip overflow-y-visible">
       <div className="glow-teal top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
