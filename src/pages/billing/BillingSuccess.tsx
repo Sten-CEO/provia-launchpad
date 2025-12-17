@@ -1,38 +1,82 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { PartyPopper, Download, Loader2, CheckCircle } from "lucide-react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { PartyPopper, Download, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 import proviaLogo from "@/assets/provia-logo.png";
-import { getBillingStatus, isAuthenticated } from "@/services/billing";
+import { syncCheckoutSession, isAuthenticated } from "@/services/billing";
 
-const CheckoutMerci = () => {
+const BillingSuccess = () => {
   const navigate = useNavigate();
-  const [isChecking, setIsChecking] = useState(true);
+  const [searchParams] = useSearchParams();
+  const sessionId = searchParams.get("session_id");
 
-  // Vérifier que l'utilisateur a bien payé
+  const [isSyncing, setIsSyncing] = useState(true);
+  const [syncError, setSyncError] = useState<string | null>(null);
+
   useEffect(() => {
-    const checkAccess = async () => {
+    const syncSession = async () => {
+      // Check authentication
       const authenticated = await isAuthenticated();
       if (!authenticated) {
         navigate("/mensuel");
         return;
       }
 
-      const status = await getBillingStatus();
-      if (!status?.hasPaid) {
-        // Rediriger vers checkout si pas payé
-        navigate("/checkout/simulated?plan=mensuel");
+      if (!sessionId) {
+        setSyncError("Session de paiement introuvable.");
+        setIsSyncing(false);
         return;
       }
 
-      setIsChecking(false);
-    };
-    checkAccess();
-  }, [navigate]);
+      // Sync the checkout session
+      const result = await syncCheckoutSession(sessionId);
 
-  if (isChecking) {
+      if (!result.success) {
+        setSyncError(result.error || "Erreur lors de la synchronisation.");
+      }
+
+      setIsSyncing(false);
+    };
+
+    syncSession();
+  }, [navigate, sessionId]);
+
+  if (isSyncing) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        <div className="text-center">
+          <Loader2 className="w-12 h-12 animate-spin text-primary mx-auto mb-4" />
+          <p className="text-lg text-muted-foreground">Validation du paiement en cours...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (syncError) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4 relative">
+        <div className="glow-orange top-0 left-1/4 w-[600px] h-[600px]" />
+        <div className="glow-teal bottom-0 right-1/4 w-[500px] h-[500px]" />
+
+        <div className="w-full max-w-lg relative z-10">
+          <div className="glass-card p-8">
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mx-auto mb-6">
+                <AlertCircle className="w-8 h-8 text-red-500" />
+              </div>
+              <h1 className="text-2xl font-bold mb-4">Erreur de synchronisation</h1>
+              <p className="text-muted-foreground mb-6">{syncError}</p>
+              <p className="text-sm text-muted-foreground mb-6">
+                Si le problème persiste, contactez notre support à support@proviabase.fr
+              </p>
+              <button
+                onClick={() => navigate("/")}
+                className="btn-primary px-6 py-3 rounded-xl font-semibold"
+              >
+                Retour à l'accueil
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -60,7 +104,7 @@ const CheckoutMerci = () => {
             {/* Message principal */}
             <div className="text-left bg-white/5 border border-white/10 rounded-xl p-6 mb-8">
               <p className="text-lg mb-6">
-                Votre accès est désormais activé. Vous pouvez télécharger Provia BASE dès maintenant.
+                Votre paiement a été validé avec succès. Vous pouvez télécharger Provia BASE dès maintenant.
               </p>
 
               <p className="text-muted-foreground mb-4">
@@ -98,7 +142,7 @@ const CheckoutMerci = () => {
             </a>
 
             <p className="text-sm text-muted-foreground mt-6">
-              Un email de bienvenue vous a également été envoyé avec toutes les informations nécessaires.
+              Un email de confirmation vous a également été envoyé avec votre facture.
             </p>
           </div>
         </div>
@@ -107,4 +151,4 @@ const CheckoutMerci = () => {
   );
 };
 
-export default CheckoutMerci;
+export default BillingSuccess;

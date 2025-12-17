@@ -12,8 +12,9 @@ import NotFound from "./pages/NotFound";
 import SignupMensuel from "./pages/SignupMensuel";
 import SignupAnnuel from "./pages/SignupAnnuel";
 import SignupBiennal from "./pages/SignupBiennal";
-import CheckoutSimulated from "./pages/checkout/CheckoutSimulated";
-import CheckoutMerci from "./pages/checkout/CheckoutMerci";
+import BillingSuccess from "./pages/billing/BillingSuccess";
+import BillingCancel from "./pages/billing/BillingCancel";
+import BillingRequired from "./pages/billing/BillingRequired";
 
 const queryClient = new QueryClient();
 
@@ -32,8 +33,9 @@ const App = () => (
           <Route path="/mensuel" element={<SignupMensuel />} />
           <Route path="/engagement-1-an" element={<SignupAnnuel />} />
           <Route path="/engagement-2-ans" element={<SignupBiennal />} />
-          <Route path="/checkout/simulated" element={<CheckoutSimulated />} />
-          <Route path="/checkout/merci" element={<CheckoutMerci />} />
+          <Route path="/billing/success" element={<BillingSuccess />} />
+          <Route path="/billing/cancel" element={<BillingCancel />} />
+          <Route path="/billing/required" element={<BillingRequired />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
