@@ -1,17 +1,16 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { ArrowLeft, Eye, EyeOff, Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { ArrowLeft, Eye, EyeOff, Loader2, AlertCircle } from "lucide-react";
 import proviaLogo from "@/assets/provia-logo.png";
 import { signUp } from "@/services/auth";
 
 const SignupAnnuel = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [emailConfirmationRequired, setEmailConfirmationRequired] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,8 +26,8 @@ const SignupAnnuel = () => {
     setIsSubmitting(false);
 
     if (result.success) {
-      setEmailConfirmationRequired(result.emailConfirmationRequired || false);
-      setIsSuccess(true);
+      // Rediriger vers la page de paiement
+      navigate("/checkout/simulated?plan=annuel");
     } else {
       setError(result.error || 'Une erreur est survenue.');
     }
@@ -49,106 +48,87 @@ const SignupAnnuel = () => {
         </Link>
 
         <div className="glass-card p-8">
-          {!isSuccess ? (
-            <>
-              <div className="text-center mb-8">
-                <img src={proviaLogo} alt="Provia" className="h-10 mx-auto mb-6" />
-                <h1 className="text-2xl font-bold mb-2">Créer votre compte</h1>
-                <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-2">
-                  Engagement 1 an • Le plus populaire
-                </div>
-                <p className="text-muted-foreground text-sm">
-                  28 €/utilisateur/mois • Économisez 12%
-                </p>
-              </div>
+          <div className="text-center mb-8">
+            <img src={proviaLogo} alt="Provia" className="h-10 mx-auto mb-6" />
+            <h1 className="text-2xl font-bold mb-2">Créer votre compte</h1>
+            <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-2">
+              Engagement 1 an • Le plus populaire
+            </div>
+            <p className="text-muted-foreground text-sm">
+              28 €/utilisateur/mois • Économisez 12%
+            </p>
+          </div>
 
-              {error && (
-                <div className="mb-6 p-4 rounded-lg bg-red-500/10 border border-red-500/20 flex items-start gap-3">
-                  <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-red-500">{error}</p>
-                </div>
-              )}
-
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Adresse email
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="form-input"
-                    placeholder="vous@entreprise.com"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="password" className="block text-sm font-medium mb-2">
-                    Créer un mot de passe
-                  </label>
-                  <div className="relative">
-                    <input
-                      id="password"
-                      type={showPassword ? "text" : "password"}
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="form-input pr-10"
-                      placeholder="Minimum 8 caractères"
-                      minLength={8}
-                      required
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                    </button>
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="btn-primary w-full py-3 rounded-xl font-semibold disabled:opacity-50 flex items-center justify-center gap-2"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      Création en cours...
-                    </>
-                  ) : (
-                    "Créer mon compte"
-                  )}
-                </button>
-              </form>
-
-              <p className="text-center text-sm text-muted-foreground mt-6">
-                En créant un compte, vous acceptez nos{" "}
-                <a href="#" className="text-primary hover:underline">
-                  conditions d'utilisation
-                </a>
-              </p>
-            </>
-          ) : (
-            <div className="text-center py-8">
-              <div className="w-16 h-16 rounded-full bg-provia-teal/20 flex items-center justify-center mx-auto mb-6">
-                <CheckCircle className="w-8 h-8 text-provia-teal" />
-              </div>
-              <h2 className="text-2xl font-bold mb-2">Compte créé !</h2>
-              <p className="text-muted-foreground mb-6">
-                {emailConfirmationRequired
-                  ? "Un email de confirmation vous a été envoyé. Veuillez vérifier votre boîte de réception pour activer votre compte."
-                  : "Bienvenue dans Provia BASE. Votre compte a été créé avec succès."}
-              </p>
-              <Link to="/" className="btn-primary px-6 py-3 rounded-xl font-semibold inline-block">
-                Retour à l'accueil
-              </Link>
+          {error && (
+            <div className="mb-6 p-4 rounded-lg bg-red-500/10 border border-red-500/20 flex items-start gap-3">
+              <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+              <p className="text-sm text-red-500">{error}</p>
             </div>
           )}
+
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium mb-2">
+                Adresse email
+              </label>
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="form-input"
+                placeholder="vous@entreprise.com"
+                required
+              />
+            </div>
+
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium mb-2">
+                Créer un mot de passe
+              </label>
+              <div className="relative">
+                <input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="form-input pr-10"
+                  placeholder="Minimum 8 caractères"
+                  minLength={8}
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="btn-primary w-full py-3 rounded-xl font-semibold disabled:opacity-50 flex items-center justify-center gap-2"
+            >
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  Création en cours...
+                </>
+              ) : (
+                "Créer mon compte"
+              )}
+            </button>
+          </form>
+
+          <p className="text-center text-sm text-muted-foreground mt-6">
+            En créant un compte, vous acceptez nos{" "}
+            <a href="#" className="text-primary hover:underline">
+              conditions d'utilisation
+            </a>
+          </p>
         </div>
       </div>
     </div>
