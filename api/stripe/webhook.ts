@@ -34,22 +34,41 @@ async function buffer(readable: VercelRequest): Promise<Buffer> {
 }
 
 async function syncSubscription(subscription: Stripe.Subscription) {
-  const userId = subscription.metadata?.user_id;
+  let userId = subscription.metadata?.user_id;
+  const stripeCustomerId = typeof subscription.customer === "string"
+    ? subscription.customer
+    : subscription.customer.id;
+
+  // If no user_id in metadata, try to find it from billing_subscriptions by customer_id
   if (!userId) {
-    console.warn("No user_id in subscription metadata:", subscription.id);
+    console.log("No user_id in subscription metadata, looking up by customer_id:", stripeCustomerId);
+    const { data: existingRecord } = await supabaseAdmin
+      .from("billing_subscriptions")
+      .select("user_id")
+      .eq("stripe_customer_id", stripeCustomerId)
+      .single();
+
+    if (existingRecord?.user_id) {
+      userId = existingRecord.user_id;
+      console.log("Found user_id from existing record:", userId);
+    }
+  }
+
+  if (!userId) {
+    console.warn("Could not find user_id for subscription:", subscription.id);
     return;
   }
 
-  const item = subscription.items.data[0];
+  const item = subscription.items?.data?.[0];
   const priceId = item?.price?.id;
   const plan = priceId ? PRICE_TO_PLAN[priceId] || null : null;
 
-  await supabaseAdmin
+  const { error: upsertError } = await supabaseAdmin
     .from("billing_subscriptions")
     .upsert(
       {
         user_id: userId,
-        stripe_customer_id: subscription.customer as string,
+        stripe_customer_id: stripeCustomerId,
         stripe_subscription_id: subscription.id,
         stripe_subscription_item_id: item?.id || null,
         plan: plan,
@@ -61,7 +80,12 @@ async function syncSubscription(subscription: Stripe.Subscription) {
       { onConflict: "user_id" }
     );
 
-  console.log(`Synced subscription ${subscription.id} for user ${userId}, status: ${subscription.status}`);
+  if (upsertError) {
+    console.error("Failed to upsert subscription:", upsertError);
+    throw upsertError;
+  }
+
+  console.log(`Synced subscription ${subscription.id} for user ${userId}, status: ${subscription.status}, item_id: ${item?.id}`);
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -111,8 +135,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       // ============================================
       case "customer.subscription.created":
       case "customer.subscription.updated": {
-        const subscription = event.data.object as Stripe.Subscription;
-        console.log(`Subscription ${event.type}:`, subscription.id);
+        const subFromEvent = event.data.object as Stripe.Subscription;
+        console.log(`Subscription ${event.type}:`, subFromEvent.id);
+
+        // Re-retrieve the full subscription to ensure we have all data (items, etc.)
+        const subscription = await stripe.subscriptions.retrieve(subFromEvent.id, {
+          expand: ["items.data.price"],
+        });
         await syncSubscription(subscription);
         break;
       }
