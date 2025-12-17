@@ -90,19 +90,30 @@ export async function signUp({ email, password, plan }: SignupParams): Promise<S
     // 3. Création de la company associée
     // Note: Cette opération nécessite que la table 'companies' existe dans Supabase
     // et que les RLS permettent l'insertion après signup
-    const { error: companyError } = await supabase.from('companies').insert({
+    const { data: companyData, error: companyError } = await supabase.from('companies').insert({
       owner_id: authData.user.id,
       owner_email: email,
       subscription_plan: plan,
       subscription_status: 'pending',
       created_at: new Date().toISOString(),
-    });
+    }).select('id').single();
 
     if (companyError) {
       // Log l'erreur mais ne bloque pas - la company peut être créée plus tard
       console.warn('Company creation failed (table may not exist yet):', companyError.message);
-      // On ne retourne pas d'erreur ici car l'utilisateur est bien créé dans Auth
-      // La company pourra être créée manuellement ou via une fonction Supabase
+    }
+
+    // 4. Création du rôle utilisateur (nécessaire pour le CRM)
+    // Le user est 'owner' de sa company par défaut
+    const { error: roleError } = await supabase.from('user_roles').insert({
+      user_id: authData.user.id,
+      company_id: companyData?.id || null,
+      role: 'owner',
+      created_at: new Date().toISOString(),
+    });
+
+    if (roleError) {
+      console.warn('User role creation failed:', roleError.message);
     }
 
     return {
