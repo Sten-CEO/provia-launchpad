@@ -1,35 +1,47 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ArrowLeft, Eye, EyeOff, Loader2, AlertCircle } from "lucide-react";
 import proviaLogo from "@/assets/provia-logo.png";
 import { signUp } from "@/services/auth";
+import { createCheckoutSession } from "@/services/billing";
 
 const SignupMensuel = () => {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [step, setStep] = useState<"signup" | "checkout">("signup");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
 
-    const result = await signUp({
+    // Step 1: Create account
+    const signupResult = await signUp({
       email,
       password,
       plan: 'mensuel',
     });
 
-    setIsSubmitting(false);
+    if (!signupResult.success) {
+      setError(signupResult.error || 'Une erreur est survenue.');
+      setIsSubmitting(false);
+      return;
+    }
 
-    if (result.success) {
-      // Rediriger vers la page de paiement
-      navigate("/checkout/simulated?plan=mensuel");
+    // Step 2: Create Stripe Checkout session and redirect
+    setStep("checkout");
+
+    const checkoutResult = await createCheckoutSession('monthly');
+
+    if (checkoutResult.success && checkoutResult.url) {
+      window.location.href = checkoutResult.url;
     } else {
-      setError(result.error || 'Une erreur est survenue.');
+      setError(checkoutResult.error || 'Erreur lors de la création de la session de paiement.');
+      setIsSubmitting(false);
+      setStep("signup");
     }
   };
 
@@ -79,6 +91,7 @@ const SignupMensuel = () => {
                 className="form-input"
                 placeholder="vous@entreprise.com"
                 required
+                disabled={isSubmitting}
               />
             </div>
 
@@ -96,11 +109,13 @@ const SignupMensuel = () => {
                   placeholder="Minimum 8 caractères"
                   minLength={8}
                   required
+                  disabled={isSubmitting}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                  disabled={isSubmitting}
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -115,10 +130,10 @@ const SignupMensuel = () => {
               {isSubmitting ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  Création en cours...
+                  {step === "signup" ? "Création du compte..." : "Redirection vers le paiement..."}
                 </>
               ) : (
-                "Créer mon compte"
+                "Créer mon compte et payer"
               )}
             </button>
           </form>

@@ -1,21 +1,27 @@
 import { supabase } from '@/lib/supabase';
-import type { SubscriptionPlan } from './auth';
 
-export interface BillingStatus {
-  hasPaid: boolean;
-  plan: SubscriptionPlan | null;
-  activatedAt: string | null;
+export type StripePlan = 'monthly' | '12m' | '24m';
+
+export interface SubscriptionStatus {
+  isActive: boolean;
+  status: string | null;
+  plan: StripePlan | null;
+  quantity: number;
+  currentPeriodEnd: string | null;
+  stripeCustomerId: string | null;
+  stripeSubscriptionId: string | null;
 }
 
-export interface PaymentResult {
+export interface CheckoutResult {
   success: boolean;
+  url?: string;
   error?: string;
 }
 
 /**
- * Récupère le statut de paiement de l'utilisateur connecté
+ * Récupère le statut d'abonnement de l'utilisateur connecté
  */
-export async function getBillingStatus(): Promise<BillingStatus | null> {
+export async function getSubscriptionStatus(): Promise<SubscriptionStatus | null> {
   try {
     const { data: { user } } = await supabase.auth.getUser();
 
@@ -23,74 +29,173 @@ export async function getBillingStatus(): Promise<BillingStatus | null> {
       return null;
     }
 
-    const { data: company, error } = await supabase
-      .from('companies')
-      .select('has_paid, subscription_plan, activated_at')
-      .eq('owner_id', user.id)
+    const { data: subscription, error } = await supabase
+      .from('billing_subscriptions')
+      .select('*')
+      .eq('user_id', user.id)
       .single();
 
-    if (error || !company) {
-      console.warn('Could not fetch billing status:', error?.message);
+    if (error || !subscription) {
       return {
-        hasPaid: false,
+        isActive: false,
+        status: null,
         plan: null,
-        activatedAt: null,
+        quantity: 0,
+        currentPeriodEnd: null,
+        stripeCustomerId: null,
+        stripeSubscriptionId: null,
       };
     }
 
+    // Check if subscription is active
+    const isActive =
+      (subscription.status === 'active' || subscription.status === 'trialing') &&
+      subscription.current_period_end &&
+      new Date(subscription.current_period_end) > new Date();
+
     return {
-      hasPaid: company.has_paid || false,
-      plan: company.subscription_plan as SubscriptionPlan,
-      activatedAt: company.activated_at,
+      isActive,
+      status: subscription.status,
+      plan: subscription.plan as StripePlan,
+      quantity: subscription.quantity || 1,
+      currentPeriodEnd: subscription.current_period_end,
+      stripeCustomerId: subscription.stripe_customer_id,
+      stripeSubscriptionId: subscription.stripe_subscription_id,
     };
   } catch (error) {
-    console.error('Error fetching billing status:', error);
+    console.error('Error fetching subscription status:', error);
     return null;
   }
 }
 
 /**
- * Simule un paiement réussi et met à jour le statut dans Supabase
+ * Vérifie si l'utilisateur a un abonnement actif
  */
-export async function simulatePayment(plan: SubscriptionPlan): Promise<PaymentResult> {
+export async function hasActiveSubscription(): Promise<boolean> {
+  const status = await getSubscriptionStatus();
+  return status?.isActive || false;
+}
+
+/**
+ * Crée une session Stripe Checkout
+ */
+export async function createCheckoutSession(plan: StripePlan): Promise<CheckoutResult> {
   try {
     const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) {
       return {
         success: false,
-        error: 'Vous devez être connecté pour effectuer un paiement.',
+        error: 'Vous devez être connecté pour souscrire à un abonnement.',
       };
     }
 
-    // Simuler un délai de traitement (1-2 secondes)
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    const response = await fetch('/api/stripe/checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        plan,
+        userId: user.id,
+        email: user.email,
+      }),
+    });
 
-    // Mettre à jour le statut de paiement dans la table companies
-    const { error } = await supabase
-      .from('companies')
-      .update({
-        has_paid: true,
-        subscription_status: 'active',
-        subscription_plan: plan,
-        activated_at: new Date().toISOString(),
-      })
-      .eq('owner_id', user.id);
+    const data = await response.json();
 
-    if (error) {
-      console.error('Payment update failed:', error);
+    if (!response.ok) {
       return {
         success: false,
-        error: 'Erreur lors de la validation du paiement. Veuillez réessayer.',
+        error: data.error || 'Erreur lors de la création de la session de paiement.',
+      };
+    }
+
+    return {
+      success: true,
+      url: data.url,
+    };
+  } catch (error) {
+    console.error('Checkout session error:', error);
+    return {
+      success: false,
+      error: 'Une erreur inattendue est survenue. Veuillez réessayer.',
+    };
+  }
+}
+
+/**
+ * Synchronise la session Stripe après paiement
+ */
+export async function syncCheckoutSession(sessionId: string): Promise<{ success: boolean; error?: string }> {
+  try {
+    const response = await fetch('/api/stripe/sync-session', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ sessionId }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return {
+        success: false,
+        error: data.error || 'Erreur lors de la synchronisation.',
       };
     }
 
     return { success: true };
   } catch (error) {
-    console.error('Unexpected payment error:', error);
+    console.error('Sync session error:', error);
     return {
       success: false,
-      error: 'Une erreur inattendue est survenue. Veuillez réessayer.',
+      error: 'Une erreur inattendue est survenue.',
+    };
+  }
+}
+
+/**
+ * Met à jour le nombre de sièges actifs
+ */
+export async function updateActiveSeats(activeSeats: number): Promise<{ success: boolean; error?: string }> {
+  try {
+    const { data: { user } } = await supabase.auth.getUser();
+
+    if (!user) {
+      return {
+        success: false,
+        error: 'Vous devez être connecté.',
+      };
+    }
+
+    const response = await fetch('/api/seats/set', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        userId: user.id,
+        activeSeats,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return {
+        success: false,
+        error: data.error || 'Erreur lors de la mise à jour des sièges.',
+      };
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error('Update seats error:', error);
+    return {
+      success: false,
+      error: 'Une erreur inattendue est survenue.',
     };
   }
 }
@@ -109,4 +214,28 @@ export async function isAuthenticated(): Promise<boolean> {
 export async function getCurrentUser() {
   const { data: { user } } = await supabase.auth.getUser();
   return user;
+}
+
+// ============================================
+// LEGACY: Fonctions de compatibilité (à supprimer après migration)
+// ============================================
+
+export interface BillingStatus {
+  hasPaid: boolean;
+  plan: string | null;
+  activatedAt: string | null;
+}
+
+/**
+ * @deprecated Utilisez getSubscriptionStatus() à la place
+ */
+export async function getBillingStatus(): Promise<BillingStatus | null> {
+  const status = await getSubscriptionStatus();
+  if (!status) return null;
+
+  return {
+    hasPaid: status.isActive,
+    plan: status.plan,
+    activatedAt: status.currentPeriodEnd,
+  };
 }
