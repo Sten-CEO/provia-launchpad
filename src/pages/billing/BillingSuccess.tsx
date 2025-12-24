@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { PartyPopper, Loader2, AlertCircle, ExternalLink } from "lucide-react";
+import { PartyPopper, Loader2, CheckCircle, AlertCircle, ExternalLink } from "lucide-react";
 import proviaLogo from "@/assets/provia-logo.png";
 import { syncCheckoutSession, isAuthenticated } from "@/services/billing";
 
@@ -13,7 +13,6 @@ const BillingSuccess = () => {
 
   const [isSyncing, setIsSyncing] = useState(true);
   const [syncError, setSyncError] = useState<string | null>(null);
-  const [redirectCountdown, setRedirectCountdown] = useState(5);
 
   useEffect(() => {
     const syncSession = async () => {
@@ -42,24 +41,6 @@ const BillingSuccess = () => {
 
     syncSession();
   }, [navigate, sessionId]);
-
-  // Countdown and redirect after sync completes successfully
-  useEffect(() => {
-    if (!isSyncing && !syncError) {
-      const timer = setInterval(() => {
-        setRedirectCountdown((prev) => {
-          if (prev <= 1) {
-            clearInterval(timer);
-            window.location.href = CRM_LOGIN_URL;
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-
-      return () => clearInterval(timer);
-    }
-  }, [isSyncing, syncError]);
 
   if (isSyncing) {
     return (
@@ -123,24 +104,41 @@ const BillingSuccess = () => {
             </h1>
 
             {/* Message principal */}
-            <div className="bg-white/5 border border-white/10 rounded-xl p-6 mb-8">
-              <p className="text-lg mb-4">
-                Votre paiement a été validé avec succès !
+            <div className="text-left bg-white/5 border border-white/10 rounded-xl p-6 mb-8">
+              <p className="text-lg mb-6">
+                Votre paiement a été validé avec succès. Vous pouvez accéder à votre espace Provia BASE dès maintenant.
               </p>
-              <p className="text-muted-foreground">
-                Vous allez être redirigé vers votre espace de connexion dans{" "}
-                <span className="text-provia-orange font-bold text-xl">{redirectCountdown}</span>{" "}
-                seconde{redirectCountdown > 1 ? "s" : ""}...
+
+              <p className="text-muted-foreground mb-4">
+                Notre équipe va également vous recontacter par email afin de :
               </p>
+
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-provia-teal flex-shrink-0 mt-0.5" />
+                  <span>vous aider à paramétrer correctement votre espace,</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-provia-teal flex-shrink-0 mt-0.5" />
+                  <span>vous guider pour le lancement (premiers devis, factures, relances),</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-provia-teal flex-shrink-0 mt-0.5" />
+                  <span>
+                    et surtout procéder à la migration de vos données (clients, devis/factures, produits)
+                    avec un agent réel, pour que vous soyez opérationnel rapidement.
+                  </span>
+                </li>
+              </ul>
             </div>
 
-            {/* Bouton de redirection manuel */}
+            {/* Bouton d'accès au CRM */}
             <a
               href={CRM_LOGIN_URL}
               className="btn-primary inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-semibold text-lg"
             >
               <ExternalLink className="w-5 h-5" />
-              Accéder à mon espace maintenant
+              Accéder à mon espace Provia BASE
             </a>
 
             <p className="text-sm text-muted-foreground mt-6">
