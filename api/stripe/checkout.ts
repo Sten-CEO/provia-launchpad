@@ -2,11 +2,11 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
 
-// Price IDs (TEST MODE)
+// Price IDs (PRODUCTION)
 const PRICE_IDS: Record<string, string> = {
-  monthly: "price_1SfJvt2O0pumL026j1PuX6CX",
-  "12m": "price_1SfJCt2O0pumL026oIztNMRe",
-  "24m": "price_1SfJD82O0pumL026QBHCcO5e",
+  monthly: "price_1ShfxU2O0pumL026UejE7yDr",
+  "12m": "price_1Shfx82O0pumL026USR4pdKa",
+  "24m": "price_1ShfwH2O0pumL026NaBbxrs8",
 };
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
