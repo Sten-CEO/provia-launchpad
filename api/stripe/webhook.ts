@@ -11,11 +11,11 @@ const supabaseAdmin = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-// Plan mapping from price IDs
+// Plan mapping from price IDs (PRODUCTION)
 const PRICE_TO_PLAN: Record<string, string> = {
-  "price_1SfJvt2O0pumL026j1PuX6CX": "monthly",
-  "price_1SfJCt2O0pumL026oIztNMRe": "12m",
-  "price_1SfJD82O0pumL026QBHCcO5e": "24m",
+  "price_1ShfxU2O0pumL026UejE7yDr": "monthly",
+  "price_1Shfx82O0pumL026USR4pdKa": "12m",
+  "price_1ShfwH2O0pumL026NaBbxrs8": "24m",
 };
 
 // Disable body parsing for raw body access
