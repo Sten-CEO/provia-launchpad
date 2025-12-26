@@ -13,9 +13,9 @@ const supabaseAdmin = createClient(
 
 // Plan mapping from price IDs (PRODUCTION)
 const PRICE_TO_PLAN: Record<string, string> = {
-  "price_1ShfxU2O0pumL026UejE7yDr": "monthly",
-  "price_1Shfx82O0pumL026USR4pdKa": "12m",
-  "price_1ShfwH2O0pumL026NaBbxrs8": "24m",
+  "price_1SidK32O0pumL026AJuBZvH5": "monthly",
+  "price_1SidKm2O0pumL026uTxvgfsW": "12m",
+  "price_1SidLQ2O0pumL0260VbUZ8tn": "24m",
 };
 
 // Disable body parsing for raw body access

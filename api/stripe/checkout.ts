@@ -4,9 +4,9 @@ import { createClient } from "@supabase/supabase-js";
 
 // Price IDs (PRODUCTION)
 const PRICE_IDS: Record<string, string> = {
-  monthly: "price_1ShfxU2O0pumL026UejE7yDr",
-  "12m": "price_1Shfx82O0pumL026USR4pdKa",
-  "24m": "price_1ShfwH2O0pumL026NaBbxrs8",
+  monthly: "price_1SidK32O0pumL026AJuBZvH5",
+  "12m": "price_1SidKm2O0pumL026uTxvgfsW",
+  "24m": "price_1SidLQ2O0pumL0260VbUZ8tn",
 };
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
