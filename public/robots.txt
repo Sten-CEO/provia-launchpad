@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.proviabase.fr/sitemap.xml
+Sitemap: https://proviabase.fr/sitemap.xml
