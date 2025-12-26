@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.proviabase.fr/</loc>
+    <loc>https://proviabase.fr/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.proviabase.fr/demo</loc>
+    <loc>https://proviabase.fr/demo</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.proviabase.fr/fonctionnalites</loc>
+    <loc>https://proviabase.fr/fonctionnalites</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.proviabase.fr/installation</loc>
+    <loc>https://proviabase.fr/installation</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.proviabase.fr/mensuel</loc>
+    <loc>https://proviabase.fr/mensuel</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.proviabase.fr/engagement-1-an</loc>
+    <loc>https://proviabase.fr/engagement-1-an</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.proviabase.fr/engagement-2-ans</loc>
+    <loc>https://proviabase.fr/engagement-2-ans</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
