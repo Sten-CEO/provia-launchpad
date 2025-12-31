@@ -6,22 +6,22 @@ const audiences = [
     id: "tpe-artisans",
     icon: Hammer,
     title: "TPE Artisans",
-    description: "Vous travaillez seul ou avec une petite équipe. Provia BASE vous aide à organiser votre activité, suivre vos interventions et simplifier votre gestion au quotidien.",
-    benefits: ["Gestion simplifiée", "Suivi des interventions", "Organisation quotidienne"],
+    description: "Vous travaillez seul ou avec une petite équipe. Ce logiciel de gestion vous aide à créer vos devis et factures, suivre vos interventions et organiser votre activité simplement.",
+    benefits: ["Logiciel devis facture intégré", "Suivi des interventions", "Gestion quotidienne simplifiée"],
   },
   {
     id: "pme-artisans",
     icon: Building,
     title: "PME Artisans",
-    description: "Vous avez plusieurs équipes terrain et avez besoin d'un système fiable pour coordonner les missions, suivre les employés et garder un œil sur votre entreprise.",
-    benefits: ["Coordination des équipes", "Suivi des employés", "Vision globale"],
+    description: "Vous avez plusieurs équipes terrain et avez besoin d'un outil de centralisation fiable. Coordonnez les missions, suivez vos employés en temps réel grâce à l'application mobile terrain.",
+    benefits: ["Gestion équipe complète", "Application mobile intervention", "Vision globale de l'activité"],
   },
   {
     id: "entreprises-services",
     icon: Briefcase,
     title: "Entreprises de services (TPE – PME)",
-    description: "Vous intervenez régulièrement chez vos clients et gérez des interventions quotidiennes. Provia BASE centralise votre organisation, vos clients et vos équipes dans un seul espace.",
-    benefits: ["Organisation centralisée", "Gestion des clients", "Équipes coordonnées"],
+    description: "Vous intervenez régulièrement chez vos clients. Ce logiciel gestion entreprise centralise vos clients, devis, factures et équipes dans un seul espace accessible partout.",
+    benefits: ["Gestion clients centralisée", "Devis et factures en un clic", "Équipes terrain coordonnées"],
   },
 ];
 
@@ -36,10 +36,10 @@ export const ForWhoSection = () => {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Pour <span className="text-gradient-orange">qui</span> est Provia BASE ?
+            Un logiciel de gestion pensé pour <span className="text-gradient-orange">vous</span>
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
-            Provia BASE est conçu pour les artisans TPE/PME et les entreprises de services qui interviennent chaque jour chez leurs clients. Si vous avez une équipe terrain, Provia BASE est pensé pour vous.
+            Provia BASE s'adresse aux dirigeants de TPE et PME qui gèrent des équipes terrain. Artisans, entreprises de services, professionnels du bâtiment : si vous avez besoin d'un outil pour centraliser votre activité, du bureau jusqu'au terrain, vous êtes au bon endroit.
           </p>
         </div>
 

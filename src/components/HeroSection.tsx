@@ -3,9 +3,9 @@ import { Eye, Heart, Rocket, Check } from "lucide-react";
 
 export const HeroSection = () => {
   const benefits = [
-    { icon: Eye, text: "Prenez le contrôle de votre entreprise d'un seul regard" },
-    { icon: Heart, text: "Offrez à vos employés un outil simple et pensé pour eux" },
-    { icon: Rocket, text: "Avancez plus vite, ensemble" },
+    { icon: Eye, text: "Pilotez votre entreprise d'un seul regard" },
+    { icon: Heart, text: "Une application mobile terrain simple pour vos employés" },
+    { icon: Rocket, text: "Gestion clients, devis et équipe au même endroit" },
   ];
 
   return (
@@ -25,7 +25,7 @@ export const HeroSection = () => {
             </h1>
             
             <p className="text-lg lg:text-xl text-muted-foreground max-w-xl">
-              Provia BASE devient le cœur de votre entreprise : devis, factures, clients, organisation interne et application mobile dédiée à vos employés.
+              Provia BASE est un logiciel de gestion d'entreprise qui centralise vos devis, factures, clients et équipes. Avec son application mobile intervention, vos employés restent connectés au bureau, où qu'ils soient.
             </p>
 
             <ul className="space-y-4">

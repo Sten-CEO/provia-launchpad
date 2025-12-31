@@ -9,81 +9,81 @@ import {
 const crmFeatures = [
   {
     icon: FileText,
-    title: "Création de devis en quelques clics",
-    description: "Créez des devis propres et professionnels en quelques secondes, envoyez-les en un clic, et suivez leur statut en temps réel."
+    title: "Logiciel devis facture intégré",
+    description: "Créez des devis professionnels en quelques clics et transformez-les en factures automatiquement. Suivez leur statut en temps réel depuis votre tableau de bord."
   },
   {
     icon: Send,
-    title: "Envoi de devis ultra rapide",
-    description: "Vos devis partent directement au client depuis Provia BASE, sans email compliqué ni pièce jointe. Simplicité totale."
+    title: "Envoi de devis en un clic",
+    description: "Vos devis partent directement au client depuis le logiciel de gestion, sans manipulation complexe. Signature électronique incluse."
   },
   {
     icon: UserSquare,
-    title: "Fiches clients propres et complètes",
-    description: "Centralisez toutes vos informations clients : historique, interventions, factures, coordonnées, remarques internes."
+    title: "Gestion clients centralisée",
+    description: "Centralisez toutes vos informations clients au même endroit : historique, interventions, factures, coordonnées et remarques internes."
   },
   {
     icon: Package,
-    title: "Inventaire",
-    description: "Gérez vos produits, matériaux, prestations et services. L'inventaire reste synchronisé avec vos devis, vos interventions et vos employés."
+    title: "Inventaire et catalogue",
+    description: "Gérez vos produits, matériaux, prestations et services. L'inventaire reste synchronisé avec vos devis et vos interventions."
   },
   {
     icon: Calendar,
-    title: "Planning des interventions et planning employés",
-    description: "Visualisez vos journées, répartissez les missions, attribuez les tâches et ajustez votre organisation en un coup d'œil."
+    title: "Planning des interventions",
+    description: "Visualisez vos journées, répartissez les missions entre vos équipes et ajustez votre organisation en un coup d'œil."
   },
   {
     icon: Users,
-    title: "Ajout et gestion de membres dans le CRM",
-    description: "Chaque membre de l'entreprise possède son propre accès. Le dirigeant contrôle tout depuis le QG."
+    title: "Gestion équipe complète",
+    description: "Chaque membre de l'entreprise possède son propre accès. Le dirigeant contrôle les droits et suit l'activité de chacun."
   },
   {
     icon: Bell,
-    title: "Alertes du tableau de bord",
-    description: "Le tableau de bord vous remonte automatiquement les éléments urgents : interventions du jour, retards, tâches en attente, etc."
+    title: "Tableau de bord avec alertes",
+    description: "Votre tableau de bord remonte automatiquement les éléments urgents : interventions du jour, relances clients, tâches en attente."
   },
   {
     icon: Link2,
-    title: "Lien CRM → App employé",
-    description: "Chaque action réalisée sur le terrain met à jour le CRM en temps réel. Vous suivez l'activité de votre entreprise minute par minute."
+    title: "Synchronisation bureau ↔ terrain",
+    description: "Chaque action réalisée sur le terrain met à jour le logiciel de gestion en temps réel. Vous suivez votre entreprise minute par minute."
   }
 ];
 
 const fieldFeatures = [
   {
     icon: ClipboardList,
-    title: "Gestion complète de l'intervention",
-    description: "L'employé voit la mission, suit les étapes, réalise la checklist et remplit le rapport de manière fluide."
+    title: "Suivi complet de l'intervention",
+    description: "L'employé voit sa mission sur l'application mobile intervention, suit les étapes et remplit son rapport de manière fluide."
   },
   {
     icon: PenTool,
-    title: "Signature électronique",
-    description: "Le client signe directement sur le téléphone de l'employé. Simple, rapide, légal."
+    title: "Signature électronique sur mobile",
+    description: "Le client signe directement sur le téléphone de l'employé. Simple, rapide et valide juridiquement."
   },
   {
     icon: Clock,
     title: "Pointage en temps réel",
-    description: "Début / fin d'intervention instantanément synchronisés avec le CRM."
+    description: "Début et fin d'intervention automatiquement synchronisés avec le logiciel de gestion au bureau."
   },
   {
     icon: FileCheck,
-    title: "Rapport d'intervention",
-    description: "L'employé remplit son rapport et vous recevez toutes les informations dans le CRM automatiquement."
+    title: "Rapport d'intervention automatique",
+    description: "L'employé remplit son rapport depuis l'application mobile terrain. Vous recevez les informations instantanément."
   },
   {
     icon: CalendarCheck,
-    title: "Planning dédié",
-    description: "Chaque employé consulte son planning du jour, de la semaine ou du mois."
+    title: "Planning dédié par employé",
+    description: "Chaque membre de l'équipe consulte son planning du jour, de la semaine ou du mois depuis son téléphone."
   },
   {
     icon: UserSearch,
-    title: "Historique des clients + fiches",
-    description: "L'employé retrouve l'historique du client et les infos importantes avant d'arriver sur place."
+    title: "Accès aux fiches clients",
+    description: "L'employé retrouve l'historique du client et les informations importantes avant d'arriver sur place."
   },
   {
     icon: RefreshCw,
-    title: "Mise à jour en temps réel avec le CRM",
-    description: "Chaque action terrain remonte immédiatement dans Provia BASE. Aucun décalage."
+    title: "Synchronisation temps réel",
+    description: "Chaque action sur le terrain remonte immédiatement dans le logiciel de gestion. Aucun décalage."
   }
 ];
 
@@ -123,10 +123,10 @@ const Fonctionnalites = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Toutes les <span className="text-gradient-orange">fonctionnalités</span> de Provia BASE
+              Fonctionnalités du <span className="text-gradient-orange">logiciel de gestion</span> Provia BASE
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground">
-              Un CRM puissant pour le dirigeant, une application terrain intuitive pour les employés. Découvrez tout ce que Provia BASE peut faire pour vous.
+              Un outil de centralisation complet pour le dirigeant et une application mobile terrain pour les employés. Gestion clients, devis, factures, équipes : tout au même endroit.
             </p>
           </div>
         </div>
@@ -145,10 +145,10 @@ const Fonctionnalites = () => {
                 <span className="text-sm font-semibold text-primary">Côté bureau</span>
               </div>
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                Fonctionnalités <span className="text-gradient-orange">CRM</span>
+                Logiciel gestion entreprise : <span className="text-gradient-orange">côté bureau</span>
               </h2>
               <p className="text-muted-foreground text-lg">
-                Tout ce dont le dirigeant a besoin pour piloter son entreprise
+                Devis, factures, gestion clients et équipes : tout ce dont le dirigeant a besoin pour piloter son entreprise
               </p>
             </div>
 
@@ -186,10 +186,10 @@ const Fonctionnalites = () => {
                 <span className="text-sm font-semibold text-primary">Côté terrain</span>
               </div>
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                Fonctionnalités <span className="text-gradient-orange">App Terrain</span>
+                Application mobile <span className="text-gradient-orange">intervention</span>
               </h2>
               <p className="text-muted-foreground text-lg">
-                Tout ce dont vos employés ont besoin pour être efficaces sur le terrain
+                Une application mobile terrain pour vos employés : planning, interventions, rapports et synchronisation en temps réel
               </p>
             </div>
 
@@ -219,10 +219,10 @@ const Fonctionnalites = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="glass-card p-8 lg:p-12 text-center max-w-3xl mx-auto">
             <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-              Prêt à centraliser votre activité ?
+              Prêt à centraliser votre gestion d'entreprise ?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Découvrez Provia BASE et transformez votre façon de travailler.
+              Testez Provia BASE : logiciel devis facture, gestion clients, équipes et application mobile terrain réunis en un seul outil.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/demo" className="btn-secondary">

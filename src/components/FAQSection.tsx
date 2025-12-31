@@ -4,28 +4,36 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "Comment se passe l'onboarding ?",
-    answer: "L'inscription prend 2 minutes. Ensuite, notre assistant de configuration vous guide pour paramétrer vos premiers modèles de devis, vos articles et vos taux de TVA. Vous pouvez être opérationnel en moins d'une heure. Et si vous avez besoin d'aide, notre équipe support est là.",
+    question: "Qu'est-ce que Provia BASE exactement ?",
+    answer: "Provia BASE est un logiciel de gestion d'entreprise conçu pour les TPE et PME avec équipes terrain. Il centralise la gestion de vos clients, devis, factures et équipes. Il inclut également une application mobile terrain pour vos employés en intervention.",
   },
   {
-    question: "Puis-je changer le nombre d'utilisateurs à tout moment ?",
-    answer: "Oui, vous pouvez ajouter ou retirer des utilisateurs à tout moment depuis votre espace d'administration. La facturation s'ajuste automatiquement au prorata.",
+    question: "Comment fonctionne l'application mobile terrain ?",
+    answer: "L'application mobile intervention permet à vos employés de consulter leur planning, réaliser leurs missions et remplir leurs rapports directement sur le terrain. Chaque action est synchronisée en temps réel avec le logiciel de gestion au bureau.",
   },
   {
-    question: "Provia BASE remplace-t-il Excel et Word pour mes devis ?",
-    answer: "Absolument ! Provia BASE est conçu pour remplacer vos fichiers Excel et documents Word. Vous gagnez en professionnalisme avec des devis personnalisés à votre image, et en temps avec les modèles réutilisables.",
+    question: "Ce logiciel devis facture remplace-t-il Excel ?",
+    answer: "Oui, Provia BASE est conçu pour remplacer vos fichiers Excel et documents Word. Vous créez des devis professionnels en quelques clics, les transformez en factures automatiquement, et suivez le tout depuis un tableau de bord clair.",
   },
   {
-    question: "Est-il possible de réserver une démo avant de payer ?",
-    answer: "Bien sûr ! Vous pouvez réserver une démo gratuite avec un de nos experts. Il vous montrera toutes les fonctionnalités et répondra à vos questions. Aucun engagement.",
+    question: "Comment se passe la prise en main ?",
+    answer: "L'inscription prend 2 minutes. Notre assistant de configuration vous guide pour paramétrer vos modèles de devis, vos articles et vos taux de TVA. Vous pouvez être opérationnel en moins d'une heure.",
   },
   {
-    question: "Mes données sont-elles sécurisées ?",
-    answer: "Vos données sont hébergées en France sur des serveurs sécurisés. Nous effectuons des sauvegardes quotidiennes et utilisons un chiffrement SSL pour toutes les communications. Votre confidentialité est notre priorité.",
+    question: "Puis-je gérer mon équipe avec Provia BASE ?",
+    answer: "Oui, la gestion équipe est au cœur de Provia BASE. Chaque employé dispose de son propre accès. Vous attribuez les missions, suivez leur avancement et consultez les rapports d'intervention depuis votre espace.",
   },
   {
-    question: "Puis-je importer mes anciens devis et clients ?",
-    answer: "Oui, nous proposons un import depuis Excel ou CSV pour vos clients et articles. Pour les devis existants, notre équipe peut vous accompagner pour une migration en douceur.",
+    question: "Est-il possible de tester avant de s'engager ?",
+    answer: "Vous pouvez réserver une démo gratuite avec un de nos experts. Il vous montrera toutes les fonctionnalités du logiciel de gestion et répondra à vos questions. Aucun engagement.",
+  },
+  {
+    question: "Mes données clients sont-elles sécurisées ?",
+    answer: "Vos données sont hébergées sur des serveurs sécurisés. Nous effectuons des sauvegardes quotidiennes et utilisons un chiffrement SSL pour toutes les communications. La gestion clients est protégée et confidentielle.",
+  },
+  {
+    question: "Puis-je importer mes anciens clients et devis ?",
+    answer: "Oui, nous proposons un import depuis Excel ou CSV pour votre base clients et vos articles. Notre équipe peut vous accompagner pour une migration en douceur.",
   },
 ];
 
@@ -42,7 +50,7 @@ export const FAQSection = () => {
             Questions <span className="text-gradient-orange">fréquentes</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Tout ce que vous devez savoir avant de commencer avec Provia BASE.
+            Tout ce que vous devez savoir sur ce logiciel de gestion avant de vous lancer.
           </p>
         </div>
 
