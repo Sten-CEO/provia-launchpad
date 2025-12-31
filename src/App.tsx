@@ -18,6 +18,7 @@ import BillingRequired from "./pages/billing/BillingRequired";
 import ConditionsUtilisation from "./pages/ConditionsUtilisation";
 import MentionsLegales from "./pages/MentionsLegales";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
+import PourLesArtisans from "./pages/PourLesArtisans";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/conditions-d-utilisation" element={<ConditionsUtilisation />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
+          <Route path="/pour-les-artisans" element={<PourLesArtisans />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
