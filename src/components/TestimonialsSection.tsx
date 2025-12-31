@@ -4,19 +4,19 @@ const testimonials = [
   {
     name: "Sophie Martin",
     role: "Gérante, Martin Services",
-    content: "Provia BASE nous a permis de reprendre le contrôle. On sait enfin où on en est à tout moment.",
+    content: "Avec ce logiciel de gestion, on a enfin une vue claire sur notre activité. Devis, factures, clients : tout est centralisé.",
     rating: 5,
   },
   {
     name: "Jean-Pierre Durand",
     role: "Dirigeant, Durand & Fils (12 employés)",
-    content: "L'app terrain a changé la communication avec mes employés. Fini les appels à répétition pour savoir où ils en sont.",
+    content: "L'application mobile terrain a changé notre façon de travailler. Mes équipes sont autonomes et je suis ce qu'ils font en temps réel.",
     rating: 5,
   },
   {
     name: "Marie Lefèvre",
     role: "Responsable opérations, ABC Services",
-    content: "Tout centraliser nous a fait gagner un temps énorme. On se demande comment on faisait avant.",
+    content: "La gestion clients et équipe est devenue simple. On gagne un temps énorme sur les devis et les relances.",
     rating: 5,
   },
 ];
@@ -33,7 +33,7 @@ export const TestimonialsSection = () => {
             <span className="text-gradient-orange">clients</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Des dirigeants et responsables partagent leur expérience avec Provia BASE.
+            Des dirigeants de TPE et PME partagent leur expérience avec Provia BASE. Ce qu'ils apprécient le plus : la simplicité d'utilisation, la centralisation de leur gestion, et l'application mobile pour le terrain.
           </p>
         </div>
 
