@@ -15,6 +15,9 @@ import SignupBiennal from "./pages/SignupBiennal";
 import BillingSuccess from "./pages/billing/BillingSuccess";
 import BillingCancel from "./pages/billing/BillingCancel";
 import BillingRequired from "./pages/billing/BillingRequired";
+import ConditionsUtilisation from "./pages/ConditionsUtilisation";
+import MentionsLegales from "./pages/MentionsLegales";
+import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +39,9 @@ const App = () => (
           <Route path="/billing/success" element={<BillingSuccess />} />
           <Route path="/billing/cancel" element={<BillingCancel />} />
           <Route path="/billing/required" element={<BillingRequired />} />
+          <Route path="/conditions-d-utilisation" element={<ConditionsUtilisation />} />
+          <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
