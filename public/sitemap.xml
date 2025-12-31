@@ -16,6 +16,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://proviabase.fr/pour-les-artisans</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://proviabase.fr/installation</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -34,5 +39,20 @@
     <loc>https://proviabase.fr/engagement-2-ans</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://proviabase.fr/conditions-d-utilisation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://proviabase.fr/mentions-legales</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://proviabase.fr/politique-de-confidentialite</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
