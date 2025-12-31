@@ -140,9 +140,9 @@ const SignupBiennal = () => {
 
           <p className="text-center text-sm text-muted-foreground mt-6">
             En créant un compte, vous acceptez nos{" "}
-            <a href="#" className="text-primary hover:underline">
+            <Link to="/conditions-d-utilisation" className="text-primary hover:underline">
               conditions d'utilisation
-            </a>
+            </Link>
           </p>
         </div>
       </div>
