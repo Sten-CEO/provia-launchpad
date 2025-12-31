@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Hammer, Building, Briefcase } from "lucide-react";
 
 const audiences = [
@@ -41,6 +42,12 @@ export const ForWhoSection = () => {
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
             Provia BASE s'adresse aux dirigeants de TPE et PME qui gèrent des équipes terrain. Artisans, entreprises de services, professionnels du bâtiment : si vous avez besoin d'un outil pour centraliser votre activité, du bureau jusqu'au terrain, vous êtes au bon endroit.
           </p>
+          <Link
+            to="/pour-les-artisans"
+            className="inline-block mt-4 text-primary hover:underline font-medium"
+          >
+            Plus de détails
+          </Link>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 max-w-5xl mx-auto">
