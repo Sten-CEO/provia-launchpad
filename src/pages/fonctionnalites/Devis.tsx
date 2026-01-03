@@ -31,7 +31,7 @@ const Devis = () => {
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-primary font-semibold mb-4 text-lg">Fonctionnalité Devis</p>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Créez des <span className="text-gradient-orange">devis professionnels</span> en 2 minutes
+              Logiciel de <span className="text-gradient-orange">devis</span> pour artisans et TPE/PME
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground mb-8">
               Fini les heures passées sur Word ou Excel. Avec le logiciel de devis Provia BASE, créez des devis élégants, précis et personnalisés à votre image en quelques clics. Envoyez, suivez et transformez-les en factures automatiquement.

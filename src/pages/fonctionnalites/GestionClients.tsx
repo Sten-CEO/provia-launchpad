@@ -31,7 +31,7 @@ const GestionClients = () => {
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-primary font-semibold mb-4 text-lg">Fonctionnalité Gestion clients</p>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Toutes vos infos <span className="text-gradient-orange">clients</span> au même endroit
+              Logiciel <span className="text-gradient-orange">CRM</span> et gestion clients pour TPE et PME
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground mb-8">
               Fini les informations éparpillées entre carnets, mails et fichiers Excel. Le CRM intégré Provia BASE centralise tout : coordonnées, historique des interventions, devis, factures, notes... Chaque interaction client devient une opportunité de mieux servir.

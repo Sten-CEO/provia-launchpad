@@ -32,7 +32,7 @@ const PourLesTPE = () => {
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-primary font-semibold mb-4 text-lg">Logiciel de gestion pour TPE</p>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Gérez votre <span className="text-gradient-orange">TPE</span> simplement, sans perdre de temps
+              Logiciel de gestion pour <span className="text-gradient-orange">TPE</span> et artisans indépendants
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground mb-8">
               Vous êtes artisan, indépendant ou dirigez une très petite entreprise ? Provia BASE centralise devis, factures, clients et planning dans un seul outil intuitif. Consacrez votre énergie à votre métier, pas à l'administratif.

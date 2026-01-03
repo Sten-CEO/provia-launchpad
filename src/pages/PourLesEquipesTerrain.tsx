@@ -32,7 +32,7 @@ const PourLesEquipesTerrain = () => {
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-primary font-semibold mb-4 text-lg">Application pour équipes terrain</p>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Connectez vos <span className="text-gradient-orange">équipes terrain</span> au bureau en temps réel
+              <span className="text-gradient-orange">Application mobile</span> pour équipes terrain et techniciens
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground mb-8">
               Vos techniciens interviennent sur le terrain ? Avec l'application mobile Provia BASE, ils accèdent à toutes les informations nécessaires et remontent les données instantanément. Fini les allers-retours inutiles et les informations perdues.

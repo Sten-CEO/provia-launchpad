@@ -31,7 +31,7 @@ const ApplicationMobile = () => {
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-primary font-semibold mb-4 text-lg">Application mobile terrain</p>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              L'<span className="text-gradient-orange">application mobile</span> qui connecte bureau et terrain
+              <span className="text-gradient-orange">Application mobile terrain</span> pour techniciens en intervention
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground mb-8">
               Équipez vos techniciens d'une application intuitive et complète. Accès aux missions, fiches clients, rapports d'intervention, photos et signature client... Tout ce dont ils ont besoin dans leur poche, même sans connexion internet.

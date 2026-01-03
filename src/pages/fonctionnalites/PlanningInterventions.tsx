@@ -31,7 +31,7 @@ const PlanningInterventions = () => {
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-primary font-semibold mb-4 text-lg">Fonctionnalité Planning</p>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Un <span className="text-gradient-orange">planning</span> clair pour des interventions réussies
+              Logiciel de <span className="text-gradient-orange">planning d'interventions</span> pour équipes terrain
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground mb-8">
               Visualisez, planifiez et optimisez toutes vos interventions depuis un calendrier intuitif. Assignez les missions aux bons techniciens, évitez les conflits d'agenda et informez vos clients automatiquement.

@@ -1,30 +1,56 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import {
+  Menu,
+  X,
+  Hammer,
+  Building2,
+  Briefcase,
+  Users,
+  Store,
+  FileText,
+  Receipt,
+  UserCog,
+  Calendar,
+  Smartphone,
+  Activity,
+  UserCircle,
+  Archive
+} from "lucide-react";
 import proviaLogo from "@/assets/provia-logo.png";
 import { NavDropdown, NavDropdownMobile, type NavDropdownItem } from "./NavDropdown";
 
 // Items for "Pour qui ?" dropdown
 const pourQuiItems: NavDropdownItem[] = [
   {
-    label: "Pour les TPE",
+    label: "TPE artisans",
     href: "/pour-les-tpe",
-    description: "Gestion simplifiée pour petites structures"
+    description: "Gestion simplifiée pour artisans indépendants",
+    icon: Hammer
   },
   {
-    label: "Pour les PME",
+    label: "PME artisans",
     href: "/pour-les-pme",
-    description: "Pilotez votre croissance efficacement"
+    description: "Pilotez votre croissance avec plusieurs équipes",
+    icon: Building2
   },
   {
-    label: "Pour les entreprises de services",
+    label: "Entreprises de services",
     href: "/pour-les-entreprises-de-services",
-    description: "Optimisez vos interventions clients"
+    description: "Optimisez vos interventions chez vos clients",
+    icon: Briefcase
   },
   {
-    label: "Pour les équipes terrain",
+    label: "Équipes terrain",
     href: "/pour-les-equipes-terrain",
-    description: "Coordination et mobilité optimales"
+    description: "Application mobile pour techniciens en intervention",
+    icon: Users
+  },
+  {
+    label: "Franchises",
+    href: "/pour-les-franchises",
+    description: "Gérez plusieurs points de vente ou agences",
+    icon: Store
   },
 ];
 
@@ -33,42 +59,50 @@ const fonctionnalitesItems: NavDropdownItem[] = [
   {
     label: "Devis",
     href: "/fonctionnalites/devis",
-    description: "Créez des devis professionnels"
+    description: "Créez des devis professionnels en 2 minutes",
+    icon: FileText
   },
   {
     label: "Facturation",
     href: "/fonctionnalites/facturation",
-    description: "Facturez en quelques clics"
+    description: "Facturez rapidement et suivez vos paiements",
+    icon: Receipt
   },
   {
     label: "Gestion des équipes",
     href: "/fonctionnalites/gestion-equipes",
-    description: "Coordonnez vos collaborateurs"
+    description: "Coordonnez vos collaborateurs efficacement",
+    icon: UserCog
   },
   {
     label: "Planning d'interventions",
     href: "/fonctionnalites/planning-interventions",
-    description: "Planifiez et optimisez vos missions"
+    description: "Planifiez et optimisez vos missions terrain",
+    icon: Calendar
   },
   {
-    label: "Application mobile",
+    label: "Application mobile terrain",
     href: "/fonctionnalites/application-mobile",
-    description: "Vos équipes connectées partout"
+    description: "Vos équipes connectées partout, même hors ligne",
+    icon: Smartphone
   },
   {
     label: "Suivi des interventions",
     href: "/fonctionnalites/suivi-interventions",
-    description: "Suivez l'avancement en temps réel"
+    description: "Suivez l'avancement en temps réel",
+    icon: Activity
   },
   {
-    label: "Gestion des clients",
+    label: "Gestion des clients (CRM)",
     href: "/fonctionnalites/gestion-clients",
-    description: "CRM intégré et centralisé"
+    description: "Centralisez toutes vos informations clients",
+    icon: UserCircle
   },
   {
     label: "Archivage",
     href: "/fonctionnalites/archivage",
-    description: "Documents accessibles à vie"
+    description: "Documents accessibles et sécurisés à vie",
+    icon: Archive
   },
 ];
 
@@ -105,6 +139,7 @@ export const Navbar = () => {
                 label="Pour qui ?"
                 href="/#pour-qui"
                 items={pourQuiItems}
+                columns={1}
               />
 
               {/* Fonctionnalités dropdown */}
@@ -112,6 +147,11 @@ export const Navbar = () => {
                 label="Fonctionnalités"
                 href="/fonctionnalites"
                 items={fonctionnalitesItems}
+                columns={2}
+                showAllLink={{
+                  label: "Toutes les fonctionnalités",
+                  href: "/fonctionnalites"
+                }}
               />
 
               {/* Regular links */}
@@ -179,6 +219,10 @@ export const Navbar = () => {
                   href="/fonctionnalites"
                   items={fonctionnalitesItems}
                   onItemClick={closeMenu}
+                  showAllLink={{
+                    label: "Toutes les fonctionnalités",
+                    href: "/fonctionnalites"
+                  }}
                 />
 
                 {/* Regular links */}

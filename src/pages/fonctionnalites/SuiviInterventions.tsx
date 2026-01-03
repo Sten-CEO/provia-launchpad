@@ -31,7 +31,7 @@ const SuiviInterventions = () => {
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-primary font-semibold mb-4 text-lg">Fonctionnalité Suivi</p>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Gardez un <span className="text-gradient-orange">œil</span> sur chaque intervention
+              Logiciel de <span className="text-gradient-orange">suivi des interventions</span> pour équipes terrain
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground mb-8">
               Avec le suivi des interventions Provia BASE, vous savez toujours où en sont vos équipes. Statuts en temps réel, rapports détaillés, historique complet. Plus jamais de "je ne sais pas où ils en sont".

@@ -34,6 +34,7 @@ import PourLesTPE from "./pages/PourLesTPE";
 import PourLesPME from "./pages/PourLesPME";
 import PourLesEntreprisesDeServices from "./pages/PourLesEntreprisesDeServices";
 import PourLesEquipesTerrain from "./pages/PourLesEquipesTerrain";
+import PourLesFranchises from "./pages/PourLesFranchises";
 
 // Fonctionnalités pages
 import Devis from "./pages/fonctionnalites/Devis";
@@ -83,6 +84,7 @@ const App = () => (
             <Route path="/pour-les-pme" element={<PourLesPME />} />
             <Route path="/pour-les-entreprises-de-services" element={<PourLesEntreprisesDeServices />} />
             <Route path="/pour-les-equipes-terrain" element={<PourLesEquipesTerrain />} />
+            <Route path="/pour-les-franchises" element={<PourLesFranchises />} />
 
             {/* Fonctionnalités pages */}
             <Route path="/fonctionnalites/devis" element={<Devis />} />

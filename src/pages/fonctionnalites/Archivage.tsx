@@ -31,7 +31,7 @@ const Archivage = () => {
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-primary font-semibold mb-4 text-lg">Fonctionnalité Archivage</p>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Vos documents <span className="text-gradient-orange">archivés</span> et accessibles à vie
+              Logiciel d'<span className="text-gradient-orange">archivage</span> de documents pour artisans et TPE/PME
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground mb-8">
               Devis, factures, rapports d'intervention, photos... Tous vos documents sont automatiquement archivés et retrouvables en quelques secondes. Plus jamais de dossiers perdus ou de recherches interminables dans vos fichiers.
@@ -133,7 +133,7 @@ const Archivage = () => {
                 {
                   icon: Download,
                   title: "Export facile",
-                  description: "Téléchargez vos documents au format PDF à tout moment. Export groupé possible pour les besoins comptables."
+                  description: "Téléchargez vos documents au format PDF à tout moment. Export groupé possible pour vos besoins administratifs."
                 },
                 {
                   icon: Lock,
@@ -199,7 +199,7 @@ const Archivage = () => {
               <ul className="space-y-4">
                 {[
                   "Retrouvez n'importe quel document en 5 secondes",
-                  "Conformité fiscale et comptable assurée",
+                  "Conformité légale assurée",
                   "Zéro risque de perte de données",
                   "Économies sur le stockage papier",
                   "Documents accessibles depuis n'importe où",

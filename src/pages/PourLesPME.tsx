@@ -32,7 +32,7 @@ const PourLesPME = () => {
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-primary font-semibold mb-4 text-lg">Logiciel de gestion pour PME</p>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Pilotez votre <span className="text-gradient-orange">PME</span> avec une vision globale et précise
+              Logiciel de gestion pour <span className="text-gradient-orange">PME</span> avec équipes terrain
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground mb-8">
               Votre entreprise grandit et la complexité augmente ? Provia BASE vous offre les outils pour coordonner vos équipes, suivre votre activité et prendre les bonnes décisions. Un logiciel de gestion PME complet, sans la lourdeur des ERP traditionnels.
@@ -139,7 +139,7 @@ const PourLesPME = () => {
                 {
                   icon: Zap,
                   title: "Intégrations possibles",
-                  description: "Connectez Provia BASE à vos outils existants : comptabilité, agenda, email pour un écosystème cohérent."
+                  description: "Connectez Provia BASE à vos outils existants : agenda, email, CRM pour un écosystème cohérent."
                 }
               ].map((feature, i) => (
                 <div key={i} className="glass-card p-6 hover:shadow-lg transition-shadow">
