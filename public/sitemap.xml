@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
     <loc>https://proviabase.fr/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Main pages -->
   <url>
     <loc>https://proviabase.fr/demo</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://proviabase.fr/fonctionnalites</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://proviabase.fr/pour-les-artisans</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -25,6 +23,77 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- "Pour qui ?" pages -->
+  <url>
+    <loc>https://proviabase.fr/pour-les-tpe</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proviabase.fr/pour-les-pme</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proviabase.fr/pour-les-entreprises-de-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proviabase.fr/pour-les-equipes-terrain</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proviabase.fr/pour-les-artisans</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Fonctionnalités pages -->
+  <url>
+    <loc>https://proviabase.fr/fonctionnalites/devis</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proviabase.fr/fonctionnalites/facturation</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proviabase.fr/fonctionnalites/gestion-equipes</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proviabase.fr/fonctionnalites/planning-interventions</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proviabase.fr/fonctionnalites/application-mobile</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proviabase.fr/fonctionnalites/suivi-interventions</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proviabase.fr/fonctionnalites/gestion-clients</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://proviabase.fr/fonctionnalites/archivage</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Signup pages -->
   <url>
     <loc>https://proviabase.fr/mensuel</loc>
     <changefreq>weekly</changefreq>
@@ -40,6 +109,8 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- Legal pages -->
   <url>
     <loc>https://proviabase.fr/conditions-d-utilisation</loc>
     <changefreq>monthly</changefreq>
