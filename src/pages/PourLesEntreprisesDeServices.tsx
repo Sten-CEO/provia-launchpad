@@ -32,7 +32,7 @@ const PourLesEntreprisesDeServices = () => {
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-primary font-semibold mb-4 text-lg">Logiciel pour entreprises de services</p>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Gérez vos <span className="text-gradient-orange">interventions clients</span> de A à Z
+              Logiciel de gestion pour <span className="text-gradient-orange">entreprises de services</span>
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground mb-8">
               Maintenance, dépannage, installation, SAV... Votre métier vous amène régulièrement chez vos clients. Provia BASE vous aide à planifier, suivre et facturer vos prestations de services avec une efficacité maximale.

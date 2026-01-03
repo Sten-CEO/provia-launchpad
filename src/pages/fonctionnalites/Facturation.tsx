@@ -31,7 +31,7 @@ const Facturation = () => {
           <div className="text-center max-w-4xl mx-auto">
             <p className="text-primary font-semibold mb-4 text-lg">Fonctionnalité Facturation</p>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              <span className="text-gradient-orange">Facturez</span> rapidement, soyez payé plus vite
+              Logiciel de <span className="text-gradient-orange">facturation</span> pour TPE et PME
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground mb-8">
               Le logiciel de facturation Provia BASE simplifie tout le processus : de la création de la facture jusqu'au suivi du paiement. Factures conformes, envoi automatique, relances programmées. Concentrez-vous sur votre métier, pas sur la paperasse.
@@ -176,7 +176,7 @@ const Facturation = () => {
                   "Zéro risque d'erreur de numérotation",
                   "Conformité fiscale assurée",
                   "Historique complet pour chaque client",
-                  "Export comptable simplifié",
+                  "Export des données simplifié",
                   "Moins de stress administratif"
                 ].map((benefit, i) => (
                   <li key={i} className="flex items-start gap-3">
