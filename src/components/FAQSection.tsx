@@ -80,7 +80,7 @@ export const FAQSection = () => {
         <div className="glass-card p-8 mt-12 max-w-3xl mx-auto text-center">
           <p className="text-lg font-medium mb-4">Vous avez encore une question ?</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="mailto:contact@provia.fr" className="btn-secondary px-6 py-3">
+            <a href="mailto:support@proviabase.fr" className="btn-secondary px-6 py-3">
               Contactez-nous
             </a>
             <Link to="/demo" className="btn-primary px-6 py-3">
