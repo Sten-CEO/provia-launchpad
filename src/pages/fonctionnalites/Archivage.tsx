@@ -11,8 +11,18 @@ import {
   Download,
   FolderOpen,
   Clock,
-  Lock
+  Lock,
+  AlertTriangle,
+  Check,
+  FileText,
+  Calendar
 } from "lucide-react";
+
+const SectionDivider = () => (
+  <div className="w-full px-4">
+    <div className="max-w-6xl mx-auto border-t border-[#dcdcdc]" />
+  </div>
+);
 
 const Archivage = () => {
   return (
@@ -25,191 +35,191 @@ const Archivage = () => {
       />
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <p className="text-primary font-semibold mb-4 text-lg">Fonctionnalité Archivage</p>
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Logiciel d'<span className="text-gradient-orange">archivage</span> de documents pour artisans et TPE/PME
-            </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground mb-8">
-              Devis, factures, rapports d'intervention, photos... Tous vos documents sont automatiquement archivés et retrouvables en quelques secondes. Plus jamais de dossiers perdus ou de recherches interminables dans vos fichiers.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/demo"
-                className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
-              >
-                Voir l'archivage en démo
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                to="/fonctionnalites"
-                className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
-              >
-                Toutes les fonctionnalités
-              </Link>
+      {/* SECTION 1 - HERO (2 colonnes) */}
+      <section className="relative min-h-screen pt-24 lg:pt-32 pb-16 overflow-hidden">
+        <div className="glow-orange top-20 -right-40 animate-pulse-glow" />
+        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow" style={{ animationDelay: '1s' }} />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Colonne A - Texte */}
+            <div className="space-y-8 animate-fade-in">
+              <p className="text-primary font-semibold text-lg">Fonctionnalité Archivage</p>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                Logiciel d'<span className="text-gradient-orange">archivage</span> de documents pour artisans et TPE/PME
+              </h1>
+
+              <p className="text-lg lg:text-xl text-muted-foreground max-w-xl">
+                Devis, factures, rapports, photos... Tous vos documents sont automatiquement archivés et retrouvables en quelques secondes. Plus jamais de dossiers perdus.
+              </p>
+
+              <ul className="space-y-4">
+                {[
+                  { icon: Archive, text: "Archivage automatique" },
+                  { icon: Search, text: "Recherche instantanée" },
+                  { icon: Shield, text: "Sécurité maximale" },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="text-foreground font-medium">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/demo" className="btn-primary text-center text-base lg:text-lg px-8 py-4">
+                  Voir l'archivage en démo
+                </Link>
+                <a href="/#tarifs" className="btn-secondary text-center text-base lg:text-lg px-8 py-4">
+                  Voir les tarifs
+                </a>
+              </div>
+
+              <p className="text-sm text-muted-foreground flex flex-wrap items-center gap-2">
+                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Sans engagement</span>
+                <span className="text-border">•</span>
+                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Support France</span>
+              </p>
+            </div>
+
+            {/* Colonne B - Mockup Archivage */}
+            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="glass-card p-4 lg:p-6 animate-float">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-semibold text-foreground">Archives documents</h3>
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-destructive/60" />
+                    <div className="w-3 h-3 rounded-full bg-provia-yellow/60" />
+                    <div className="w-3 h-3 rounded-full bg-provia-teal/60" />
+                  </div>
+                </div>
+
+                {/* Search & Filters */}
+                <div className="glass-card p-3 mb-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Search className="w-4 h-4 text-muted-foreground" />
+                    <input
+                      type="text"
+                      placeholder="Rechercher un document..."
+                      className="bg-transparent border-none outline-none text-sm text-foreground flex-1"
+                      disabled
+                    />
+                  </div>
+                  <div className="flex gap-2">
+                    {["Tous", "Devis", "Factures", "Rapports"].map((filter, i) => (
+                      <span key={i} className={`text-xs px-2 py-1 rounded ${i === 0 ? 'bg-primary/20 text-primary' : 'bg-muted text-muted-foreground'}`}>
+                        {filter}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Documents List */}
+                <div className="space-y-2 mb-4">
+                  {[
+                    { type: "Facture", num: "FAC-2024-0142", date: "15/01/24", client: "Dupont SARL" },
+                    { type: "Devis", num: "DEV-2024-0138", date: "12/01/24", client: "Martin & Co" },
+                    { type: "Rapport", num: "INT-2024-0245", date: "10/01/24", client: "ABC Corp" },
+                  ].map((doc, i) => (
+                    <div key={i} className="p-3 glass-card hover:bg-primary/5 transition-colors">
+                      <div className="flex items-center justify-between mb-1">
+                        <div className="flex items-center gap-2">
+                          <FileText className="w-4 h-4 text-primary" />
+                          <p className="text-sm font-medium text-foreground">{doc.num}</p>
+                        </div>
+                        <span className="text-xs px-2 py-0.5 rounded bg-provia-teal/20 text-provia-teal">
+                          {doc.type}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground">
+                        <span>{doc.client}</span>
+                        <span>{doc.date}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { label: "Documents", value: "1.2k" },
+                    { label: "Taille", value: "2.4 Go" },
+                    { label: "Sécurisés", value: "100%" },
+                  ].map((stat, i) => (
+                    <div key={i} className="glass-card p-2 text-center">
+                      <p className="text-lg font-bold text-gradient-orange">{stat.value}</p>
+                      <p className="text-xs text-muted-foreground">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="w-full px-4">
-        <div className="max-w-6xl mx-auto border-t border-[#dcdcdc]" />
-      </div>
+      <SectionDivider />
 
-      {/* Problem Section */}
-      <section className="py-16 lg:py-24">
+      {/* SECTION 2 - Problème (2 colonnes inversées) */}
+      <section className="py-20 lg:py-32 overflow-hidden">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="glass-card p-6 lg:p-8">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <FolderOpen className="w-7 h-7 text-primary" />
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Colonne A - Illustration problème */}
+            <div className="relative order-2 lg:order-1">
+              <div className="glass-card p-6 lg:p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center">
+                    <AlertTriangle className="w-6 h-6 text-destructive" />
+                  </div>
+                  <p className="font-semibold text-foreground">Situation actuelle</p>
                 </div>
-                <h2 className="text-2xl lg:text-3xl font-bold">
-                  La galère des <span className="text-gradient-orange">documents introuvables</span>
-                </h2>
+
+                <div className="space-y-4">
+                  {[
+                    { icon: FolderOpen, text: "Documents éparpillés partout", color: "destructive" },
+                    { icon: Search, text: "Recherches qui durent des heures", color: "destructive" },
+                    { icon: AlertTriangle, text: "Risque de non-conformité", color: "destructive" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3 p-3 bg-destructive/5 rounded-lg">
+                      <item.icon className="w-5 h-5 text-destructive" />
+                      <span className="text-foreground">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 p-4 bg-muted/30 rounded-lg">
+                  <p className="text-sm text-muted-foreground italic">
+                    "J'ai perdu 3 jours à chercher une vieille facture pour le contrôle..."
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-2">— Comptable PME, avant Provia BASE</p>
+                </div>
               </div>
-              <p className="text-muted-foreground mb-6 text-lg">
+            </div>
+
+            {/* Colonne B - Texte problème */}
+            <div className="space-y-6 order-1 lg:order-2">
+              <h2 className="text-3xl lg:text-4xl font-bold">
+                La galère des <span className="text-gradient-orange">documents introuvables</span>
+              </h2>
+
+              <p className="text-lg text-muted-foreground">
                 Un client demande une copie d'une vieille facture. Un contrôle fiscal nécessite des documents d'il y a 3 ans. Un litige sur une intervention passée. Sans système d'archivage, ces situations deviennent des cauchemars.
               </p>
-              <div className="grid md:grid-cols-2 gap-4">
+
+              <ul className="space-y-3">
                 {[
                   "Documents éparpillés sur plusieurs ordinateurs",
                   "Dossiers clients non organisés ou perdus",
                   "Recherches qui prennent des heures",
                   "Risque de non-conformité fiscale",
                   "Pas de backup en cas de panne",
-                  "Documents papier qui s'abîment ou disparaissent"
+                  "Documents papier qui s'abîment",
                 ].map((problem, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 bg-destructive/5 rounded-lg">
-                    <span className="text-destructive font-bold">✗</span>
-                    <span className="text-foreground">{problem}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-                Un <span className="text-gradient-orange">archivage automatique</span> et intelligent
-              </h2>
-              <p className="text-muted-foreground text-lg">
-                Vos documents sont organisés et sécurisés sans effort de votre part.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  icon: Archive,
-                  title: "Archivage automatique",
-                  description: "Chaque document créé dans Provia BASE est automatiquement archivé et classé. Aucune action manuelle requise."
-                },
-                {
-                  icon: Search,
-                  title: "Recherche instantanée",
-                  description: "Retrouvez n'importe quel document en quelques secondes. Recherche par client, date, numéro, montant..."
-                },
-                {
-                  icon: Clock,
-                  title: "Conservation illimitée",
-                  description: "Vos documents sont conservés aussi longtemps que vous le souhaitez. Conformité avec les obligations légales de conservation."
-                },
-                {
-                  icon: Shield,
-                  title: "Sécurité maximale",
-                  description: "Hébergement sécurisé, chiffrement des données, sauvegardes quotidiennes. Vos documents sont protégés."
-                },
-                {
-                  icon: Download,
-                  title: "Export facile",
-                  description: "Téléchargez vos documents au format PDF à tout moment. Export groupé possible pour vos besoins administratifs."
-                },
-                {
-                  icon: Lock,
-                  title: "Contrôle d'accès",
-                  description: "Définissez qui peut accéder aux archives. Traçabilité des consultations pour plus de sécurité."
-                }
-              ].map((feature, i) => (
-                <div key={i} className="glass-card p-6 hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <feature.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What's archived */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center">
-              Documents <span className="text-gradient-orange">archivés automatiquement</span>
-            </h2>
-            <div className="grid md:grid-cols-4 gap-4">
-              {[
-                "Devis",
-                "Factures",
-                "Avoirs",
-                "Bons de commande",
-                "Rapports d'intervention",
-                "Photos terrain",
-                "Signatures clients",
-                "Contrats"
-              ].map((doc, i) => (
-                <div key={i} className="glass-card p-4 text-center">
-                  <CheckCircle2 className="w-6 h-6 text-provia-teal mx-auto mb-2" />
-                  <span className="font-medium">{doc}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                <Archive className="w-8 h-8 text-primary" />
-              </div>
-              <h2 className="text-2xl lg:text-3xl font-bold">
-                Les bénéfices de l'<span className="text-gradient-orange">archivage numérique</span>
-              </h2>
-            </div>
-
-            <div className="glass-card p-6 lg:p-8">
-              <ul className="space-y-4">
-                {[
-                  "Retrouvez n'importe quel document en 5 secondes",
-                  "Conformité légale assurée",
-                  "Zéro risque de perte de données",
-                  "Économies sur le stockage papier",
-                  "Documents accessibles depuis n'importe où",
-                  "Preuves horodatées en cas de litige",
-                  "Historique complet de l'activité",
-                  "Sérénité en cas de contrôle"
-                ].map((benefit, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-provia-teal flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground text-lg">{benefit}</span>
+                    <span className="text-destructive font-bold mt-1">✗</span>
+                    <span className="text-foreground">{problem}</span>
                   </li>
                 ))}
               </ul>
@@ -218,37 +228,156 @@ const Archivage = () => {
         </div>
       </section>
 
-      {/* Related features */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center">
-              Fonctionnalités <span className="text-gradient-orange">complémentaires</span>
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { title: "Devis", href: "/fonctionnalites/devis", desc: "Créez et archivez vos devis" },
-                { title: "Facturation", href: "/fonctionnalites/facturation", desc: "Factures conservées à vie" },
-                { title: "Gestion clients", href: "/fonctionnalites/gestion-clients", desc: "Documents par client" }
-              ].map((item, i) => (
-                <Link key={i} to={item.href} className="glass-card p-6 text-center hover:shadow-lg transition-shadow group">
-                  <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.desc}</p>
-                </Link>
-              ))}
+      <SectionDivider />
+
+      {/* SECTION 3 - Solution (2 colonnes) */}
+      <section className="py-20 lg:py-32 overflow-hidden">
+        <div className="glow-teal top-1/2 -right-40" />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Colonne A - Texte solution */}
+            <div className="space-y-6">
+              <h2 className="text-3xl lg:text-4xl font-bold">
+                Un <span className="text-gradient-orange">archivage automatique</span> et intelligent
+              </h2>
+
+              <p className="text-lg text-muted-foreground">
+                Provia BASE archive automatiquement tous vos documents. Chaque devis, facture ou rapport est classé, sécurisé et retrouvable en quelques secondes.
+              </p>
+
+              <ul className="space-y-4">
+                {[
+                  { icon: Archive, text: "Archivage automatique de tous les documents" },
+                  { icon: Search, text: "Recherche instantanée par critères multiples" },
+                  { icon: Clock, text: "Conservation illimitée et conformité légale" },
+                  { icon: Shield, text: "Hébergement sécurisé avec sauvegardes" },
+                  { icon: Download, text: "Export PDF facile à tout moment" },
+                  { icon: Lock, text: "Contrôle d'accès et traçabilité" },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="text-foreground font-medium">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Colonne B - Mockup solution */}
+            <div className="relative">
+              <div className="glass-card p-4 lg:p-6 border-primary/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl" />
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                      <Archive className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">Recherche avancée</p>
+                      <p className="text-xs text-muted-foreground">Trouvez tout en 5 secondes</p>
+                    </div>
+                  </div>
+
+                  {/* Search Filters */}
+                  <div className="space-y-3 mb-4">
+                    {[
+                      { label: "Type de document", value: "Facture" },
+                      { label: "Client", value: "Dupont SARL" },
+                      { label: "Période", value: "2023" },
+                    ].map((filter, i) => (
+                      <div key={i} className="glass-card p-3">
+                        <p className="text-xs text-muted-foreground mb-1">{filter.label}</p>
+                        <p className="text-sm font-medium text-foreground">{filter.value}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Results */}
+                  <div className="glass-card p-3 mb-4 bg-provia-teal/5 border-provia-teal/20">
+                    <div className="flex items-center gap-2 mb-2">
+                      <CheckCircle2 className="w-4 h-4 text-provia-teal" />
+                      <p className="text-sm font-medium text-foreground">8 documents trouvés</p>
+                    </div>
+                    <p className="text-xs text-muted-foreground">Temps de recherche: 0.3 secondes</p>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { icon: Download, label: "Télécharger" },
+                      { icon: FileText, label: "Aperçu" },
+                    ].map((action, i) => (
+                      <div key={i} className="glass-card p-3 text-center hover:bg-primary/5 transition-colors cursor-pointer">
+                        <action.icon className="w-5 h-5 mx-auto mb-1 text-primary" />
+                        <p className="text-xs text-foreground">{action.label}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Security Badge */}
+                  <div className="mt-4 p-3 glass-card bg-provia-teal/5 border-provia-teal/20 text-center">
+                    <div className="flex items-center justify-center gap-2">
+                      <Shield className="w-4 h-4 text-provia-teal" />
+                      <p className="text-sm font-medium text-provia-teal">Archivage sécurisé et conforme</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 lg:py-24 bg-muted/30">
+      <SectionDivider />
+
+      {/* SECTION 4 - Bénéfices (Cards) */}
+      <section className="py-20 lg:py-32 bg-muted/30">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Les bénéfices de l'<span className="text-gradient-orange">archivage numérique</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Sécurisez vos documents et assurez votre conformité légale sans effort.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {[
+              { icon: Search, title: "Recherche rapide", desc: "Trouvez tout en 5 secondes" },
+              { icon: CheckCircle2, title: "Conformité légale", desc: "Obligations respectées" },
+              { icon: Shield, title: "Zéro perte", desc: "Sauvegardes automatiques" },
+              { icon: Archive, title: "Économies", desc: "Fini le stockage papier" },
+              { icon: Download, title: "Accès partout", desc: "Depuis n'importe où" },
+              { icon: Clock, title: "Preuves datées", desc: "Horodatage en cas de litige" },
+              { icon: FileText, title: "Historique complet", desc: "Toute l'activité archivée" },
+              { icon: Lock, title: "Sérénité", desc: "Prêt pour les contrôles" },
+            ].map((benefit, i) => (
+              <div key={i} className="glass-card p-6 text-center hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <benefit.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">{benefit.title}</h3>
+                <p className="text-sm text-muted-foreground">{benefit.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* SECTION 5 - CTA Final */}
+      <section className="py-20 lg:py-32">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-6">
-              Sécurisez vos <span className="text-gradient-orange">documents</span>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+              Sécurisez vos <span className="text-gradient-orange">documents</span> définitivement
             </h2>
-            <p className="text-muted-foreground mb-8 text-lg">
+            <p className="text-lg text-muted-foreground mb-8">
               Découvrez comment Provia BASE peut vous libérer des soucis d'archivage. Démonstration gratuite avec vos propres cas d'usage.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -259,12 +388,12 @@ const Archivage = () => {
                 Demander une démo gratuite
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link
-                to="/#tarifs"
+              <a
+                href="/#tarifs"
                 className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
               >
                 Voir les tarifs
-              </Link>
+              </a>
             </div>
           </div>
         </div>

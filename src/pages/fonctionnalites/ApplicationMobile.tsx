@@ -11,8 +11,18 @@ import {
   FileSignature,
   MapPin,
   Bell,
-  Download
+  Download,
+  AlertTriangle,
+  Check,
+  FileText,
+  Clock
 } from "lucide-react";
+
+const SectionDivider = () => (
+  <div className="w-full px-4">
+    <div className="max-w-6xl mx-auto border-t border-[#dcdcdc]" />
+  </div>
+);
 
 const ApplicationMobile = () => {
   return (
@@ -25,163 +35,177 @@ const ApplicationMobile = () => {
       />
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <p className="text-primary font-semibold mb-4 text-lg">Application mobile terrain</p>
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              <span className="text-gradient-orange">Application mobile terrain</span> pour techniciens en intervention
-            </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground mb-8">
-              Équipez vos techniciens d'une application intuitive et complète. Accès aux missions, fiches clients, rapports d'intervention, photos et signature client... Tout ce dont ils ont besoin dans leur poche, même sans connexion internet.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/demo"
-                className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
-              >
-                Voir l'application en démo
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                to="/pour-les-equipes-terrain"
-                className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
-              >
-                Équipes terrain
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* SECTION 1 - HERO (2 colonnes) */}
+      <section className="relative min-h-screen pt-24 lg:pt-32 pb-16 overflow-hidden">
+        <div className="glow-orange top-20 -right-40 animate-pulse-glow" />
+        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow" style={{ animationDelay: '1s' }} />
 
-      <div className="w-full px-4">
-        <div className="max-w-6xl mx-auto border-t border-[#dcdcdc]" />
-      </div>
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Colonne A - Texte */}
+            <div className="space-y-8 animate-fade-in">
+              <p className="text-primary font-semibold text-lg">Application mobile terrain</p>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                <span className="text-gradient-orange">Application mobile terrain</span> pour techniciens en intervention
+              </h1>
 
-      {/* Problem Section */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="glass-card p-6 lg:p-8">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <MapPin className="w-7 h-7 text-primary" />
-                </div>
-                <h2 className="text-2xl lg:text-3xl font-bold">
-                  Le quotidien sans <span className="text-gradient-orange">outil mobile adapté</span>
-                </h2>
-              </div>
-              <p className="text-muted-foreground mb-6 text-lg">
-                Vos techniciens passent leurs journées sur le terrain. Sans application dédiée, ils perdent du temps et vous perdez des informations précieuses.
+              <p className="text-lg lg:text-xl text-muted-foreground max-w-xl">
+                Équipez vos techniciens d'une application intuitive et complète. Accès aux missions, fiches clients, rapports et signature, même sans connexion internet.
               </p>
-              <div className="grid md:grid-cols-2 gap-4">
-                {[
-                  "Appels incessants au bureau pour obtenir des infos",
-                  "Rapports remplis le soir, après les interventions",
-                  "Photos stockées dans les téléphones personnels",
-                  "Informations client inaccessibles sur place",
-                  "Signature client sur papier à scanner ensuite",
-                  "Pas de preuve horodatée du travail effectué"
-                ].map((problem, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 bg-destructive/5 rounded-lg">
-                    <span className="text-destructive font-bold">✗</span>
-                    <span className="text-foreground">{problem}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Features Section */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-                Une <span className="text-gradient-orange">app complète</span> pour le terrain
-              </h2>
-              <p className="text-muted-foreground text-lg">
-                Tout ce dont vos techniciens ont besoin pour travailler efficacement.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  icon: Download,
-                  title: "Accès aux missions",
-                  description: "Les techniciens voient leur planning, les détails de chaque intervention, l'adresse et l'itinéraire. Tout est à jour en temps réel."
-                },
-                {
-                  icon: Smartphone,
-                  title: "Fiches clients complètes",
-                  description: "Historique des interventions, équipements installés, notes importantes... Toutes les infos utiles avant d'arriver sur place."
-                },
-                {
-                  icon: Camera,
-                  title: "Photos et documents",
-                  description: "Prenez des photos avant/après, joignez-les au rapport. Tout est automatiquement horodaté et centralisé."
-                },
-                {
-                  icon: FileSignature,
-                  title: "Signature sur écran",
-                  description: "Le client signe directement sur le téléphone ou la tablette. Plus besoin de papier, tout est enregistré."
-                },
-                {
-                  icon: Bell,
-                  title: "Notifications push",
-                  description: "Nouvelles missions, modifications de planning, messages urgents... Les techniciens sont informés instantanément."
-                },
-                {
-                  icon: Wifi,
-                  title: "Mode hors ligne",
-                  description: "Pas de réseau ? L'application fonctionne quand même. Les données se synchronisent dès que la connexion revient."
-                }
-              ].map((feature, i) => (
-                <div key={i} className="glass-card p-6 hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <feature.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                <Smartphone className="w-8 h-8 text-primary" />
-              </div>
-              <h2 className="text-2xl lg:text-3xl font-bold">
-                Les avantages de l'<span className="text-gradient-orange">application mobile</span>
-              </h2>
-            </div>
-
-            <div className="glass-card p-6 lg:p-8">
               <ul className="space-y-4">
                 {[
-                  "Techniciens autonomes et mieux informés",
-                  "Rapports disponibles immédiatement au bureau",
-                  "Preuves photo horodatées en cas de litige",
-                  "Fin des ressaisies et de la paperasse",
-                  "Signature client légalement valide",
-                  "Moins d'erreurs et d'oublis",
-                  "Communication fluide bureau/terrain",
-                  "Fonctionne même dans les zones blanches"
-                ].map((benefit, i) => (
+                  { icon: Download, text: "Accès aux missions en temps réel" },
+                  { icon: Camera, text: "Photos et signature sur place" },
+                  { icon: Wifi, text: "Fonctionne hors ligne" },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="text-foreground font-medium">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/demo" className="btn-primary text-center text-base lg:text-lg px-8 py-4">
+                  Voir l'application en démo
+                </Link>
+                <a href="/#tarifs" className="btn-secondary text-center text-base lg:text-lg px-8 py-4">
+                  Voir les tarifs
+                </a>
+              </div>
+
+              <p className="text-sm text-muted-foreground flex flex-wrap items-center gap-2">
+                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Sans engagement</span>
+                <span className="text-border">•</span>
+                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Support France</span>
+              </p>
+            </div>
+
+            {/* Colonne B - Mockup Mobile */}
+            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="glass-card p-4 lg:p-6 animate-float max-w-sm mx-auto">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-semibold text-foreground">App mobile terrain</h3>
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-destructive/60" />
+                    <div className="w-3 h-3 rounded-full bg-provia-yellow/60" />
+                    <div className="w-3 h-3 rounded-full bg-provia-teal/60" />
+                  </div>
+                </div>
+
+                {/* Mobile Screen Preview */}
+                <div className="glass-card p-4 mb-4 bg-background/50">
+                  <div className="mb-4">
+                    <p className="text-xs text-muted-foreground mb-2">Mes missions du jour</p>
+                    <div className="flex items-center gap-2 mb-3">
+                      <Clock className="w-4 h-4 text-primary" />
+                      <span className="font-bold text-foreground">3 interventions</span>
+                    </div>
+                  </div>
+
+                  {/* Mission Cards */}
+                  <div className="space-y-2">
+                    {[
+                      { time: "09:00", client: "Dupont SARL", status: "En cours", color: "provia-teal" },
+                      { time: "14:00", client: "Martin & Co", status: "À venir", color: "provia-yellow" },
+                      { time: "16:30", client: "Société ABC", status: "Planifié", color: "muted" },
+                    ].map((mission, i) => (
+                      <div key={i} className={`p-3 rounded-lg bg-${mission.color}/10 border-l-2 border-${mission.color}`}>
+                        <div className="flex items-center gap-2 mb-1">
+                          <MapPin className="w-3 h-3 text-muted-foreground" />
+                          <p className="text-xs font-medium text-foreground">{mission.client}</p>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-xs text-muted-foreground">{mission.time}</span>
+                          <span className={`text-xs px-2 py-0.5 rounded bg-${mission.color}/20`}>
+                            {mission.status}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Bottom Actions */}
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="glass-card p-3 text-center">
+                    <Camera className="w-5 h-5 mx-auto mb-1 text-primary" />
+                    <p className="text-xs text-muted-foreground">Photo</p>
+                  </div>
+                  <div className="glass-card p-3 text-center">
+                    <FileSignature className="w-5 h-5 mx-auto mb-1 text-primary" />
+                    <p className="text-xs text-muted-foreground">Signature</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* SECTION 2 - Problème (2 colonnes inversées) */}
+      <section className="py-20 lg:py-32 overflow-hidden">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Colonne A - Illustration problème */}
+            <div className="relative order-2 lg:order-1">
+              <div className="glass-card p-6 lg:p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center">
+                    <AlertTriangle className="w-6 h-6 text-destructive" />
+                  </div>
+                  <p className="font-semibold text-foreground">Situation actuelle</p>
+                </div>
+
+                <div className="space-y-4">
+                  {[
+                    { icon: Bell, text: "Appels incessants au bureau", color: "destructive" },
+                    { icon: FileText, text: "Rapports remplis le soir", color: "destructive" },
+                    { icon: Camera, text: "Photos dans téléphones perso", color: "destructive" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3 p-3 bg-destructive/5 rounded-lg">
+                      <item.icon className="w-5 h-5 text-destructive" />
+                      <span className="text-foreground">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 p-4 bg-muted/30 rounded-lg">
+                  <p className="text-sm text-muted-foreground italic">
+                    "Mes techniciens m'appelaient 10 fois par jour pour les infos..."
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-2">— Dirigeant TPE, avant Provia BASE</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Colonne B - Texte problème */}
+            <div className="space-y-6 order-1 lg:order-2">
+              <h2 className="text-3xl lg:text-4xl font-bold">
+                Le quotidien sans <span className="text-gradient-orange">outil mobile adapté</span>
+              </h2>
+
+              <p className="text-lg text-muted-foreground">
+                Vos techniciens passent leurs journées sur le terrain. Sans application dédiée, ils perdent du temps et vous perdez des informations précieuses.
+              </p>
+
+              <ul className="space-y-3">
+                {[
+                  "Appels au bureau pour obtenir des infos",
+                  "Rapports remplis le soir, après les interventions",
+                  "Photos stockées dans téléphones personnels",
+                  "Informations client inaccessibles sur place",
+                  "Signature client sur papier à scanner",
+                  "Pas de preuve horodatée du travail",
+                ].map((problem, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-provia-teal flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground text-lg">{benefit}</span>
+                    <span className="text-destructive font-bold mt-1">✗</span>
+                    <span className="text-foreground">{problem}</span>
                   </li>
                 ))}
               </ul>
@@ -190,60 +214,149 @@ const ApplicationMobile = () => {
         </div>
       </section>
 
-      {/* Compatibility */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-8">
-              <span className="text-gradient-orange">Compatible</span> avec tous les appareils
-            </h2>
-            <div className="glass-card p-6 lg:p-8">
-              <p className="text-muted-foreground text-lg mb-6">
-                L'application Provia BASE fonctionne sur smartphones et tablettes, iOS et Android. Pas besoin d'investir dans du matériel spécifique.
+      <SectionDivider />
+
+      {/* SECTION 3 - Solution (2 colonnes) */}
+      <section className="py-20 lg:py-32 overflow-hidden">
+        <div className="glow-teal top-1/2 -right-40" />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Colonne A - Texte solution */}
+            <div className="space-y-6">
+              <h2 className="text-3xl lg:text-4xl font-bold">
+                Une <span className="text-gradient-orange">app complète</span> pour le terrain
+              </h2>
+
+              <p className="text-lg text-muted-foreground">
+                L'application mobile Provia BASE met toutes les informations dans la poche de vos techniciens. Planning, fiches clients, rapports, photos et signature : tout est centralisé.
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                {["iPhone", "iPad", "Android Phone", "Tablette Android"].map((device, i) => (
-                  <span key={i} className="px-4 py-2 bg-primary/10 rounded-full text-foreground font-medium">
-                    {device}
-                  </span>
+
+              <ul className="space-y-4">
+                {[
+                  { icon: Download, text: "Accès aux missions avec détails et itinéraires" },
+                  { icon: Smartphone, text: "Fiches clients avec historique complet" },
+                  { icon: Camera, text: "Photos horodatées avant/après" },
+                  { icon: FileSignature, text: "Signature client sur écran tactile" },
+                  { icon: Bell, text: "Notifications push instantanées" },
+                  { icon: Wifi, text: "Mode hors ligne avec synchro auto" },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="text-foreground font-medium">{item.text}</span>
+                  </li>
                 ))}
+              </ul>
+            </div>
+
+            {/* Colonne B - Mockup solution */}
+            <div className="relative">
+              <div className="glass-card p-4 lg:p-6 border-primary/20 max-w-sm mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl" />
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                      <Smartphone className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">Intervention en cours</p>
+                      <p className="text-xs text-muted-foreground">Dupont SARL</p>
+                    </div>
+                  </div>
+
+                  {/* Intervention Details */}
+                  <div className="space-y-3 mb-4">
+                    <div className="glass-card p-3">
+                      <p className="text-xs text-muted-foreground mb-1">Adresse</p>
+                      <p className="text-sm font-medium text-foreground">12 rue de la Paix, 75001 Paris</p>
+                      <button className="text-xs text-primary mt-1">Voir l'itinéraire →</button>
+                    </div>
+
+                    <div className="glass-card p-3">
+                      <p className="text-xs text-muted-foreground mb-1">Description</p>
+                      <p className="text-sm text-foreground">Maintenance préventive - Climatisation</p>
+                    </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="space-y-2">
+                    {[
+                      { label: "Prendre une photo", icon: Camera, done: true },
+                      { label: "Faire signer client", icon: FileSignature, done: false },
+                      { label: "Terminer intervention", icon: Check, done: false },
+                    ].map((action, i) => (
+                      <div key={i} className="flex items-center gap-3 p-2 glass-card">
+                        <div className={`w-7 h-7 rounded-full flex items-center justify-center ${action.done ? 'bg-provia-teal/20' : 'bg-primary/10'}`}>
+                          <action.icon className={`w-4 h-4 ${action.done ? 'text-provia-teal' : 'text-primary'}`} />
+                        </div>
+                        <span className={`text-sm ${action.done ? 'text-muted-foreground line-through' : 'text-foreground'}`}>
+                          {action.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Status Badge */}
+                  <div className="mt-4 p-3 glass-card bg-provia-teal/5 border-provia-teal/20 text-center">
+                    <p className="text-sm font-medium text-provia-teal">Synchro automatique active</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Related features */}
-      <section className="py-16 lg:py-24">
+      <SectionDivider />
+
+      {/* SECTION 4 - Bénéfices (Cards) */}
+      <section className="py-20 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center">
-              Fonctionnalités <span className="text-gradient-orange">complémentaires</span>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Les avantages de l'<span className="text-gradient-orange">application mobile</span>
             </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { title: "Planning d'interventions", href: "/fonctionnalites/planning-interventions", desc: "Missions synchronisées" },
-                { title: "Suivi des interventions", href: "/fonctionnalites/suivi-interventions", desc: "Temps réel pour le bureau" },
-                { title: "Gestion des équipes", href: "/fonctionnalites/gestion-equipes", desc: "Coordination optimale" }
-              ].map((item, i) => (
-                <Link key={i} to={item.href} className="glass-card p-6 text-center hover:shadow-lg transition-shadow group">
-                  <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.desc}</p>
-                </Link>
-              ))}
-            </div>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Autonomie pour les techniciens, sérénité pour le bureau, satisfaction pour les clients.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {[
+              { icon: Smartphone, title: "Autonomie terrain", desc: "Techniciens mieux informés" },
+              { icon: Clock, title: "Rapports instantanés", desc: "Disponibles au bureau en temps réel" },
+              { icon: Camera, title: "Preuves photo", desc: "Horodatées en cas de litige" },
+              { icon: CheckCircle2, title: "Zéro ressaisie", desc: "Fin de la paperasse" },
+              { icon: FileSignature, title: "Signature valide", desc: "Légalement reconnue" },
+              { icon: Bell, title: "Moins d'erreurs", desc: "Communication fluide" },
+              { icon: Wifi, title: "Mode hors ligne", desc: "Fonctionne partout" },
+              { icon: Download, title: "iOS & Android", desc: "Compatible tous appareils" },
+            ].map((benefit, i) => (
+              <div key={i} className="glass-card p-6 text-center hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <benefit.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">{benefit.title}</h3>
+                <p className="text-sm text-muted-foreground">{benefit.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 lg:py-24 bg-muted/30">
+      <SectionDivider />
+
+      {/* SECTION 5 - CTA Final */}
+      <section className="py-20 lg:py-32">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
               Équipez vos <span className="text-gradient-orange">équipes terrain</span>
             </h2>
-            <p className="text-muted-foreground mb-8 text-lg">
+            <p className="text-lg text-muted-foreground mb-8">
               Découvrez l'application mobile Provia BASE en action. Démonstration gratuite avec simulation terrain.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -254,12 +367,12 @@ const ApplicationMobile = () => {
                 Demander une démo gratuite
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link
-                to="/#tarifs"
+              <a
+                href="/#tarifs"
                 className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
               >
                 Voir les tarifs
-              </Link>
+              </a>
             </div>
           </div>
         </div>
