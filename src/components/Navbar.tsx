@@ -2,18 +2,88 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import proviaLogo from "@/assets/provia-logo.png";
+import { NavDropdown, NavDropdownMobile, type NavDropdownItem } from "./NavDropdown";
 
+// Items for "Pour qui ?" dropdown
+const pourQuiItems: NavDropdownItem[] = [
+  {
+    label: "Pour les TPE",
+    href: "/pour-les-tpe",
+    description: "Gestion simplifiée pour petites structures"
+  },
+  {
+    label: "Pour les PME",
+    href: "/pour-les-pme",
+    description: "Pilotez votre croissance efficacement"
+  },
+  {
+    label: "Pour les entreprises de services",
+    href: "/pour-les-entreprises-de-services",
+    description: "Optimisez vos interventions clients"
+  },
+  {
+    label: "Pour les équipes terrain",
+    href: "/pour-les-equipes-terrain",
+    description: "Coordination et mobilité optimales"
+  },
+];
+
+// Items for "Fonctionnalités" dropdown
+const fonctionnalitesItems: NavDropdownItem[] = [
+  {
+    label: "Devis",
+    href: "/fonctionnalites/devis",
+    description: "Créez des devis professionnels"
+  },
+  {
+    label: "Facturation",
+    href: "/fonctionnalites/facturation",
+    description: "Facturez en quelques clics"
+  },
+  {
+    label: "Gestion des équipes",
+    href: "/fonctionnalites/gestion-equipes",
+    description: "Coordonnez vos collaborateurs"
+  },
+  {
+    label: "Planning d'interventions",
+    href: "/fonctionnalites/planning-interventions",
+    description: "Planifiez et optimisez vos missions"
+  },
+  {
+    label: "Application mobile",
+    href: "/fonctionnalites/application-mobile",
+    description: "Vos équipes connectées partout"
+  },
+  {
+    label: "Suivi des interventions",
+    href: "/fonctionnalites/suivi-interventions",
+    description: "Suivez l'avancement en temps réel"
+  },
+  {
+    label: "Gestion des clients",
+    href: "/fonctionnalites/gestion-clients",
+    description: "CRM intégré et centralisé"
+  },
+  {
+    label: "Archivage",
+    href: "/fonctionnalites/archivage",
+    description: "Documents accessibles à vie"
+  },
+];
+
+// Regular nav links
 const navLinks = [
-  { label: "Fonctionnalités", href: "/fonctionnalites", isPage: true },
-  { label: "Installation", href: "/installation", isPage: true },
-  { label: "Pour qui ?", href: "/#pour-qui", isPage: true },
-  { label: "Tarifs", href: "/#tarifs", isPage: true },
-  { label: "Avis clients", href: "/#avis", isPage: true },
-  { label: "FAQ", href: "/#faq", isPage: true },
+  { label: "Installation", href: "/installation" },
+  { label: "Tarifs", href: "/#tarifs" },
+  { label: "Avis clients", href: "/#avis" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <>
@@ -30,6 +100,21 @@ export const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
+              {/* Pour qui ? dropdown */}
+              <NavDropdown
+                label="Pour qui ?"
+                href="/#pour-qui"
+                items={pourQuiItems}
+              />
+
+              {/* Fonctionnalités dropdown */}
+              <NavDropdown
+                label="Fonctionnalités"
+                href="/fonctionnalites"
+                items={fonctionnalitesItems}
+              />
+
+              {/* Regular links */}
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -66,25 +151,42 @@ export const Navbar = () => {
       {/* Mobile Menu Overlay */}
       {isOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
-          <div className="absolute right-0 top-0 bottom-0 w-80 max-w-full glass-card animate-slide-in-right rounded-l-3xl">
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" onClick={closeMenu} />
+          <div className="absolute right-0 top-0 bottom-0 w-80 max-w-full glass-card animate-slide-in-right rounded-l-3xl overflow-y-auto">
             <div className="flex flex-col h-full p-6">
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-2">
                   <img src={proviaLogo} alt="Provia BASE" className="h-8 w-8 object-contain" />
                   <span className="font-bold text-foreground">Provia BASE</span>
                 </div>
-                <button onClick={() => setIsOpen(false)} className="p-2 text-foreground">
+                <button onClick={closeMenu} className="p-2 text-foreground">
                   <X className="w-5 h-5" />
                 </button>
               </div>
-              
-              <div className="flex flex-col gap-4 flex-1">
+
+              <div className="flex flex-col flex-1">
+                {/* Pour qui ? dropdown mobile */}
+                <NavDropdownMobile
+                  label="Pour qui ?"
+                  href="/#pour-qui"
+                  items={pourQuiItems}
+                  onItemClick={closeMenu}
+                />
+
+                {/* Fonctionnalités dropdown mobile */}
+                <NavDropdownMobile
+                  label="Fonctionnalités"
+                  href="/fonctionnalites"
+                  items={fonctionnalitesItems}
+                  onItemClick={closeMenu}
+                />
+
+                {/* Regular links */}
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     to={link.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={closeMenu}
                     className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
                   >
                     {link.label}
@@ -93,10 +195,10 @@ export const Navbar = () => {
               </div>
 
               <div className="flex flex-col gap-3 pt-6 border-t border-border">
-                <Link to="/demo" onClick={() => setIsOpen(false)} className="btn-secondary w-full text-center">
+                <Link to="/demo" onClick={closeMenu} className="btn-secondary w-full text-center">
                   Réserver une démo
                 </Link>
-                <Link to="/#tarifs" onClick={() => setIsOpen(false)} className="btn-primary w-full text-center">
+                <Link to="/#tarifs" onClick={closeMenu} className="btn-primary w-full text-center">
                   Commencer maintenant
                 </Link>
               </div>
