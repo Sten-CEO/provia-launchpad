@@ -11,8 +11,17 @@ import {
   FileText,
   History,
   TrendingUp,
-  AlertCircle
+  AlertCircle,
+  AlertTriangle,
+  Check,
+  Zap
 } from "lucide-react";
+
+const SectionDivider = () => (
+  <div className="w-full px-4">
+    <div className="max-w-6xl mx-auto border-t border-[#dcdcdc]" />
+  </div>
+);
 
 const SuiviInterventions = () => {
   return (
@@ -25,163 +34,176 @@ const SuiviInterventions = () => {
       />
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <p className="text-primary font-semibold mb-4 text-lg">Fonctionnalité Suivi</p>
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Logiciel de <span className="text-gradient-orange">suivi des interventions</span> pour équipes terrain
-            </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground mb-8">
-              Avec le suivi des interventions Provia BASE, vous savez toujours où en sont vos équipes. Statuts en temps réel, rapports détaillés, historique complet. Plus jamais de "je ne sais pas où ils en sont".
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/demo"
-                className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
-              >
-                Voir le suivi en démo
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                to="/fonctionnalites"
-                className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
-              >
-                Toutes les fonctionnalités
-              </Link>
+      {/* SECTION 1 - HERO (2 colonnes) */}
+      <section className="relative min-h-screen pt-24 lg:pt-32 pb-16 overflow-hidden">
+        <div className="glow-orange top-20 -right-40 animate-pulse-glow" />
+        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow" style={{ animationDelay: '1s' }} />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Colonne A - Texte */}
+            <div className="space-y-8 animate-fade-in">
+              <p className="text-primary font-semibold text-lg">Fonctionnalité Suivi</p>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                Logiciel de <span className="text-gradient-orange">suivi des interventions</span> pour équipes terrain
+              </h1>
+
+              <p className="text-lg lg:text-xl text-muted-foreground max-w-xl">
+                Avec le suivi des interventions Provia BASE, vous savez toujours où en sont vos équipes. Statuts en temps réel, rapports détaillés, historique complet.
+              </p>
+
+              <ul className="space-y-4">
+                {[
+                  { icon: Eye, text: "Statuts en temps réel" },
+                  { icon: Clock, text: "Horodatage automatique" },
+                  { icon: FileText, text: "Rapports d'intervention complets" },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="text-foreground font-medium">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/demo" className="btn-primary text-center text-base lg:text-lg px-8 py-4">
+                  Voir le suivi en démo
+                </Link>
+                <a href="/#tarifs" className="btn-secondary text-center text-base lg:text-lg px-8 py-4">
+                  Voir les tarifs
+                </a>
+              </div>
+
+              <p className="text-sm text-muted-foreground flex flex-wrap items-center gap-2">
+                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Sans engagement</span>
+                <span className="text-border">•</span>
+                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Support France</span>
+              </p>
+            </div>
+
+            {/* Colonne B - Mockup Suivi */}
+            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="glass-card p-4 lg:p-6 animate-float">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-semibold text-foreground">Tableau de bord suivi</h3>
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-destructive/60" />
+                    <div className="w-3 h-3 rounded-full bg-provia-yellow/60" />
+                    <div className="w-3 h-3 rounded-full bg-provia-teal/60" />
+                  </div>
+                </div>
+
+                {/* Interventions en cours */}
+                <div className="glass-card p-4 mb-4">
+                  <p className="text-xs text-muted-foreground mb-3">Interventions aujourd'hui</p>
+
+                  <div className="space-y-2">
+                    {[
+                      { tech: "Jean M.", client: "Dupont SARL", status: "En cours", time: "09:00", color: "provia-teal" },
+                      { tech: "Marie L.", client: "Martin & Co", status: "Terminée", time: "14:00", color: "provia-teal" },
+                      { tech: "Paul D.", client: "ABC Corp", status: "À venir", time: "16:30", color: "provia-yellow" },
+                    ].map((item, i) => (
+                      <div key={i} className="p-3 glass-card">
+                        <div className="flex items-center justify-between mb-2">
+                          <div>
+                            <p className="text-sm font-medium text-foreground">{item.client}</p>
+                            <p className="text-xs text-muted-foreground">{item.tech} • {item.time}</p>
+                          </div>
+                          <span className={`text-xs px-2 py-1 rounded bg-${item.color}/20 text-${item.color}`}>
+                            {item.status}
+                          </span>
+                        </div>
+                        {item.status === "En cours" && (
+                          <div className="w-full bg-muted/30 rounded-full h-1.5">
+                            <div className="bg-provia-teal h-1.5 rounded-full" style={{ width: '65%' }} />
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { label: "Terminées", value: "8", color: "provia-teal" },
+                    { label: "En cours", value: "3", color: "provia-yellow" },
+                    { label: "Planifiées", value: "12", color: "primary" },
+                  ].map((stat, i) => (
+                    <div key={i} className="glass-card p-2 text-center">
+                      <p className={`text-lg font-bold text-${stat.color}`}>{stat.value}</p>
+                      <p className="text-xs text-muted-foreground">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="w-full px-4">
-        <div className="max-w-6xl mx-auto border-t border-[#dcdcdc]" />
-      </div>
+      <SectionDivider />
 
-      {/* Problem Section */}
-      <section className="py-16 lg:py-24">
+      {/* SECTION 2 - Problème (2 colonnes inversées) */}
+      <section className="py-20 lg:py-32 overflow-hidden">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="glass-card p-6 lg:p-8">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <AlertCircle className="w-7 h-7 text-primary" />
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Colonne A - Illustration problème */}
+            <div className="relative order-2 lg:order-1">
+              <div className="glass-card p-6 lg:p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center">
+                    <AlertTriangle className="w-6 h-6 text-destructive" />
+                  </div>
+                  <p className="font-semibold text-foreground">Situation actuelle</p>
                 </div>
-                <h2 className="text-2xl lg:text-3xl font-bold">
-                  Sans suivi, vous <span className="text-gradient-orange">naviguez à l'aveugle</span>
-                </h2>
+
+                <div className="space-y-4">
+                  {[
+                    { icon: AlertCircle, text: "Aucune visibilité sur l'avancement", color: "destructive" },
+                    { icon: Clock, text: "Retards découverts trop tard", color: "destructive" },
+                    { icon: FileText, text: "Impossible de prouver les interventions", color: "destructive" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3 p-3 bg-destructive/5 rounded-lg">
+                      <item.icon className="w-5 h-5 text-destructive" />
+                      <span className="text-foreground">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 p-4 bg-muted/30 rounded-lg">
+                  <p className="text-sm text-muted-foreground italic">
+                    "Je ne savais jamais où en étaient mes équipes..."
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-2">— Manager opérationnel, avant Provia BASE</p>
+                </div>
               </div>
-              <p className="text-muted-foreground mb-6 text-lg">
+            </div>
+
+            {/* Colonne B - Texte problème */}
+            <div className="space-y-6 order-1 lg:order-2">
+              <h2 className="text-3xl lg:text-4xl font-bold">
+                Sans suivi, vous <span className="text-gradient-orange">naviguez à l'aveugle</span>
+              </h2>
+
+              <p className="text-lg text-muted-foreground">
                 Comment répondre à un client qui demande "où en est ma commande ?" si vous n'avez pas de visibilité sur le travail de vos équipes ? Le manque de suivi crée frustration et inefficacité.
               </p>
-              <div className="grid md:grid-cols-2 gap-4">
+
+              <ul className="space-y-3">
                 {[
                   "Aucune visibilité sur l'avancement des missions",
                   "Clients qui appellent pour savoir où en est le technicien",
                   "Retards découverts trop tard pour réagir",
                   "Impossible de prouver qu'une intervention a eu lieu",
                   "Pas de données pour améliorer les processus",
-                  "Managers obligés d'appeler les techniciens"
+                  "Managers obligés d'appeler les techniciens",
                 ].map((problem, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 bg-destructive/5 rounded-lg">
-                    <span className="text-destructive font-bold">✗</span>
-                    <span className="text-foreground">{problem}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-                Un <span className="text-gradient-orange">suivi complet</span> et transparent
-              </h2>
-              <p className="text-muted-foreground text-lg">
-                Toutes les informations dont vous avez besoin pour piloter vos opérations.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  icon: Eye,
-                  title: "Statuts en temps réel",
-                  description: "Planifié, en cours, terminé, reporté... Visualisez le statut de chaque intervention sur un tableau de bord unique."
-                },
-                {
-                  icon: Clock,
-                  title: "Horodatage automatique",
-                  description: "Début, fin, durée de l'intervention : tout est enregistré automatiquement. Des données fiables et objectives."
-                },
-                {
-                  icon: FileText,
-                  title: "Rapports d'intervention",
-                  description: "Chaque intervention génère un rapport complet : travaux effectués, pièces utilisées, photos, observations."
-                },
-                {
-                  icon: History,
-                  title: "Historique consultable",
-                  description: "Retrouvez l'historique de toutes les interventions : par client, par technicien, par période. Recherche instantanée."
-                },
-                {
-                  icon: TrendingUp,
-                  title: "Indicateurs de performance",
-                  description: "Temps moyen d'intervention, taux de résolution au premier passage, respect des délais... Pilotez par les chiffres."
-                },
-                {
-                  icon: Activity,
-                  title: "Alertes automatiques",
-                  description: "Soyez notifié en cas de retard, d'intervention plus longue que prévu, ou de problème signalé par le technicien."
-                }
-              ].map((feature, i) => (
-                <div key={i} className="glass-card p-6 hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <feature.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                <Activity className="w-8 h-8 text-primary" />
-              </div>
-              <h2 className="text-2xl lg:text-3xl font-bold">
-                Les bénéfices du <span className="text-gradient-orange">suivi en temps réel</span>
-              </h2>
-            </div>
-
-            <div className="glass-card p-6 lg:p-8">
-              <ul className="space-y-4">
-                {[
-                  "Réponse immédiate aux questions des clients",
-                  "Réactivité face aux imprévus et retards",
-                  "Preuves en cas de contestation ou litige",
-                  "Données objectives pour les évaluations",
-                  "Identification des goulots d'étranglement",
-                  "Amélioration continue des processus",
-                  "Transparence avec les clients et partenaires",
-                  "Moins de stress pour les managers"
-                ].map((benefit, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-provia-teal flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground text-lg">{benefit}</span>
+                    <span className="text-destructive font-bold mt-1">✗</span>
+                    <span className="text-foreground">{problem}</span>
                   </li>
                 ))}
               </ul>
@@ -190,37 +212,157 @@ const SuiviInterventions = () => {
         </div>
       </section>
 
-      {/* Related features */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center">
-              Fonctionnalités <span className="text-gradient-orange">complémentaires</span>
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { title: "Planning d'interventions", href: "/fonctionnalites/planning-interventions", desc: "Planifiez avant de suivre" },
-                { title: "Application mobile", href: "/fonctionnalites/application-mobile", desc: "Mises à jour terrain" },
-                { title: "Gestion clients", href: "/fonctionnalites/gestion-clients", desc: "Historique par client" }
-              ].map((item, i) => (
-                <Link key={i} to={item.href} className="glass-card p-6 text-center hover:shadow-lg transition-shadow group">
-                  <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.desc}</p>
-                </Link>
-              ))}
+      <SectionDivider />
+
+      {/* SECTION 3 - Solution (2 colonnes) */}
+      <section className="py-20 lg:py-32 overflow-hidden">
+        <div className="glow-teal top-1/2 -right-40" />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Colonne A - Texte solution */}
+            <div className="space-y-6">
+              <h2 className="text-3xl lg:text-4xl font-bold">
+                Un <span className="text-gradient-orange">suivi complet</span> et transparent
+              </h2>
+
+              <p className="text-lg text-muted-foreground">
+                Provia BASE vous donne une visibilité totale sur toutes vos interventions. Statuts en temps réel, rapports détaillés et historique complet : pilotez par les données.
+              </p>
+
+              <ul className="space-y-4">
+                {[
+                  { icon: Eye, text: "Statuts temps réel (planifié, en cours, terminé)" },
+                  { icon: Clock, text: "Horodatage automatique début/fin/durée" },
+                  { icon: FileText, text: "Rapports complets avec photos et observations" },
+                  { icon: History, text: "Historique consultable par client ou technicien" },
+                  { icon: TrendingUp, text: "Indicateurs de performance détaillés" },
+                  { icon: AlertCircle, text: "Alertes automatiques en cas de problème" },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="text-foreground font-medium">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Colonne B - Mockup solution */}
+            <div className="relative">
+              <div className="glass-card p-4 lg:p-6 border-primary/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl" />
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                      <Activity className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">Suivi détaillé</p>
+                      <p className="text-xs text-muted-foreground">Intervention N°2024-0142</p>
+                    </div>
+                  </div>
+
+                  {/* Timeline */}
+                  <div className="space-y-3">
+                    {[
+                      { time: "09:00", label: "Intervention commencée", done: true },
+                      { time: "09:45", label: "Diagnostic effectué", done: true },
+                      { time: "10:30", label: "Réparation en cours", done: false },
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-3 p-3 glass-card">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center ${item.done ? 'bg-provia-teal/20' : 'bg-primary/10'}`}>
+                          {item.done ? (
+                            <Check className="w-4 h-4 text-provia-teal" />
+                          ) : (
+                            <Clock className="w-4 h-4 text-primary" />
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <p className={`text-sm font-medium ${item.done ? 'text-muted-foreground' : 'text-foreground'}`}>
+                            {item.label}
+                          </p>
+                          <p className="text-xs text-muted-foreground">{item.time}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Stats intervention */}
+                  <div className="mt-4 grid grid-cols-2 gap-3">
+                    <div className="glass-card p-3">
+                      <p className="text-xs text-muted-foreground mb-1">Durée estimée</p>
+                      <p className="text-lg font-bold text-foreground">2h30</p>
+                    </div>
+                    <div className="glass-card p-3">
+                      <p className="text-xs text-muted-foreground mb-1">Avancement</p>
+                      <p className="text-lg font-bold text-provia-teal">65%</p>
+                    </div>
+                  </div>
+
+                  {/* Alerte */}
+                  <div className="mt-3 p-3 glass-card bg-provia-yellow/5 border-provia-yellow/20">
+                    <div className="flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 text-provia-yellow" />
+                      <p className="text-xs font-medium text-foreground">Pièce en attente de livraison</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 lg:py-24">
+      <SectionDivider />
+
+      {/* SECTION 4 - Bénéfices (Cards) */}
+      <section className="py-20 lg:py-32 bg-muted/30">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Les bénéfices du <span className="text-gradient-orange">suivi en temps réel</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Reprenez le contrôle de vos opérations et améliorez votre réactivité.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {[
+              { icon: Eye, title: "Visibilité totale", desc: "Réponse immédiate aux clients" },
+              { icon: Zap, title: "Réactivité", desc: "Face aux imprévus et retards" },
+              { icon: FileText, title: "Preuves solides", desc: "En cas de contestation" },
+              { icon: TrendingUp, title: "Données objectives", desc: "Pour les évaluations" },
+              { icon: AlertCircle, title: "Détection rapide", desc: "Des goulots d'étranglement" },
+              { icon: CheckCircle2, title: "Amélioration continue", desc: "Des processus métier" },
+              { icon: Clock, title: "Transparence", desc: "Avec clients et partenaires" },
+              { icon: Activity, title: "Moins de stress", desc: "Pour les managers" },
+            ].map((benefit, i) => (
+              <div key={i} className="glass-card p-6 text-center hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <benefit.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">{benefit.title}</h3>
+                <p className="text-sm text-muted-foreground">{benefit.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* SECTION 5 - CTA Final */}
+      <section className="py-20 lg:py-32">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
               Prenez le <span className="text-gradient-orange">contrôle</span> de vos interventions
             </h2>
-            <p className="text-muted-foreground mb-8 text-lg">
+            <p className="text-lg text-muted-foreground mb-8">
               Découvrez comment le suivi temps réel Provia BASE peut transformer votre visibilité opérationnelle. Démonstration gratuite.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -231,12 +373,12 @@ const SuiviInterventions = () => {
                 Demander une démo gratuite
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link
-                to="/#tarifs"
+              <a
+                href="/#tarifs"
                 className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
               >
                 Voir les tarifs
-              </Link>
+              </a>
             </div>
           </div>
         </div>

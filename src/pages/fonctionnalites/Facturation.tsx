@@ -11,8 +11,19 @@ import {
   FileCheck,
   PieChart,
   Shield,
-  Send
+  Send,
+  Clock,
+  AlertTriangle,
+  Check,
+  CreditCard,
+  TrendingUp
 } from "lucide-react";
+
+const SectionDivider = () => (
+  <div className="w-full px-4">
+    <div className="max-w-6xl mx-auto border-t border-[#dcdcdc]" />
+  </div>
+);
 
 const Facturation = () => {
   return (
@@ -25,163 +36,169 @@ const Facturation = () => {
       />
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <p className="text-primary font-semibold mb-4 text-lg">Fonctionnalité Facturation</p>
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Logiciel de <span className="text-gradient-orange">facturation</span> pour TPE et PME
-            </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground mb-8">
-              Le logiciel de facturation Provia BASE simplifie tout le processus : de la création de la facture jusqu'au suivi du paiement. Factures conformes, envoi automatique, relances programmées. Concentrez-vous sur votre métier, pas sur la paperasse.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/demo"
-                className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
-              >
-                Voir le module facturation
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                to="/fonctionnalites"
-                className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
-              >
-                Toutes les fonctionnalités
-              </Link>
+      {/* SECTION 1 - HERO */}
+      <section className="relative min-h-screen pt-24 lg:pt-32 pb-16 overflow-hidden">
+        <div className="glow-orange top-20 -right-40 animate-pulse-glow" />
+        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow" style={{ animationDelay: '1s' }} />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="space-y-8 animate-fade-in">
+              <p className="text-primary font-semibold text-lg">Fonctionnalité Facturation</p>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                Logiciel de <span className="text-gradient-orange">facturation</span> pour TPE et PME
+              </h1>
+
+              <p className="text-lg lg:text-xl text-muted-foreground max-w-xl">
+                Créez des factures conformes en quelques clics, suivez vos paiements et automatisez vos relances. Plus d'impayés oubliés.
+              </p>
+
+              <ul className="space-y-4">
+                {[
+                  { icon: Receipt, text: "Factures conformes et professionnelles" },
+                  { icon: Bell, text: "Relances automatiques programmables" },
+                  { icon: PieChart, text: "Suivi trésorerie en temps réel" },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="text-foreground font-medium">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/demo" className="btn-primary text-center text-base lg:text-lg px-8 py-4">
+                  Voir le module facturation
+                </Link>
+                <a href="/#tarifs" className="btn-secondary text-center text-base lg:text-lg px-8 py-4">
+                  Voir les tarifs
+                </a>
+              </div>
+
+              <p className="text-sm text-muted-foreground flex flex-wrap items-center gap-2">
+                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Sans engagement</span>
+                <span className="text-border">•</span>
+                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Conforme légalement</span>
+              </p>
+            </div>
+
+            {/* Mockup Facturation */}
+            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="glass-card p-4 lg:p-6 animate-float">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-semibold text-foreground">Module facturation</h3>
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-destructive/60" />
+                    <div className="w-3 h-3 rounded-full bg-provia-yellow/60" />
+                    <div className="w-3 h-3 rounded-full bg-provia-teal/60" />
+                  </div>
+                </div>
+
+                {/* Stats Row */}
+                <div className="grid grid-cols-3 gap-3 mb-4">
+                  <div className="glass-card p-3 text-center">
+                    <p className="text-2xl font-bold text-gradient-orange">24 350 €</p>
+                    <p className="text-xs text-muted-foreground">CA ce mois</p>
+                  </div>
+                  <div className="glass-card p-3 text-center">
+                    <p className="text-2xl font-bold text-provia-yellow">3 200 €</p>
+                    <p className="text-xs text-muted-foreground">En attente</p>
+                  </div>
+                  <div className="glass-card p-3 text-center">
+                    <p className="text-2xl font-bold text-provia-teal">95%</p>
+                    <p className="text-xs text-muted-foreground">Recouvrement</p>
+                  </div>
+                </div>
+
+                {/* Factures récentes */}
+                <div className="glass-card p-4">
+                  <p className="text-xs text-muted-foreground mb-3">Factures récentes</p>
+                  <div className="space-y-2">
+                    {[
+                      { num: "FAC-0089", client: "Martin SARL", amount: "1 250 €", status: "Payée", color: "provia-teal" },
+                      { num: "FAC-0088", client: "Dupont & Fils", amount: "890 €", status: "En attente", color: "provia-yellow" },
+                      { num: "FAC-0087", client: "ABC Services", amount: "2 100 €", status: "Payée", color: "provia-teal" },
+                    ].map((fac, i) => (
+                      <div key={i} className="flex items-center justify-between py-2 border-b border-border/50 last:border-0">
+                        <div>
+                          <p className="text-sm font-medium text-foreground">{fac.num}</p>
+                          <p className="text-xs text-muted-foreground">{fac.client}</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-sm font-bold text-foreground">{fac.amount}</p>
+                          <span className={`text-[10px] px-2 py-0.5 rounded bg-${fac.color}/20 text-${fac.color}`}>
+                            {fac.status}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="w-full px-4">
-        <div className="max-w-6xl mx-auto border-t border-[#dcdcdc]" />
-      </div>
+      <SectionDivider />
 
-      {/* Problem Section */}
-      <section className="py-16 lg:py-24">
+      {/* SECTION 2 - Problème */}
+      <section className="py-20 lg:py-32 overflow-hidden">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="glass-card p-6 lg:p-8">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <Euro className="w-7 h-7 text-primary" />
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="relative order-2 lg:order-1">
+              <div className="glass-card p-6 lg:p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center">
+                    <AlertTriangle className="w-6 h-6 text-destructive" />
+                  </div>
+                  <p className="font-semibold text-foreground">Impact sur votre trésorerie</p>
                 </div>
-                <h2 className="text-2xl lg:text-3xl font-bold">
-                  Les problèmes de la <span className="text-gradient-orange">facturation manuelle</span>
-                </h2>
+
+                <div className="space-y-4">
+                  {[
+                    { icon: Clock, text: "Factures envoyées en retard" },
+                    { icon: Euro, text: "Impayés non relancés = argent perdu" },
+                    { icon: AlertTriangle, text: "Risque de non-conformité fiscale" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3 p-3 bg-destructive/5 rounded-lg">
+                      <item.icon className="w-5 h-5 text-destructive" />
+                      <span className="text-foreground">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 p-4 bg-muted/30 rounded-lg">
+                  <p className="text-sm text-muted-foreground italic">
+                    "J'avais 8 000€ d'impayés oubliés avant de passer à Provia BASE..."
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-2">— Dirigeant PME bâtiment</p>
+                </div>
               </div>
-              <p className="text-muted-foreground mb-6 text-lg">
-                La facturation est essentielle à votre trésorerie, mais elle est souvent reléguée au second plan. Résultat : retards, oublis et impayés qui impactent directement votre entreprise.
+            </div>
+
+            <div className="space-y-6 order-1 lg:order-2">
+              <h2 className="text-3xl lg:text-4xl font-bold">
+                Les problèmes de la <span className="text-gradient-orange">facturation manuelle</span>
+              </h2>
+
+              <p className="text-lg text-muted-foreground">
+                La facturation est essentielle à votre trésorerie, mais elle est souvent reléguée au second plan. Résultat : retards, oublis et impayés.
               </p>
-              <div className="grid md:grid-cols-2 gap-4">
+
+              <ul className="space-y-3">
                 {[
                   "Factures envoyées en retard, après l'intervention",
                   "Numérotation manuelle source d'erreurs",
                   "Oubli de certaines prestations à facturer",
                   "Impayés non relancés, argent perdu",
-                  "Difficultés à retrouver les factures anciennes",
-                  "Non-conformité aux obligations légales"
+                  "Non-conformité aux obligations légales",
                 ].map((problem, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 bg-destructive/5 rounded-lg">
-                    <span className="text-destructive font-bold">✗</span>
-                    <span className="text-foreground">{problem}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-                Une <span className="text-gradient-orange">facturation</span> sans friction
-              </h2>
-              <p className="text-muted-foreground text-lg">
-                Provia BASE automatise les tâches répétitives pour que vous puissiez facturer sereinement.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  icon: FileCheck,
-                  title: "Création instantanée",
-                  description: "Créez une facture en partant de zéro ou transformez un devis accepté. Numérotation automatique et conforme."
-                },
-                {
-                  icon: Shield,
-                  title: "Conformité garantie",
-                  description: "Mentions légales obligatoires, format conforme aux exigences fiscales. Vos factures sont toujours en règle."
-                },
-                {
-                  icon: Send,
-                  title: "Envoi automatique",
-                  description: "Envoyez la facture par email directement depuis l'application. Le client la reçoit en PDF instantanément."
-                },
-                {
-                  icon: Bell,
-                  title: "Relances automatiques",
-                  description: "Programmez des relances à J+7, J+15, J+30... Le système envoie les rappels à votre place."
-                },
-                {
-                  icon: Euro,
-                  title: "Suivi des paiements",
-                  description: "Marquez les factures comme payées, visualisez le solde client, suivez votre trésorerie en temps réel."
-                },
-                {
-                  icon: PieChart,
-                  title: "Tableaux de bord",
-                  description: "CA mensuel, factures en attente, taux de recouvrement... Tous vos indicateurs en un coup d'œil."
-                }
-              ].map((feature, i) => (
-                <div key={i} className="glass-card p-6 hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <feature.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                <Receipt className="w-8 h-8 text-primary" />
-              </div>
-              <h2 className="text-2xl lg:text-3xl font-bold">
-                Les bénéfices pour votre <span className="text-gradient-orange">trésorerie</span>
-              </h2>
-            </div>
-
-            <div className="glass-card p-6 lg:p-8">
-              <ul className="space-y-4">
-                {[
-                  "Facturation plus rapide = paiement plus rapide",
-                  "Moins d'impayés grâce aux relances automatiques",
-                  "Vision claire de votre chiffre d'affaires",
-                  "Zéro risque d'erreur de numérotation",
-                  "Conformité fiscale assurée",
-                  "Historique complet pour chaque client",
-                  "Export des données simplifié",
-                  "Moins de stress administratif"
-                ].map((benefit, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-provia-teal flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground text-lg">{benefit}</span>
+                    <span className="text-destructive font-bold mt-1">✗</span>
+                    <span className="text-foreground">{problem}</span>
                   </li>
                 ))}
               </ul>
@@ -190,38 +207,143 @@ const Facturation = () => {
         </div>
       </section>
 
-      {/* Related features */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center">
-              Fonctionnalités <span className="text-gradient-orange">complémentaires</span>
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { title: "Devis", href: "/fonctionnalites/devis", desc: "Créez des devis transformables en factures" },
-                { title: "Gestion clients", href: "/fonctionnalites/gestion-clients", desc: "Suivez l'historique facturation" },
-                { title: "Archivage", href: "/fonctionnalites/archivage", desc: "Conservez toutes vos factures" }
-              ].map((item, i) => (
-                <Link key={i} to={item.href} className="glass-card p-6 text-center hover:shadow-lg transition-shadow group">
-                  <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.desc}</p>
-                </Link>
-              ))}
+      <SectionDivider />
+
+      {/* SECTION 3 - Solution */}
+      <section className="py-20 lg:py-32 overflow-hidden">
+        <div className="glow-teal top-1/2 -right-40" />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl lg:text-4xl font-bold">
+                Une <span className="text-gradient-orange">facturation</span> sans friction
+              </h2>
+
+              <p className="text-lg text-muted-foreground">
+                Provia BASE automatise les tâches répétitives pour que vous puissiez facturer sereinement. Transformez vos devis en factures en un clic.
+              </p>
+
+              <ul className="space-y-4">
+                {[
+                  { icon: FileCheck, text: "Création instantanée depuis devis ou zéro" },
+                  { icon: Shield, text: "Conformité garantie (mentions légales)" },
+                  { icon: Send, text: "Envoi automatique par email" },
+                  { icon: Bell, text: "Relances automatiques programmables" },
+                  { icon: Euro, text: "Suivi des paiements en temps réel" },
+                  { icon: PieChart, text: "Tableaux de bord et indicateurs" },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="text-foreground font-medium">{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="relative">
+              <div className="glass-card p-4 lg:p-6 border-primary/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl" />
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                      <Receipt className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">Suivi des paiements</p>
+                      <p className="text-xs text-muted-foreground">Vue d'ensemble</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <div className="p-4 glass-card">
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-sm text-muted-foreground">Taux de recouvrement</span>
+                        <span className="text-lg font-bold text-provia-teal">95%</span>
+                      </div>
+                      <div className="w-full h-2 bg-muted/30 rounded-full">
+                        <div className="h-full bg-provia-teal rounded-full" style={{ width: '95%' }} />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="p-3 glass-card text-center">
+                        <CreditCard className="w-5 h-5 text-provia-teal mx-auto mb-1" />
+                        <p className="text-lg font-bold text-foreground">21 150 €</p>
+                        <p className="text-xs text-muted-foreground">Encaissé</p>
+                      </div>
+                      <div className="p-3 glass-card text-center">
+                        <Clock className="w-5 h-5 text-provia-yellow mx-auto mb-1" />
+                        <p className="text-lg font-bold text-foreground">3 200 €</p>
+                        <p className="text-xs text-muted-foreground">En attente</p>
+                      </div>
+                    </div>
+
+                    <div className="p-3 glass-card bg-provia-teal/5 border-provia-teal/20">
+                      <div className="flex items-center gap-2">
+                        <Bell className="w-4 h-4 text-provia-teal" />
+                        <span className="text-sm text-foreground">2 relances programmées</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 lg:py-24">
+      <SectionDivider />
+
+      {/* SECTION 4 - Bénéfices */}
+      <section className="py-20 lg:py-32 bg-muted/30">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Les bénéfices pour votre <span className="text-gradient-orange">trésorerie</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Facturez plus vite, encaissez plus vite, et gardez le contrôle sur vos finances.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {[
+              { icon: TrendingUp, title: "Paiement rapide", desc: "Facturation rapide = encaissement rapide" },
+              { icon: Bell, title: "Moins d'impayés", desc: "Relances automatiques efficaces" },
+              { icon: PieChart, title: "Vision claire", desc: "CA et trésorerie en temps réel" },
+              { icon: CheckCircle2, title: "Zéro erreur", desc: "Numérotation automatique" },
+              { icon: Shield, title: "Conformité", desc: "Mentions légales obligatoires" },
+              { icon: Receipt, title: "Historique", desc: "Toutes vos factures archivées" },
+              { icon: Send, title: "Envoi facile", desc: "Email direct depuis l'app" },
+              { icon: Clock, title: "Gain de temps", desc: "Automatisation complète" },
+            ].map((benefit, i) => (
+              <div key={i} className="glass-card p-6 text-center hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <benefit.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">{benefit.title}</h3>
+                <p className="text-sm text-muted-foreground">{benefit.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* SECTION 5 - CTA */}
+      <section className="py-20 lg:py-32">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
               Optimisez votre <span className="text-gradient-orange">facturation</span>
             </h2>
-            <p className="text-muted-foreground mb-8 text-lg">
-              Découvrez comment Provia BASE peut améliorer votre trésorerie grâce à une facturation plus efficace. Démonstration gratuite.
+            <p className="text-lg text-muted-foreground mb-8">
+              Découvrez comment Provia BASE peut améliorer votre trésorerie grâce à une facturation plus efficace.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -231,12 +353,9 @@ const Facturation = () => {
                 Demander une démo gratuite
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link
-                to="/#tarifs"
-                className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
-              >
+              <a href="/#tarifs" className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold">
                 Voir les tarifs
-              </Link>
+              </a>
             </div>
           </div>
         </div>

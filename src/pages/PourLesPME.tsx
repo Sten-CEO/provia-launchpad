@@ -3,17 +3,25 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import {
-  Building2,
-  Users,
-  CheckCircle2,
   ArrowRight,
+  Check,
+  AlertTriangle,
+  Building2,
+  Network,
+  Users,
   BarChart3,
   Settings,
   Smartphone,
   Shield,
-  Network,
-  Zap
+  Zap,
+  TrendingUp
 } from "lucide-react";
+
+const SectionDivider = () => (
+  <div className="w-full px-4">
+    <div className="max-w-6xl mx-auto border-t border-[#dcdcdc]" />
+  </div>
+);
 
 const PourLesPME = () => {
   return (
@@ -26,57 +34,189 @@ const PourLesPME = () => {
       />
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <p className="text-primary font-semibold mb-4 text-lg">Logiciel de gestion pour PME</p>
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Logiciel de gestion pour <span className="text-gradient-orange">PME</span> avec équipes terrain
-            </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground mb-8">
-              Votre entreprise grandit et la complexité augmente ? Provia BASE vous offre les outils pour coordonner vos équipes, suivre votre activité et prendre les bonnes décisions. Un logiciel de gestion PME complet, sans la lourdeur des ERP traditionnels.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/demo"
-                className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
-              >
-                Demander une démo gratuite
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                to="/fonctionnalites"
-                className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
-              >
-                Voir les fonctionnalités
-              </Link>
+      {/* HERO Section */}
+      <section className="relative min-h-screen pt-24 lg:pt-32 pb-20 lg:pb-32 overflow-hidden">
+        {/* Background Glows */}
+        <div className="glow-orange top-20 -right-40 animate-pulse-glow" />
+        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow" style={{ animationDelay: '1s' }} />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Content */}
+            <div className="space-y-8 animate-fade-in">
+              <p className="text-primary font-semibold text-lg">Logiciel de gestion pour PME</p>
+              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
+                Logiciel de gestion pour <span className="text-gradient-orange">PME</span> avec équipes terrain
+              </h1>
+
+              <p className="text-lg lg:text-xl text-muted-foreground">
+                Votre entreprise grandit et la complexité augmente ? Provia BASE vous offre les outils pour coordonner vos équipes, suivre votre activité et prendre les bonnes décisions. Un logiciel de gestion PME complet, sans la lourdeur des ERP traditionnels.
+              </p>
+
+              <ul className="space-y-4">
+                {[
+                  { icon: Users, text: "Gestion multi-équipes simplifiée" },
+                  { icon: BarChart3, text: "Tableaux de bord en temps réel" },
+                  { icon: Settings, text: "Workflows personnalisables" },
+                ].map((benefit, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <benefit.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="text-foreground font-medium">{benefit.text}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  to="/demo"
+                  className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
+                >
+                  Demander une démo gratuite
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  to="/fonctionnalites"
+                  className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
+                >
+                  Voir les fonctionnalités
+                </Link>
+              </div>
+
+              <p className="text-sm text-muted-foreground flex flex-wrap items-center gap-2">
+                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Sans engagement</span>
+                <span className="text-border">•</span>
+                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Scalable</span>
+                <span className="text-border">•</span>
+                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Support dédié</span>
+              </p>
+            </div>
+
+            {/* Right - Dashboard Preview */}
+            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="glass-card p-4 lg:p-6 animate-float">
+                {/* Dashboard Header */}
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-semibold text-foreground">Vue consolidée PME</h3>
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-destructive/60" />
+                    <div className="w-3 h-3 rounded-full bg-provia-yellow/60" />
+                    <div className="w-3 h-3 rounded-full bg-provia-teal/60" />
+                  </div>
+                </div>
+
+                {/* Stats Row */}
+                <div className="grid grid-cols-3 gap-3 mb-4">
+                  <div className="glass-card p-3 text-center">
+                    <p className="text-2xl font-bold text-gradient-orange">156 k€</p>
+                    <p className="text-xs text-muted-foreground">CA ce mois</p>
+                  </div>
+                  <div className="glass-card p-3 text-center">
+                    <p className="text-2xl font-bold text-foreground">28</p>
+                    <p className="text-xs text-muted-foreground">Devis en cours</p>
+                  </div>
+                  <div className="glass-card p-3 text-center">
+                    <p className="text-2xl font-bold text-provia-teal">15</p>
+                    <p className="text-xs text-muted-foreground">Techniciens</p>
+                  </div>
+                </div>
+
+                {/* Teams Overview */}
+                <div className="glass-card p-3 mb-3">
+                  <p className="text-xs text-muted-foreground mb-2">Équipes actives</p>
+                  <div className="space-y-2">
+                    {[
+                      { name: "Équipe Nord", count: "5 tech.", color: "bg-blue-500/20 text-blue-600" },
+                      { name: "Équipe Sud", count: "4 tech.", color: "bg-green-500/20 text-green-600" },
+                      { name: "Équipe Est", count: "6 tech.", color: "bg-purple-500/20 text-purple-600" },
+                    ].map((team, i) => (
+                      <div key={i} className="flex items-center justify-between p-2 rounded bg-muted/30">
+                        <span className="text-xs text-foreground font-medium">{team.name}</span>
+                        <span className={`text-[10px] px-2 py-0.5 rounded ${team.color}`}>
+                          {team.count}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Performance Chart Placeholder */}
+                <div className="glass-card p-3">
+                  <p className="text-xs text-muted-foreground mb-2">Performance globale</p>
+                  <div className="flex items-end gap-2 h-16">
+                    {[60, 75, 85, 70, 90, 95, 80].map((height, i) => (
+                      <div key={i} className="flex-1 bg-gradient-to-t from-primary/60 to-primary/20 rounded-t" style={{ height: `${height}%` }} />
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="w-full px-4">
-        <div className="max-w-6xl mx-auto border-t border-[#dcdcdc]" />
-      </div>
+      <SectionDivider />
 
-      {/* Challenges Section */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="glass-card p-6 lg:p-8 mb-8">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <Network className="w-7 h-7 text-primary" />
+      {/* PROBLÈME Section - Inverted */}
+      <section className="relative py-20 lg:py-32 overflow-hidden">
+        <div className="glow-orange bottom-0 left-0" />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left - Mockup */}
+            <div className="relative order-2 lg:order-1 animate-fade-in">
+              <div className="glass-card p-6 relative overflow-hidden">
+                <div className="absolute -top-20 -left-20 w-40 h-40 bg-destructive/10 rounded-full blur-3xl" />
+
+                {/* Problem Illustration */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center">
+                      <AlertTriangle className="w-6 h-6 text-destructive" />
+                    </div>
+                    <h3 className="font-semibold text-lg">Silos d'information</h3>
+                  </div>
+
+                  {[
+                    { label: "Équipe A", info: "Excel local", icon: "👥" },
+                    { label: "Équipe B", info: "Outil différent", icon: "👥" },
+                    { label: "Direction", info: "Données partielles", icon: "📊" },
+                    { label: "Terrain", info: "Appels constants", icon: "📱" },
+                  ].map((item, i) => (
+                    <div key={i} className="glass-card p-4 bg-destructive/5 flex items-center gap-3">
+                      <span className="text-2xl">{item.icon}</span>
+                      <div className="flex-1">
+                        <p className="text-sm font-medium text-foreground">{item.label}</p>
+                        <p className="text-xs text-muted-foreground">{item.info}</p>
+                      </div>
+                      <span className="text-destructive">✗</span>
+                    </div>
+                  ))}
+
+                  <div className="text-center pt-4">
+                    <p className="text-sm text-muted-foreground">= Manque de visibilité</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right - Text */}
+            <div className="order-1 lg:order-2 space-y-6 animate-fade-in">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-destructive/10 flex items-center justify-center">
+                  <Network className="w-7 h-7 text-destructive" />
                 </div>
                 <h2 className="text-2xl lg:text-3xl font-bold">
                   Les défis de la <span className="text-gradient-orange">croissance</span>
                 </h2>
               </div>
-              <p className="text-muted-foreground mb-6 text-lg">
+
+              <p className="text-lg text-muted-foreground">
                 À mesure que votre PME se développe, les processus qui fonctionnaient "à la main" deviennent des freins. La coordination entre services, le suivi des projets et la visibilité sur les performances deviennent critiques.
               </p>
-              <div className="grid md:grid-cols-2 gap-4">
+
+              <div className="space-y-3">
                 {[
                   "Informations dispersées entre plusieurs outils",
                   "Difficultés à coordonner plusieurs équipes",
@@ -84,10 +224,10 @@ const PourLesPME = () => {
                   "Temps perdu en réunions de synchronisation",
                   "Retards dans la facturation et le suivi des paiements",
                   "Difficultés à déléguer sans perdre le contrôle"
-                ].map((challenge, i) => (
+                ].map((problem, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 bg-destructive/5 rounded-lg">
                     <span className="text-destructive font-bold">✗</span>
-                    <span className="text-foreground">{challenge}</span>
+                    <span className="text-foreground">{problem}</span>
                   </div>
                 ))}
               </div>
@@ -96,135 +236,160 @@ const PourLesPME = () => {
         </div>
       </section>
 
-      {/* Solution Section */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl lg:text-3xl font-bold mb-4">
+      <SectionDivider />
+
+      {/* SOLUTION Section */}
+      <section className="relative py-20 lg:py-32 overflow-hidden">
+        <div className="glow-teal top-0 right-0" />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left - Text */}
+            <div className="space-y-6 animate-fade-in">
+              <h2 className="text-2xl lg:text-3xl font-bold">
                 Une <span className="text-gradient-orange">plateforme unifiée</span> pour toute votre activité
               </h2>
-              <p className="text-muted-foreground text-lg">
-                Provia BASE centralise toutes les informations dont vous avez besoin pour piloter votre PME efficacement.
+
+              <p className="text-lg text-muted-foreground">
+                Provia BASE centralise toutes les informations dont vous avez besoin pour piloter votre PME efficacement. Une source unique de vérité pour toute l'entreprise.
               </p>
-            </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  icon: Users,
-                  title: "Gestion multi-équipes",
-                  description: "Créez des équipes, assignez des responsables, suivez les interventions de chaque collaborateur avec des droits d'accès adaptés."
-                },
-                {
-                  icon: BarChart3,
-                  title: "Tableaux de bord avancés",
-                  description: "Visualisez en temps réel le chiffre d'affaires, les devis en cours, les interventions planifiées et les indicateurs clés de performance."
-                },
-                {
-                  icon: Settings,
-                  title: "Workflows personnalisables",
-                  description: "Adaptez Provia BASE à vos processus métier : statuts personnalisés, champs additionnels, modèles de documents."
-                },
-                {
-                  icon: Smartphone,
-                  title: "Application mobile terrain",
-                  description: "Vos techniciens accèdent aux missions, consultent les fiches clients et remontent les informations depuis le terrain."
-                },
-                {
-                  icon: Shield,
-                  title: "Données sécurisées",
-                  description: "Hébergement sécurisé, sauvegardes automatiques, gestion fine des droits utilisateurs pour protéger vos informations."
-                },
-                {
-                  icon: Zap,
-                  title: "Intégrations possibles",
-                  description: "Connectez Provia BASE à vos outils existants : agenda, email, CRM pour un écosystème cohérent."
-                }
-              ].map((feature, i) => (
-                <div key={i} className="glass-card p-6 hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <feature.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                <Building2 className="w-8 h-8 text-primary" />
-              </div>
-              <h2 className="text-2xl lg:text-3xl font-bold">
-                Les bénéfices pour votre <span className="text-gradient-orange">PME</span>
-              </h2>
-            </div>
-
-            <div className="glass-card p-6 lg:p-8">
               <ul className="space-y-4">
                 {[
-                  "Vision 360° de votre activité en temps réel",
-                  "Coordination fluide entre bureau et équipes terrain",
-                  "Réduction des erreurs grâce à la centralisation",
-                  "Accélération du cycle devis → facture → paiement",
-                  "Décisions éclairées grâce aux indicateurs de performance",
-                  "Scalabilité : l'outil grandit avec votre entreprise",
-                  "Déploiement rapide sans projet informatique lourd",
-                  "Accompagnement personnalisé pour votre mise en place"
-                ].map((benefit, i) => (
+                  { icon: Users, title: "Gestion multi-équipes", desc: "Assignez, suivez et coordonnez facilement" },
+                  { icon: BarChart3, title: "Tableaux de bord avancés", desc: "Vision temps réel de votre activité" },
+                  { icon: Settings, title: "Workflows personnalisables", desc: "Adaptez à vos processus métier" },
+                  { icon: Shield, title: "Gestion des droits", desc: "Contrôle fin des accès utilisateurs" },
+                ].map((feature, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-provia-teal flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground text-lg">{benefit}</span>
+                    <div className="w-10 h-10 rounded-xl bg-provia-teal/10 flex items-center justify-center flex-shrink-0">
+                      <feature.icon className="w-5 h-5 text-provia-teal" />
+                    </div>
+                    <div>
+                      <span className="text-foreground font-semibold block">{feature.title}</span>
+                      <span className="text-sm text-muted-foreground">{feature.desc}</span>
+                    </div>
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Sectors */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center">
-              Adapté à tous les <span className="text-gradient-orange">secteurs</span>
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                {
-                  title: "Bâtiment & travaux",
-                  examples: "Entreprises générales, corps d'état, maintenance immobilière"
-                },
-                {
-                  title: "Services techniques",
-                  examples: "Maintenance, dépannage, installation, SAV"
-                },
-                {
-                  title: "Prestations intellectuelles",
-                  examples: "Conseil, formation, expertise, bureaux d'études"
-                }
-              ].map((sector, i) => (
-                <div key={i} className="glass-card p-6 text-center">
-                  <h3 className="font-semibold text-lg mb-2">{sector.title}</h3>
-                  <p className="text-muted-foreground text-sm">{sector.examples}</p>
+            {/* Right - Mockup */}
+            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="glass-card p-6 relative overflow-hidden animate-float">
+                <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-provia-teal/20 rounded-full blur-3xl" />
+
+                {/* Solution Illustration */}
+                <div className="space-y-4 relative z-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-provia-teal/10 flex items-center justify-center">
+                      <Check className="w-6 h-6 text-provia-teal" />
+                    </div>
+                    <h3 className="font-semibold text-lg">Hub centralisé</h3>
+                  </div>
+
+                  <div className="glass-card p-4 bg-provia-teal/5">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Building2 className="w-5 h-5 text-provia-teal" />
+                      <span className="font-semibold text-sm">Provia BASE - Tous connectés</span>
+                    </div>
+
+                    <div className="space-y-2">
+                      {[
+                        { label: "Direction", access: "Vue 360°", icon: BarChart3 },
+                        { label: "Équipes", access: "Missions & planning", icon: Users },
+                        { label: "Terrain", access: "App mobile", icon: Smartphone },
+                      ].map((item, i) => (
+                        <div key={i} className="glass-card p-3 flex items-center gap-3">
+                          <item.icon className="w-4 h-4 text-provia-teal" />
+                          <div className="flex-1">
+                            <p className="text-xs font-medium text-foreground">{item.label}</p>
+                            <p className="text-[10px] text-muted-foreground">{item.access}</p>
+                          </div>
+                          <Check className="w-4 h-4 text-provia-teal" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="text-center pt-4">
+                    <p className="text-sm font-semibold text-provia-teal">= Coordination parfaite</p>
+                  </div>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      <SectionDivider />
+
+      {/* BÉNÉFICES Section - Cards Grid */}
+      <section className="py-20 lg:py-32">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+                <Building2 className="w-8 h-8 text-primary" />
+              </div>
+            </div>
+            <h2 className="text-2xl lg:text-3xl font-bold mb-4">
+              Les bénéfices pour votre <span className="text-gradient-orange">PME</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Transformez votre organisation et accélérez votre croissance
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[
+              {
+                icon: BarChart3,
+                title: "Vision 360°",
+                description: "Visualisez toute votre activité en temps réel"
+              },
+              {
+                icon: Users,
+                title: "Coordination fluide",
+                description: "Bureau et équipes terrain synchronisés"
+              },
+              {
+                icon: Shield,
+                title: "Réduction des erreurs",
+                description: "Centralisation et automatisation"
+              },
+              {
+                icon: TrendingUp,
+                title: "Décisions éclairées",
+                description: "Indicateurs de performance en temps réel"
+              },
+              {
+                icon: Zap,
+                title: "Scalabilité",
+                description: "L'outil grandit avec votre entreprise"
+              },
+              {
+                icon: Settings,
+                title: "Déploiement rapide",
+                description: "Sans projet informatique lourd"
+              },
+            ].map((benefit, i) => (
+              <div key={i} className="glass-card p-6 hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 rounded-xl bg-provia-teal/10 flex items-center justify-center mb-4">
+                  <benefit.icon className="w-6 h-6 text-provia-teal" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
+                <p className="text-muted-foreground">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
       {/* CTA Final */}
-      <section className="py-16 lg:py-24">
+      <section className="py-20 lg:py-32">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl lg:text-3xl font-bold mb-6">

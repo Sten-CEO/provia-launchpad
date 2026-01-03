@@ -3,16 +3,25 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 import {
-  Store,
-  CheckCircle2,
   ArrowRight,
+  Check,
+  AlertTriangle,
+  Store,
+  GitBranch,
   Building2,
   BarChart3,
   Users,
-  Smartphone,
   Shield,
-  GitBranch
+  Smartphone,
+  Zap,
+  Settings
 } from "lucide-react";
+
+const SectionDivider = () => (
+  <div className="w-full px-4">
+    <div className="max-w-6xl mx-auto border-t border-[#dcdcdc]" />
+  </div>
+);
 
 const PourLesFranchises = () => {
   return (
@@ -25,57 +34,198 @@ const PourLesFranchises = () => {
       />
       <Navbar />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <p className="text-primary font-semibold mb-4 text-lg">Logiciel de gestion pour franchises</p>
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Logiciel de gestion pour <span className="text-gradient-orange">franchises</span> et réseaux d'agences
-            </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground mb-8">
-              Vous gérez un réseau de franchises ou plusieurs agences ? Provia BASE centralise la gestion de tous vos points de vente. Vision consolidée, autonomie locale, reporting unifié. Gardez le contrôle tout en donnant de la flexibilité à vos franchisés.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/demo"
-                className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
-              >
-                Demander une démo réseau
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                to="/fonctionnalites"
-                className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
-              >
-                Voir les fonctionnalités
-              </Link>
+      {/* HERO Section */}
+      <section className="relative min-h-screen pt-24 lg:pt-32 pb-20 lg:pb-32 overflow-hidden">
+        {/* Background Glows */}
+        <div className="glow-orange top-20 -right-40 animate-pulse-glow" />
+        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow" style={{ animationDelay: '1s' }} />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Content */}
+            <div className="space-y-8 animate-fade-in">
+              <p className="text-primary font-semibold text-lg">Logiciel de gestion pour franchises</p>
+              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
+                Logiciel de gestion pour <span className="text-gradient-orange">franchises</span> et réseaux d'agences
+              </h1>
+
+              <p className="text-lg lg:text-xl text-muted-foreground">
+                Vous gérez un réseau de franchises ou plusieurs agences ? Provia BASE centralise la gestion de tous vos points de vente. Vision consolidée, autonomie locale, reporting unifié. Gardez le contrôle tout en donnant de la flexibilité à vos franchisés.
+              </p>
+
+              <ul className="space-y-4">
+                {[
+                  { icon: Building2, text: "Gestion multi-sites centralisée" },
+                  { icon: BarChart3, text: "Reporting consolidé réseau" },
+                  { icon: Users, text: "Gestion des droits par site" },
+                ].map((benefit, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <benefit.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="text-foreground font-medium">{benefit.text}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  to="/demo"
+                  className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
+                >
+                  Demander une démo réseau
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  to="/fonctionnalites"
+                  className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
+                >
+                  Voir les fonctionnalités
+                </Link>
+              </div>
+
+              <p className="text-sm text-muted-foreground flex flex-wrap items-center gap-2">
+                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Multi-sites</span>
+                <span className="text-border">•</span>
+                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Données cloisonnées</span>
+                <span className="text-border">•</span>
+                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Reporting unifié</span>
+              </p>
+            </div>
+
+            {/* Right - Dashboard Preview */}
+            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="glass-card p-4 lg:p-6 animate-float">
+                {/* Dashboard Header */}
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-semibold text-foreground">Vue réseau franchise</h3>
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-destructive/60" />
+                    <div className="w-3 h-3 rounded-full bg-provia-yellow/60" />
+                    <div className="w-3 h-3 rounded-full bg-provia-teal/60" />
+                  </div>
+                </div>
+
+                {/* Stats Row */}
+                <div className="grid grid-cols-3 gap-3 mb-4">
+                  <div className="glass-card p-3 text-center">
+                    <p className="text-2xl font-bold text-gradient-orange">12</p>
+                    <p className="text-xs text-muted-foreground">Agences</p>
+                  </div>
+                  <div className="glass-card p-3 text-center">
+                    <p className="text-2xl font-bold text-foreground">845 k€</p>
+                    <p className="text-xs text-muted-foreground">CA Total</p>
+                  </div>
+                  <div className="glass-card p-3 text-center">
+                    <p className="text-2xl font-bold text-provia-teal">48</p>
+                    <p className="text-xs text-muted-foreground">Techniciens</p>
+                  </div>
+                </div>
+
+                {/* Sites List */}
+                <div className="glass-card p-3 mb-3">
+                  <p className="text-xs text-muted-foreground mb-2">Performance par site</p>
+                  <div className="space-y-2">
+                    {[
+                      { name: "Paris Nord", ca: "125 k€", perf: 95, color: "bg-green-500" },
+                      { name: "Lyon Est", ca: "98 k€", perf: 85, color: "bg-blue-500" },
+                      { name: "Marseille Sud", ca: "87 k€", perf: 78, color: "bg-yellow-500" },
+                      { name: "Toulouse", ca: "72 k€", perf: 70, color: "bg-orange-500" },
+                    ].map((site, i) => (
+                      <div key={i} className="p-2 rounded bg-muted/30">
+                        <div className="flex items-center justify-between mb-1.5">
+                          <span className="text-xs font-medium text-foreground">{site.name}</span>
+                          <span className="text-[10px] text-muted-foreground">{site.ca}</span>
+                        </div>
+                        <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
+                          <div className={`h-full ${site.color}`} style={{ width: `${site.perf}%` }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Network Stats */}
+                <div className="glass-card p-3">
+                  <p className="text-xs text-muted-foreground mb-2">Réseau consolidé</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="text-center p-2 bg-primary/5 rounded">
+                      <p className="text-lg font-bold text-primary">156</p>
+                      <p className="text-[10px] text-muted-foreground">Devis actifs</p>
+                    </div>
+                    <div className="text-center p-2 bg-provia-teal/5 rounded">
+                      <p className="text-lg font-bold text-provia-teal">89</p>
+                      <p className="text-[10px] text-muted-foreground">Interventions</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="w-full px-4">
-        <div className="max-w-6xl mx-auto border-t border-[#dcdcdc]" />
-      </div>
+      <SectionDivider />
 
-      {/* Problem Section */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="glass-card p-6 lg:p-8">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <GitBranch className="w-7 h-7 text-primary" />
+      {/* PROBLÈME Section - Inverted */}
+      <section className="relative py-20 lg:py-32 overflow-hidden">
+        <div className="glow-orange bottom-0 left-0" />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left - Mockup */}
+            <div className="relative order-2 lg:order-1 animate-fade-in">
+              <div className="glass-card p-6 relative overflow-hidden">
+                <div className="absolute -top-20 -left-20 w-40 h-40 bg-destructive/10 rounded-full blur-3xl" />
+
+                {/* Problem Illustration */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center">
+                      <AlertTriangle className="w-6 h-6 text-destructive" />
+                    </div>
+                    <h3 className="font-semibold text-lg">Données éparpillées</h3>
+                  </div>
+
+                  {[
+                    { site: "Agence A", tool: "Excel local", icon: "🏢" },
+                    { site: "Agence B", tool: "Autre système", icon: "🏢" },
+                    { site: "Agence C", tool: "Papier", icon: "🏢" },
+                    { site: "Siège", tool: "Pas de vue globale", icon: "🏛️" },
+                  ].map((item, i) => (
+                    <div key={i} className="glass-card p-4 bg-destructive/5 flex items-center gap-3">
+                      <span className="text-2xl">{item.icon}</span>
+                      <div className="flex-1">
+                        <p className="text-sm font-medium text-foreground">{item.site}</p>
+                        <p className="text-xs text-muted-foreground">{item.tool}</p>
+                      </div>
+                      <span className="text-destructive">✗</span>
+                    </div>
+                  ))}
+
+                  <div className="text-center pt-4">
+                    <p className="text-sm text-muted-foreground">= Impossible à piloter</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right - Text */}
+            <div className="order-1 lg:order-2 space-y-6 animate-fade-in">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-destructive/10 flex items-center justify-center">
+                  <GitBranch className="w-7 h-7 text-destructive" />
                 </div>
                 <h2 className="text-2xl lg:text-3xl font-bold">
                   Les défis de la gestion <span className="text-gradient-orange">multi-sites</span>
                 </h2>
               </div>
-              <p className="text-muted-foreground mb-6 text-lg">
+
+              <p className="text-lg text-muted-foreground">
                 Piloter un réseau de franchises ou d'agences implique de jongler entre vision globale et gestion locale. Sans outil adapté, vous perdez en visibilité et vos franchisés manquent d'autonomie.
               </p>
-              <div className="grid md:grid-cols-2 gap-4">
+
+              <div className="space-y-3">
                 {[
                   "Données éparpillées entre les différents sites",
                   "Pas de vision consolidée de l'activité réseau",
@@ -95,135 +245,165 @@ const PourLesFranchises = () => {
         </div>
       </section>
 
-      {/* Solution Section */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl lg:text-3xl font-bold mb-4">
+      <SectionDivider />
+
+      {/* SOLUTION Section */}
+      <section className="relative py-20 lg:py-32 overflow-hidden">
+        <div className="glow-teal top-0 right-0" />
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left - Text */}
+            <div className="space-y-6 animate-fade-in">
+              <h2 className="text-2xl lg:text-3xl font-bold">
                 Une <span className="text-gradient-orange">plateforme unifiée</span> pour tout votre réseau
               </h2>
-              <p className="text-muted-foreground text-lg">
-                Provia BASE s'adapte aux besoins des réseaux de franchises et d'agences multiples.
+
+              <p className="text-lg text-muted-foreground">
+                Provia BASE s'adapte aux besoins des réseaux de franchises et d'agences multiples. Chaque site reste autonome tout en contribuant à une vision d'ensemble.
               </p>
-            </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  icon: Building2,
-                  title: "Gestion multi-sites",
-                  description: "Chaque franchise ou agence dispose de son espace, avec ses clients, ses équipes et ses documents. Tout reste cloisonné et sécurisé."
-                },
-                {
-                  icon: BarChart3,
-                  title: "Reporting consolidé",
-                  description: "Visualisez les performances de l'ensemble du réseau depuis un tableau de bord unique. Comparez les sites, identifiez les meilleures pratiques."
-                },
-                {
-                  icon: Users,
-                  title: "Gestion des droits",
-                  description: "Définissez précisément ce que chaque franchisé peut voir et faire. Le siège garde la main sur les paramètres stratégiques."
-                },
-                {
-                  icon: Shield,
-                  title: "Processus standardisés",
-                  description: "Imposez les mêmes modèles de devis, factures et rapports à tout le réseau. Garantissez une image de marque cohérente."
-                },
-                {
-                  icon: Smartphone,
-                  title: "Application terrain unifiée",
-                  description: "Les techniciens de toutes les agences utilisent la même application. Formation simplifiée, mobilité entre sites facilitée."
-                },
-                {
-                  icon: Store,
-                  title: "Déploiement rapide",
-                  description: "Ouvrez une nouvelle franchise en quelques clics. Dupliquez les paramètres d'un site existant pour aller plus vite."
-                }
-              ].map((feature, i) => (
-                <div key={i} className="glass-card p-6 hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <feature.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                <Store className="w-8 h-8 text-primary" />
-              </div>
-              <h2 className="text-2xl lg:text-3xl font-bold">
-                Les avantages pour votre <span className="text-gradient-orange">réseau</span>
-              </h2>
-            </div>
-
-            <div className="glass-card p-6 lg:p-8">
               <ul className="space-y-4">
                 {[
-                  "Vision globale de l'activité de tout le réseau",
-                  "Autonomie des franchisés dans un cadre maîtrisé",
-                  "Comparaison des performances entre sites",
-                  "Processus et documents harmonisés",
-                  "Déploiement rapide de nouvelles agences",
-                  "Mobilité des équipes entre les sites",
-                  "Economies d'échelle sur les licences",
-                  "Support et formation mutualisés"
-                ].map((benefit, i) => (
+                  { icon: Building2, title: "Gestion multi-sites", desc: "Chaque agence a son espace sécurisé" },
+                  { icon: BarChart3, title: "Reporting consolidé", desc: "Vue globale depuis un seul tableau de bord" },
+                  { icon: Users, title: "Gestion des droits", desc: "Contrôle précis pour chaque franchisé" },
+                  { icon: Shield, title: "Processus standardisés", desc: "Mêmes modèles pour tout le réseau" },
+                ].map((feature, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-provia-teal flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground text-lg">{benefit}</span>
+                    <div className="w-10 h-10 rounded-xl bg-provia-teal/10 flex items-center justify-center flex-shrink-0">
+                      <feature.icon className="w-5 h-5 text-provia-teal" />
+                    </div>
+                    <div>
+                      <span className="text-foreground font-semibold block">{feature.title}</span>
+                      <span className="text-sm text-muted-foreground">{feature.desc}</span>
+                    </div>
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Use Cases */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-8 text-center">
-              Types de <span className="text-gradient-orange">réseaux</span> concernés
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                {
-                  title: "Franchises artisanales",
-                  examples: "Plomberie, électricité, serrurerie, dépannage"
-                },
-                {
-                  title: "Réseaux de services",
-                  examples: "Nettoyage, maintenance, sécurité, espaces verts"
-                },
-                {
-                  title: "Agences régionales",
-                  examples: "Entreprises multi-sites, filiales, succursales"
-                }
-              ].map((useCase, i) => (
-                <div key={i} className="glass-card p-6 text-center">
-                  <h3 className="font-semibold text-lg mb-2">{useCase.title}</h3>
-                  <p className="text-muted-foreground text-sm">{useCase.examples}</p>
+            {/* Right - Mockup */}
+            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="glass-card p-6 relative overflow-hidden animate-float">
+                <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-provia-teal/20 rounded-full blur-3xl" />
+
+                {/* Solution Illustration */}
+                <div className="space-y-4 relative z-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-provia-teal/10 flex items-center justify-center">
+                      <Check className="w-6 h-6 text-provia-teal" />
+                    </div>
+                    <h3 className="font-semibold text-lg">Réseau unifié</h3>
+                  </div>
+
+                  {/* Network Diagram */}
+                  <div className="glass-card p-4 bg-provia-teal/5">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Store className="w-5 h-5 text-provia-teal" />
+                      <span className="font-semibold text-sm">Provia BASE - Réseau</span>
+                    </div>
+
+                    <div className="space-y-2">
+                      <div className="glass-card p-3 bg-primary/5">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Building2 className="w-4 h-4 text-primary" />
+                          <span className="text-xs font-medium">Siège</span>
+                        </div>
+                        <p className="text-[10px] text-muted-foreground">Vue consolidée + paramétrage global</p>
+                        <Check className="w-4 h-4 text-provia-teal ml-auto" />
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2">
+                        {["Agence A", "Agence B", "Agence C", "Agence D"].map((agence, i) => (
+                          <div key={i} className="glass-card p-2 bg-background/50 text-center">
+                            <Store className="w-3 h-3 text-provia-teal mx-auto mb-1" />
+                            <p className="text-[9px] font-medium text-foreground">{agence}</p>
+                            <p className="text-[8px] text-muted-foreground">Autonome</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-center pt-4">
+                    <p className="text-sm font-semibold text-provia-teal">= Pilotage simplifié</p>
+                  </div>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      <SectionDivider />
+
+      {/* BÉNÉFICES Section - Cards Grid */}
+      <section className="py-20 lg:py-32">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+                <Store className="w-8 h-8 text-primary" />
+              </div>
+            </div>
+            <h2 className="text-2xl lg:text-3xl font-bold mb-4">
+              Les avantages pour votre <span className="text-gradient-orange">réseau</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Développez votre franchise en gardant le contrôle
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[
+              {
+                icon: BarChart3,
+                title: "Vision globale",
+                description: "Suivez l'activité de tout le réseau en temps réel"
+              },
+              {
+                icon: Building2,
+                title: "Autonomie locale",
+                description: "Chaque franchisé gère son agence librement"
+              },
+              {
+                icon: Users,
+                title: "Comparaison sites",
+                description: "Identifiez les meilleures pratiques"
+              },
+              {
+                icon: Shield,
+                title: "Processus harmonisés",
+                description: "Documents et workflows uniformes"
+              },
+              {
+                icon: Zap,
+                title: "Déploiement rapide",
+                description: "Nouvelle agence opérationnelle en minutes"
+              },
+              {
+                icon: Smartphone,
+                title: "App terrain unifiée",
+                description: "Même outil pour tous les techniciens"
+              },
+            ].map((benefit, i) => (
+              <div key={i} className="glass-card p-6 hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 rounded-xl bg-provia-teal/10 flex items-center justify-center mb-4">
+                  <benefit.icon className="w-6 h-6 text-provia-teal" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
+                <p className="text-muted-foreground">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
       {/* CTA Final */}
-      <section className="py-16 lg:py-24">
+      <section className="py-20 lg:py-32">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl lg:text-3xl font-bold mb-6">
