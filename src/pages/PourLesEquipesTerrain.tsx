@@ -43,7 +43,7 @@ const PourLesEquipesTerrain = () => {
         <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 max-sm:pt-20">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left Content */}
-            <div className="space-y-6 sm:space-y-8 animate-fade-in">
+            <div className="space-y-6 sm:space-y-8 animate-fade-in max-sm:text-center">
               <span className="inline-block text-primary font-medium text-xs sm:text-lg tracking-wide max-sm:px-3 max-sm:py-1.5 max-sm:border max-sm:border-primary/40 max-sm:rounded-full max-sm:bg-primary/5">Application pour équipes terrain</span>
               <h1 className="text-[1.65rem] leading-[1.25] sm:text-4xl lg:text-5xl font-medium sm:font-bold tracking-tight">
                 <span className="text-gradient-orange">Application mobile</span> pour équipes terrain et techniciens
@@ -87,12 +87,12 @@ const PourLesEquipesTerrain = () => {
                 </Link>
               </div>
 
-              <p className="text-sm text-muted-foreground flex flex-wrap items-center gap-2">
+              <p className="text-sm text-muted-foreground flex flex-wrap items-center gap-2 max-sm:justify-center">
                 <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> iOS & Android</span>
-                <span className="text-border">•</span>
+                <span className="text-border max-sm:hidden">•</span>
                 <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Mode offline</span>
-                <span className="text-border">•</span>
-                <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Facile à utiliser</span>
+                <span className="text-border max-sm:hidden">•</span>
+                <span className="flex items-center gap-1 max-sm:hidden"><Check className="w-4 h-4 text-provia-teal" /> Facile à utiliser</span>
               </p>
             </div>
 
