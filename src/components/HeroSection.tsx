@@ -10,7 +10,7 @@ export const HeroSection = () => {
       <div className="glow-teal top-1/2 -left-60 animate-pulse-glow opacity-15 sm:opacity-100" style={{ animationDelay: '1s' }} />
 
       {/* Hero Image - Mobile only, full width, directly under navbar */}
-      <div className="sm:hidden w-full relative -mt-14">
+      <div className="sm:hidden w-full relative -mt-[3.5rem]">
         <img
           src={proviaMainImage}
           alt="Entrepreneur satisfait utilisant Provia BASE"
