@@ -54,19 +54,48 @@ const GestionEquipes = () => {
         <div className="glow-teal top-1/2 -left-60 opacity-30 animate-pulse-glow max-sm:hidden" style={{ animationDelay: '1s' }} />
 
         <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 max-sm:pt-20">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="space-y-6 animate-fade-in max-sm:max-w-[85%]">
-              <span className="inline-block text-primary font-medium text-xs sm:text-lg max-sm:px-3 max-sm:py-1.5 max-sm:border max-sm:border-primary/40 max-sm:rounded-full max-sm:bg-primary/5">Fonctionnalité Gestion équipes</span>
-              <h1 className="text-[1.65rem] leading-[1.25] font-medium tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl sm:font-bold">
-                <span className="sm:hidden">Gestion des <span className="text-gradient-orange">équipes</span> terrain</span>
-                <span className="hidden sm:inline">Logiciel de <span className="text-gradient-orange">gestion des équipes</span> terrain</span>
+          {/* Mobile: Badge + Headline only at top left */}
+          <div className="sm:hidden space-y-4 animate-fade-in max-w-[75%] mb-8">
+            <span className="inline-block text-primary font-medium text-xs px-3 py-1.5 border border-primary/40 rounded-full bg-primary/5">Fonctionnalité Gestion équipes</span>
+            <h1 className="text-[1.65rem] leading-[1.25] font-medium tracking-tight">
+              Gestion des <span className="text-gradient-orange">équipes</span> terrain
+            </h1>
+          </div>
+
+          {/* Mobile: Centered content below */}
+          <div className="sm:hidden text-center space-y-6 animate-fade-in">
+            <p className="text-sm text-muted-foreground max-w-md mx-auto">
+              Coordonnez vos techniciens et suivez leur activité en temps réel. Fini les appels et SMS incessants.
+            </p>
+
+            <div className="flex flex-col gap-3 items-center">
+              <Link to="/demo" className="btn-primary text-center text-sm px-6 py-3 w-full max-w-xs">
+                Voir le module en démo
+              </Link>
+              <a href="/#tarifs" className="text-primary underline underline-offset-4 text-sm font-medium">
+                Voir les tarifs
+              </a>
+            </div>
+
+            <p className="text-xs text-muted-foreground flex flex-wrap items-center justify-center gap-3">
+              <span className="flex items-center gap-1"><Check className="w-3 h-3 text-provia-teal" /> Sans engagement</span>
+              <span className="flex items-center gap-1"><Check className="w-3 h-3 text-provia-teal" /> App mobile incluse</span>
+            </p>
+          </div>
+
+          {/* Desktop: Original 2-column layout */}
+          <div className="hidden sm:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="space-y-6 animate-fade-in">
+              <span className="inline-block text-primary font-medium text-lg">Fonctionnalité Gestion équipes</span>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight">
+                Logiciel de <span className="text-gradient-orange">gestion des équipes</span> terrain
               </h1>
 
-              <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground sm:max-w-xl">
+              <p className="text-lg lg:text-xl text-muted-foreground max-w-xl">
                 Coordonnez vos techniciens, affectez les missions et suivez l'activité de chacun en temps réel. Fini les appels et SMS incessants.
               </p>
 
-              <ul className="space-y-3 sm:space-y-4">
+              <ul className="space-y-4">
                 {[
                   { icon: Users, text: "Vision globale de toutes vos équipes" },
                   { icon: Calendar, text: "Plannings centralisés et partagés" },
@@ -81,11 +110,11 @@ const GestionEquipes = () => {
                 ))}
               </ul>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/demo" className="btn-primary text-center text-sm sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
+              <div className="flex flex-row gap-4">
+                <Link to="/demo" className="btn-primary text-center text-lg px-8 py-4">
                   Voir la gestion d'équipes
                 </Link>
-                <a href="/#tarifs" className="btn-secondary text-center text-sm sm:text-lg px-6 sm:px-8 py-3 sm:py-4 max-sm:bg-transparent max-sm:border-0 max-sm:underline max-sm:underline-offset-4">
+                <a href="/#tarifs" className="btn-secondary text-center text-lg px-8 py-4">
                   Voir les tarifs
                 </a>
               </div>
