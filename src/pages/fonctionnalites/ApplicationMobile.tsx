@@ -38,14 +38,15 @@ const ApplicationMobile = () => {
 
       {/* SECTION 1 - HERO (2 colonnes) */}
       <section className="relative min-h-[100dvh] flex flex-col justify-center max-sm:py-0 pt-16 sm:pt-32 pb-8 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
-        {/* Mobile Hero Image - App mockup on right with fade */}
-        <div className="sm:hidden absolute inset-y-0 -right-8 w-[55%] z-0 flex items-center">
+        {/* Mobile Hero Image - App mockup on right, top section only */}
+        <div className="sm:hidden absolute top-0 -right-4 w-[45%] h-[65%] z-0">
           <div
-            className="absolute inset-0 bg-contain bg-center bg-no-repeat"
+            className="absolute inset-0 bg-contain bg-top bg-no-repeat"
             style={{ backgroundImage: `url(${heroImageApp})` }}
           />
-          {/* Gradient fade to left */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+          {/* Gradient fade to left and bottom */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
 
         <div className="glow-orange top-20 -right-40 opacity-30 animate-pulse-glow max-sm:hidden" />
