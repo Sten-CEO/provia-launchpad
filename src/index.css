@@ -331,6 +331,11 @@
     padding-bottom: 2.5rem;
   }
 
+  /* Hero section - no top padding on mobile */
+  section:first-of-type {
+    padding-top: 0;
+  }
+
   /* Badge global styles - NEVER cut off */
   .badge-popular {
     position: relative;
