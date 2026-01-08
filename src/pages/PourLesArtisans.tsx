@@ -9,14 +9,15 @@ const PourLesArtisans = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative min-h-[100dvh] sm:min-h-screen pt-16 sm:pt-24 lg:pt-32 pb-8 sm:pb-20 lg:pb-32 overflow-hidden flex flex-col justify-center max-sm:py-0">
+      <section className="relative min-h-[100dvh] sm:min-h-screen pt-16 sm:pt-24 lg:pt-32 pb-8 sm:pb-20 lg:pb-32 overflow-hidden flex flex-col max-sm:justify-start justify-center max-sm:py-0">
         {/* Background Glows */}
-        <div className="glow-orange top-20 -right-40 animate-pulse-glow opacity-30 sm:opacity-100" />
-        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow opacity-25 sm:opacity-100" style={{ animationDelay: '1s' }} />
+        <div className="glow-orange top-20 -right-40 animate-pulse-glow opacity-30 sm:opacity-100 max-sm:hidden" />
+        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow opacity-25 sm:opacity-100 max-sm:hidden" style={{ animationDelay: '1s' }} />
 
-        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 max-sm:pt-14">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 max-sm:pt-20">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-[1.65rem] leading-[1.25] sm:text-4xl lg:text-5xl font-medium sm:font-bold mb-6 tracking-tight">
+            <span className="inline-block text-primary font-medium text-xs sm:text-lg mb-4 sm:mb-0 max-sm:px-3 max-sm:py-1.5 max-sm:border max-sm:border-primary/40 max-sm:rounded-full max-sm:bg-primary/5">Pour les Artisans</span>
+            <h1 className="text-[1.65rem] leading-[1.25] sm:text-4xl lg:text-5xl font-medium sm:font-bold mb-6 tracking-tight max-sm:mt-4">
               <span className="sm:hidden">Logiciel de gestion pour <span className="text-gradient-orange">artisans</span> et TPE/PME</span>
               <span className="hidden sm:inline">Un logiciel de gestion pour <span className="text-gradient-orange">artisans</span> et TPE/PME avec équipes terrain</span>
             </h1>

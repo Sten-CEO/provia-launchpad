@@ -35,16 +35,16 @@ const PourLesEquipesTerrain = () => {
       <Navbar />
 
       {/* HERO Section */}
-      <section className="relative min-h-[100dvh] sm:min-h-screen pt-16 sm:pt-24 lg:pt-32 pb-8 sm:pb-20 lg:pb-32 overflow-hidden flex flex-col justify-center max-sm:py-0">
+      <section className="relative min-h-[100dvh] sm:min-h-screen pt-16 sm:pt-24 lg:pt-32 pb-8 sm:pb-20 lg:pb-32 overflow-hidden flex flex-col max-sm:justify-start justify-center max-sm:py-0">
         {/* Background Glows */}
-        <div className="glow-orange top-20 -right-40 animate-pulse-glow opacity-30 sm:opacity-100" />
-        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow opacity-25 sm:opacity-100" style={{ animationDelay: '1s' }} />
+        <div className="glow-orange top-20 -right-40 animate-pulse-glow opacity-30 sm:opacity-100 max-sm:hidden" />
+        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow opacity-25 sm:opacity-100 max-sm:hidden" style={{ animationDelay: '1s' }} />
 
-        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 max-sm:pt-14">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 max-sm:pt-20">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left Content */}
             <div className="space-y-6 sm:space-y-8 animate-fade-in">
-              <p className="text-primary font-medium text-xs sm:text-lg tracking-wide">Application pour équipes terrain</p>
+              <span className="inline-block text-primary font-medium text-xs sm:text-lg tracking-wide max-sm:px-3 max-sm:py-1.5 max-sm:border max-sm:border-primary/40 max-sm:rounded-full max-sm:bg-primary/5">Application pour équipes terrain</span>
               <h1 className="text-[1.65rem] leading-[1.25] sm:text-4xl lg:text-5xl font-medium sm:font-bold tracking-tight">
                 <span className="text-gradient-orange">Application mobile</span> pour équipes terrain et techniciens
               </h1>
