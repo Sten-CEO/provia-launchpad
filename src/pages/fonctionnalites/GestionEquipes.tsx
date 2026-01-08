@@ -39,30 +39,30 @@ const GestionEquipes = () => {
 
       {/* SECTION 1 - HERO */}
       <section className="relative min-h-[100dvh] flex flex-col max-sm:justify-start justify-center max-sm:py-0 pt-16 sm:pt-32 pb-8 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
-        {/* Mobile Hero Image - Full width at top */}
-        <div className="sm:hidden w-full pt-12">
-          <img
-            src={heroImageGestion}
-            alt="Gestion équipes Provia BASE"
-            className="w-full h-auto"
-            style={{
-              maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
-            }}
+        {/* Mobile Hero Image - Right side, top section only */}
+        <div className="sm:hidden absolute top-0 -right-4 w-[40%] h-[55%] z-0">
+          <div
+            className="absolute inset-0 bg-contain bg-top bg-no-repeat"
+            style={{ backgroundImage: `url(${heroImageGestion})` }}
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
 
         <div className="glow-orange top-20 -right-40 opacity-30 animate-pulse-glow max-sm:hidden" />
         <div className="glow-teal top-1/2 -left-60 opacity-30 animate-pulse-glow max-sm:hidden" style={{ animationDelay: '1s' }} />
 
-        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
-          {/* Mobile: All content below image */}
-          <div className="sm:hidden text-center space-y-5 animate-fade-in -mt-8">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 max-sm:pt-20">
+          {/* Mobile: Badge + Headline at top left ON the image */}
+          <div className="sm:hidden space-y-4 animate-fade-in max-w-[75%] mb-8">
             <span className="inline-block text-primary font-medium text-xs px-3 py-1.5 border border-primary/40 rounded-full bg-primary/5">Fonctionnalité Gestion équipes</span>
             <h1 className="text-[1.65rem] leading-[1.25] font-medium tracking-tight">
               Gestion des <span className="text-gradient-orange">équipes</span> terrain
             </h1>
+          </div>
 
+          {/* Mobile: Content below image */}
+          <div className="sm:hidden text-center space-y-5 animate-fade-in">
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
               Coordonnez vos techniciens et suivez leur activité en temps réel. Fini les appels et SMS incessants.
             </p>
