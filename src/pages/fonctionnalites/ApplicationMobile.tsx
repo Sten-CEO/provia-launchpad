@@ -17,7 +17,7 @@ import {
   FileText,
   Clock
 } from "lucide-react";
-import heroImageApp from "@/assets/application-mobile.png";
+import heroImageApp from "@/assets/Gestion terrain.png";
 
 const SectionDivider = () => (
   <div className="w-full px-4">
@@ -66,6 +66,22 @@ const ApplicationMobile = () => {
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
               Missions, fiches clients, rapports et signature. Fonctionne même sans connexion internet.
             </p>
+
+            {/* Mobile: Icons with descriptions */}
+            <ul className="space-y-3 text-left max-w-xs mx-auto">
+              {[
+                { icon: Download, text: "Accès aux missions en temps réel" },
+                { icon: Camera, text: "Photos et signature sur place" },
+                { icon: Wifi, text: "Fonctionne hors ligne" },
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-4 h-4 text-primary" />
+                  </div>
+                  <span className="text-foreground text-sm font-medium">{item.text}</span>
+                </li>
+              ))}
+            </ul>
 
             <div className="flex flex-col gap-3 items-center">
               <Link to="/demo" className="btn-primary text-center text-sm px-6 py-3 w-full max-w-xs">

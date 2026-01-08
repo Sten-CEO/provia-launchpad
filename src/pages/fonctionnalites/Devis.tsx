@@ -66,6 +66,22 @@ const Devis = () => {
               Créez des devis professionnels en 2 minutes. Envoi automatique, suivi des relances, conversion en facture.
             </p>
 
+            {/* Mobile: Icons with descriptions */}
+            <ul className="space-y-3 text-left max-w-xs mx-auto">
+              {[
+                { icon: Zap, text: "Création de devis en 2 minutes" },
+                { icon: Palette, text: "Personnalisation à votre image" },
+                { icon: Send, text: "Envoi et suivi automatisés" },
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-4 h-4 text-primary" />
+                  </div>
+                  <span className="text-foreground text-sm font-medium">{item.text}</span>
+                </li>
+              ))}
+            </ul>
+
             <div className="flex flex-col gap-3 items-center">
               <Link to="/demo" className="btn-primary text-center text-sm px-6 py-3 w-full max-w-xs">
                 Voir le module en démo
