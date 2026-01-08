@@ -17,6 +17,7 @@ import {
   FileText,
   Clock
 } from "lucide-react";
+import heroImageApp from "@/assets/application-mobile.png";
 
 const SectionDivider = () => (
   <div className="w-full px-4">
@@ -37,20 +38,30 @@ const ApplicationMobile = () => {
 
       {/* SECTION 1 - HERO (2 colonnes) */}
       <section className="relative min-h-[100dvh] flex flex-col justify-center max-sm:py-0 pt-16 sm:pt-32 pb-8 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
-        <div className="glow-orange top-20 -right-40 opacity-30 animate-pulse-glow" />
-        <div className="glow-teal top-1/2 -left-60 opacity-30 animate-pulse-glow" style={{ animationDelay: '1s' }} />
+        {/* Mobile Hero Image - App mockup on right with fade */}
+        <div className="sm:hidden absolute inset-y-0 -right-8 w-[55%] z-0 flex items-center">
+          <div
+            className="absolute inset-0 bg-contain bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${heroImageApp})` }}
+          />
+          {/* Gradient fade to left */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+        </div>
+
+        <div className="glow-orange top-20 -right-40 opacity-30 animate-pulse-glow max-sm:hidden" />
+        <div className="glow-teal top-1/2 -left-60 opacity-30 animate-pulse-glow max-sm:hidden" style={{ animationDelay: '1s' }} />
 
         <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 max-sm:pt-14">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Colonne A - Texte */}
-            <div className="space-y-6 animate-fade-in">
+            <div className="space-y-6 animate-fade-in max-sm:max-w-[70%]">
               <p className="text-primary font-medium text-xs sm:text-lg">Application mobile terrain</p>
               <h1 className="text-[1.65rem] leading-[1.25] font-medium tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl sm:font-bold">
                 <span className="sm:hidden"><span className="text-gradient-orange">App mobile</span> pour techniciens terrain</span>
                 <span className="hidden sm:inline"><span className="text-gradient-orange">Application mobile terrain</span> pour techniciens en intervention</span>
               </h1>
 
-              <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground max-w-xl">
+              <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground sm:max-w-xl">
                 Équipez vos techniciens d'une application intuitive et complète. Accès aux missions, fiches clients, rapports et signature, même sans connexion internet.
               </p>
 

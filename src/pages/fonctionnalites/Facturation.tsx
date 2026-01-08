@@ -18,6 +18,7 @@ import {
   CreditCard,
   TrendingUp
 } from "lucide-react";
+import heroImageFacturation from "@/assets/Facturation.jpeg";
 
 const SectionDivider = () => (
   <div className="w-full px-4">
@@ -38,19 +39,29 @@ const Facturation = () => {
 
       {/* SECTION 1 - HERO */}
       <section className="relative min-h-[100dvh] flex flex-col justify-center max-sm:py-0 pt-16 sm:pt-32 pb-8 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
-        <div className="glow-orange top-20 -right-40 opacity-30 animate-pulse-glow" />
-        <div className="glow-teal top-1/2 -left-60 opacity-30 animate-pulse-glow" style={{ animationDelay: '1s' }} />
+        {/* Mobile Hero Image - Right side with fade */}
+        <div className="sm:hidden absolute inset-y-0 -right-16 w-[65%] z-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${heroImageFacturation})` }}
+          />
+          {/* Gradient fade to left */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+        </div>
+
+        <div className="glow-orange top-20 -right-40 opacity-30 animate-pulse-glow max-sm:hidden" />
+        <div className="glow-teal top-1/2 -left-60 opacity-30 animate-pulse-glow max-sm:hidden" style={{ animationDelay: '1s' }} />
 
         <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 max-sm:pt-14">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="space-y-6 animate-fade-in">
+            <div className="space-y-6 animate-fade-in max-sm:max-w-[75%]">
               <p className="text-primary font-medium text-xs sm:text-lg">Fonctionnalité Facturation</p>
               <h1 className="text-[1.65rem] leading-[1.25] font-medium tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl sm:font-bold">
                 <span className="sm:hidden">Logiciel de <span className="text-gradient-orange">facturation</span> TPE/PME</span>
                 <span className="hidden sm:inline">Logiciel de <span className="text-gradient-orange">facturation</span> pour TPE et PME</span>
               </h1>
 
-              <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground max-w-xl">
+              <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground sm:max-w-xl">
                 Créez des factures conformes en quelques clics, suivez vos paiements et automatisez vos relances. Plus d'impayés oubliés.
               </p>
 
