@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 const SectionDivider = () => (
-  <div className="w-full px-4">
+  <div className="w-full px-5 sm:px-4">
     <div className="max-w-6xl mx-auto border-t border-[#dcdcdc]" />
   </div>
 );
@@ -35,22 +35,26 @@ const PourLesEntreprisesDeServices = () => {
       <Navbar />
 
       {/* HERO Section */}
-      <section className="relative min-h-screen pt-24 lg:pt-32 pb-20 lg:pb-32 overflow-hidden">
+      <section className="relative min-h-[85vh] sm:min-h-screen pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-20 lg:pb-32 overflow-hidden">
         {/* Background Glows */}
-        <div className="glow-orange top-20 -right-40 animate-pulse-glow" />
-        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow" style={{ animationDelay: '1s' }} />
+        <div className="glow-orange top-20 -right-40 animate-pulse-glow opacity-40 sm:opacity-100" />
+        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow opacity-40 sm:opacity-100" style={{ animationDelay: '1s' }} />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left Content */}
-            <div className="space-y-8 animate-fade-in">
-              <p className="text-primary font-semibold text-lg">Logiciel pour entreprises de services</p>
-              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-                Logiciel de gestion pour <span className="text-gradient-orange">entreprises de services</span>
+            <div className="space-y-5 sm:space-y-8 animate-fade-in">
+              <p className="text-primary font-semibold text-base sm:text-lg">Logiciel pour entreprises de services</p>
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-semibold sm:font-bold leading-tight">
+                <span className="hidden sm:inline">Logiciel de gestion pour <span className="text-gradient-orange">entreprises de services</span></span>
+                <span className="sm:hidden">Gérez vos <span className="text-gradient-orange">interventions</span> clients</span>
               </h1>
 
-              <p className="text-lg lg:text-xl text-muted-foreground">
+              <p className="hidden sm:block text-lg lg:text-xl text-muted-foreground">
                 Maintenance, dépannage, installation, SAV... Votre métier vous amène régulièrement chez vos clients. Provia BASE vous aide à planifier, suivre et facturer vos prestations de services avec une efficacité maximale.
+              </p>
+              <p className="sm:hidden text-sm text-muted-foreground">
+                Planning, bons d'intervention, facturation : tout pour gérer vos prestations efficacement.
               </p>
 
               <ul className="space-y-4">
@@ -71,14 +75,14 @@ const PourLesEntreprisesDeServices = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/demo"
-                  className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
+                  className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold inline-flex items-center justify-center gap-2"
                 >
                   Demander une démo gratuite
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />
                 </Link>
                 <Link
                   to="/fonctionnalites"
-                  className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
+                  className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold"
                 >
                   Voir les fonctionnalités
                 </Link>
@@ -94,7 +98,7 @@ const PourLesEntreprisesDeServices = () => {
             </div>
 
             {/* Right - Dashboard Preview */}
-            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="relative animate-fade-in hidden sm:block" style={{ animationDelay: '0.2s' }}>
               <div className="glass-card p-4 lg:p-6 animate-float">
                 {/* Dashboard Header */}
                 <div className="flex items-center justify-between mb-4">
@@ -168,13 +172,13 @@ const PourLesEntreprisesDeServices = () => {
       <SectionDivider />
 
       {/* PROBLÈME Section - Inverted */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="glow-orange bottom-0 left-0" />
+      <section className="relative py-12 sm:py-20 lg:py-32 overflow-hidden">
+        <div className="glow-orange bottom-0 left-0 opacity-40 sm:opacity-100" />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left - Mockup */}
-            <div className="relative order-2 lg:order-1 animate-fade-in">
+            <div className="relative order-2 lg:order-1 animate-fade-in hidden sm:block">
               <div className="glass-card p-6 relative overflow-hidden">
                 <div className="absolute -top-20 -left-20 w-40 h-40 bg-destructive/10 rounded-full blur-3xl" />
 
@@ -210,16 +214,20 @@ const PourLesEntreprisesDeServices = () => {
             {/* Right - Text */}
             <div className="order-1 lg:order-2 space-y-6 animate-fade-in">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-destructive/10 flex items-center justify-center">
-                  <Target className="w-7 h-7 text-destructive" />
+                <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-2xl bg-destructive/10 flex items-center justify-center">
+                  <Target className="w-6 sm:w-7 h-6 sm:h-7 text-destructive" />
                 </div>
-                <h2 className="text-2xl lg:text-3xl font-bold">
-                  Les enjeux des <span className="text-gradient-orange">entreprises de services</span>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold">
+                  <span className="hidden sm:inline">Les enjeux des <span className="text-gradient-orange">entreprises de services</span></span>
+                  <span className="sm:hidden">Les <span className="text-gradient-orange">enjeux</span></span>
                 </h2>
               </div>
 
-              <p className="text-lg text-muted-foreground">
+              <p className="hidden sm:block text-lg text-muted-foreground">
                 Quand votre activité repose sur des interventions chez le client, la qualité de votre organisation fait toute la différence. Chaque détail compte : historique du client, pièces à prévoir, temps de trajet, facturation rapide...
+              </p>
+              <p className="sm:hidden text-sm text-muted-foreground">
+                Interventions chez le client : l'organisation fait la différence.
               </p>
 
               <div className="space-y-3">
@@ -231,9 +239,9 @@ const PourLesEntreprisesDeServices = () => {
                   "Délais de facturation trop longs",
                   "Clients qui doivent répéter leur problème"
                 ].map((problem, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 bg-destructive/5 rounded-lg">
-                    <span className="text-destructive font-bold">✗</span>
-                    <span className="text-foreground">{problem}</span>
+                  <div key={i} className={`flex items-start gap-3 p-2 sm:p-3 bg-destructive/5 rounded-lg ${i >= 3 ? 'hidden sm:flex' : ''}`}>
+                    <span className="text-destructive font-bold text-sm sm:text-base">✗</span>
+                    <span className="text-foreground text-sm sm:text-base">{problem}</span>
                   </div>
                 ))}
               </div>
@@ -245,35 +253,39 @@ const PourLesEntreprisesDeServices = () => {
       <SectionDivider />
 
       {/* SOLUTION Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="glow-teal top-0 right-0" />
+      <section className="relative py-12 sm:py-20 lg:py-32 overflow-hidden">
+        <div className="glow-teal top-0 right-0 opacity-40 sm:opacity-100" />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left - Text */}
             <div className="space-y-6 animate-fade-in">
-              <h2 className="text-2xl lg:text-3xl font-bold">
-                Une <span className="text-gradient-orange">solution complète</span> pour les métiers du service
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold">
+                <span className="hidden sm:inline">Une <span className="text-gradient-orange">solution complète</span> pour les métiers du service</span>
+                <span className="sm:hidden">La <span className="text-gradient-orange">solution</span></span>
               </h2>
 
-              <p className="text-lg text-muted-foreground">
+              <p className="hidden sm:block text-lg text-muted-foreground">
                 Provia BASE couvre l'intégralité du cycle de vie de vos interventions, de la demande initiale à la facturation. Chaque intervention bien préparée, bien tracée, bien facturée.
               </p>
+              <p className="sm:hidden text-sm text-muted-foreground">
+                Gérez le cycle complet : planning, intervention, rapport, facturation.
+              </p>
 
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {[
                   { icon: UserCheck, title: "Fiche client complète", desc: "Historique, équipements, contrats" },
                   { icon: Calendar, title: "Planning intelligent", desc: "Optimisez les déplacements" },
                   { icon: ClipboardList, title: "Bons d'intervention", desc: "Rapports sur mobile avec photos" },
                   { icon: RefreshCw, title: "Contrats de maintenance", desc: "Gérez les récurrences" },
                 ].map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-provia-teal/10 flex items-center justify-center flex-shrink-0">
-                      <feature.icon className="w-5 h-5 text-provia-teal" />
+                  <li key={i} className={`flex items-start gap-3 ${i >= 3 ? 'hidden sm:flex' : ''}`}>
+                    <div className="w-9 sm:w-10 h-9 sm:h-10 rounded-xl bg-provia-teal/10 flex items-center justify-center flex-shrink-0">
+                      <feature.icon className="w-4 sm:w-5 h-4 sm:h-5 text-provia-teal" />
                     </div>
                     <div>
-                      <span className="text-foreground font-semibold block">{feature.title}</span>
-                      <span className="text-sm text-muted-foreground">{feature.desc}</span>
+                      <span className="text-foreground font-medium sm:font-semibold block text-sm sm:text-base">{feature.title}</span>
+                      <span className="text-xs sm:text-sm text-muted-foreground">{feature.desc}</span>
                     </div>
                   </li>
                 ))}
@@ -281,7 +293,7 @@ const PourLesEntreprisesDeServices = () => {
             </div>
 
             {/* Right - Mockup */}
-            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="relative animate-fade-in hidden sm:block" style={{ animationDelay: '0.2s' }}>
               <div className="glass-card p-6 relative overflow-hidden animate-float">
                 <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-provia-teal/20 rounded-full blur-3xl" />
 
@@ -322,23 +334,23 @@ const PourLesEntreprisesDeServices = () => {
       <SectionDivider />
 
       {/* BÉNÉFICES Section - Cards Grid */}
-      <section className="py-20 lg:py-32">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                <Briefcase className="w-8 h-8 text-primary" />
+      <section className="py-12 sm:py-20 lg:py-32">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="flex items-center justify-center gap-4 mb-4 sm:mb-6">
+              <div className="w-12 sm:w-16 h-12 sm:h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+                <Briefcase className="w-6 sm:w-8 h-6 sm:h-8 text-primary" />
               </div>
             </div>
-            <h2 className="text-2xl lg:text-3xl font-bold mb-4">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold mb-3 sm:mb-4">
               Les résultats pour votre <span className="text-gradient-orange">entreprise</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto">
               Optimisez chaque intervention et fidélisez vos clients
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 max-w-6xl mx-auto">
             {[
               {
                 icon: UserCheck,
@@ -371,12 +383,12 @@ const PourLesEntreprisesDeServices = () => {
                 description: "Gérez la maintenance préventive facilement"
               },
             ].map((benefit, i) => (
-              <div key={i} className="glass-card p-6 hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 rounded-xl bg-provia-teal/10 flex items-center justify-center mb-4">
-                  <benefit.icon className="w-6 h-6 text-provia-teal" />
+              <div key={i} className={`glass-card p-4 sm:p-6 hover:shadow-lg transition-shadow ${i >= 3 ? 'hidden sm:block' : ''}`}>
+                <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-provia-teal/10 flex items-center justify-center mb-3 sm:mb-4">
+                  <benefit.icon className="w-5 sm:w-6 h-5 sm:h-6 text-provia-teal" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
-                <p className="text-muted-foreground">{benefit.description}</p>
+                <h3 className="text-base sm:text-lg font-medium sm:font-semibold mb-1.5 sm:mb-2">{benefit.title}</h3>
+                <p className="text-sm sm:text-base text-muted-foreground">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -386,26 +398,36 @@ const PourLesEntreprisesDeServices = () => {
       <SectionDivider />
 
       {/* CTA Final */}
-      <section className="py-20 lg:py-32">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-12 sm:py-20 lg:py-32">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-6">
-              Optimisez chaque <span className="text-gradient-orange">intervention</span>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold mb-4 sm:mb-6">
+              <span className="hidden sm:inline">Optimisez chaque <span className="text-gradient-orange">intervention</span></span>
+              <span className="sm:hidden">Prêt à <span className="text-gradient-orange">commencer</span> ?</span>
             </h2>
-            <p className="text-muted-foreground mb-8 text-lg">
+            <p className="hidden sm:block text-muted-foreground mb-8 text-lg">
               Découvrez comment Provia BASE peut transformer votre gestion des interventions clients. Démonstration personnalisée pour votre secteur d'activité.
+            </p>
+            <p className="sm:hidden text-sm text-muted-foreground mb-6">
+              Demandez votre démo gratuite
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/demo"
-                className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
+                className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold inline-flex items-center justify-center gap-2"
               >
                 Demander une démo gratuite
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />
               </Link>
               <Link
                 to="/#tarifs"
-                className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
+                className="hidden sm:inline-flex btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
+              >
+                Voir les tarifs
+              </Link>
+              <Link
+                to="/#tarifs"
+                className="sm:hidden text-sm text-primary underline"
               >
                 Voir les tarifs
               </Link>

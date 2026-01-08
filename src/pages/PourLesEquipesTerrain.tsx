@@ -35,21 +35,24 @@ const PourLesEquipesTerrain = () => {
       <Navbar />
 
       {/* HERO Section */}
-      <section className="relative min-h-screen pt-24 lg:pt-32 pb-20 lg:pb-32 overflow-hidden">
+      <section className="relative min-h-[85vh] sm:min-h-screen pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-20 lg:pb-32 overflow-hidden">
         {/* Background Glows */}
-        <div className="glow-orange top-20 -right-40 animate-pulse-glow" />
-        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow" style={{ animationDelay: '1s' }} />
+        <div className="glow-orange top-20 -right-40 animate-pulse-glow opacity-40 sm:opacity-100" />
+        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow opacity-40 sm:opacity-100" style={{ animationDelay: '1s' }} />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left Content */}
-            <div className="space-y-8 animate-fade-in">
+            <div className="space-y-5 sm:space-y-8 animate-fade-in">
               <p className="text-primary font-semibold text-lg">Application pour équipes terrain</p>
-              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-semibold sm:font-bold leading-tight">
                 <span className="text-gradient-orange">Application mobile</span> pour équipes terrain et techniciens
               </h1>
 
-              <p className="text-lg lg:text-xl text-muted-foreground">
+              <p className="text-base text-muted-foreground sm:hidden">
+                Application mobile pour vos techniciens : missions, fiches clients, rapports en temps réel.
+              </p>
+              <p className="hidden sm:block text-lg lg:text-xl text-muted-foreground">
                 Vos techniciens interviennent sur le terrain ? Avec l'application mobile Provia BASE, ils accèdent à toutes les informations nécessaires et remontent les données instantanément. Fini les allers-retours inutiles et les informations perdues.
               </p>
 
@@ -71,14 +74,14 @@ const PourLesEquipesTerrain = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/demo"
-                  className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
+                  className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold inline-flex items-center justify-center gap-2"
                 >
                   Demander une démo gratuite
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <Link
                   to="/fonctionnalites/application-mobile"
-                  className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
+                  className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold"
                 >
                   Découvrir l'app mobile
                 </Link>
@@ -94,7 +97,7 @@ const PourLesEquipesTerrain = () => {
             </div>
 
             {/* Right - Mobile App Preview */}
-            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="relative animate-fade-in hidden sm:block" style={{ animationDelay: '0.2s' }}>
               <div className="glass-card p-6 relative overflow-hidden animate-float">
                 {/* Mobile Phone Frame */}
                 <div className="mx-auto w-64 rounded-3xl border-4 border-border bg-background p-2 shadow-2xl">
@@ -174,13 +177,13 @@ const PourLesEquipesTerrain = () => {
       <SectionDivider />
 
       {/* PROBLÈME Section - Inverted */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="glow-orange bottom-0 left-0" />
+      <section className="relative py-12 sm:py-20 lg:py-32 overflow-hidden">
+        <div className="glow-orange bottom-0 left-0 opacity-40 sm:opacity-100" />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left - Mockup */}
-            <div className="relative order-2 lg:order-1 animate-fade-in">
+            <div className="relative order-2 lg:order-1 animate-fade-in hidden sm:block">
               <div className="glass-card p-6 relative overflow-hidden">
                 <div className="absolute -top-20 -left-20 w-40 h-40 bg-destructive/10 rounded-full blur-3xl" />
 
@@ -199,7 +202,7 @@ const PourLesEquipesTerrain = () => {
                     { issue: "Photos dans le téléphone perso", icon: "📱" },
                     { issue: "Rapports remplis le soir", icon: "📝" },
                   ].map((item, i) => (
-                    <div key={i} className="glass-card p-4 bg-destructive/5 flex items-center gap-3">
+                    <div key={i} className={`glass-card p-4 bg-destructive/5 flex items-center gap-3 ${i >= 3 ? 'hidden sm:flex' : ''}`}>
                       <span className="text-2xl">{item.icon}</span>
                       <span className="text-sm text-foreground flex-1">{item.issue}</span>
                       <span className="text-destructive">✗</span>
@@ -219,7 +222,7 @@ const PourLesEquipesTerrain = () => {
                 <div className="w-14 h-14 rounded-2xl bg-destructive/10 flex items-center justify-center">
                   <MapPin className="w-7 h-7 text-destructive" />
                 </div>
-                <h2 className="text-2xl lg:text-3xl font-bold">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold">
                   Le quotidien des <span className="text-gradient-orange">équipes terrain</span>
                 </h2>
               </div>
@@ -237,7 +240,7 @@ const PourLesEquipesTerrain = () => {
                   "Difficultés à prouver ce qui a été fait",
                   "Retards dans la transmission des informations"
                 ].map((problem, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 bg-destructive/5 rounded-lg">
+                  <div key={i} className={`flex items-start gap-3 p-3 bg-destructive/5 rounded-lg ${i >= 3 ? 'hidden sm:flex' : ''}`}>
                     <span className="text-destructive font-bold">✗</span>
                     <span className="text-foreground">{problem}</span>
                   </div>
@@ -251,14 +254,14 @@ const PourLesEquipesTerrain = () => {
       <SectionDivider />
 
       {/* SOLUTION Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="glow-teal top-0 right-0" />
+      <section className="relative py-12 sm:py-20 lg:py-32 overflow-hidden">
+        <div className="glow-teal top-0 right-0 opacity-40 sm:opacity-100" />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left - Text */}
             <div className="space-y-6 animate-fade-in">
-              <h2 className="text-2xl lg:text-3xl font-bold">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold">
                 L'<span className="text-gradient-orange">application mobile</span> qui change tout
               </h2>
 
@@ -287,7 +290,7 @@ const PourLesEquipesTerrain = () => {
             </div>
 
             {/* Right - Mockup */}
-            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="relative animate-fade-in hidden sm:block" style={{ animationDelay: '0.2s' }}>
               <div className="glass-card p-6 relative overflow-hidden animate-float">
                 <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-provia-teal/20 rounded-full blur-3xl" />
 
@@ -309,7 +312,7 @@ const PourLesEquipesTerrain = () => {
                       { feature: "Mode hors ligne", icon: Wifi, available: true },
                       { feature: "GPS intégré", icon: MapPin, available: true },
                     ].map((item, i) => (
-                      <div key={i} className="glass-card p-3 bg-provia-teal/5 flex items-center gap-3">
+                      <div key={i} className={`glass-card p-3 bg-provia-teal/5 flex items-center gap-3 ${i >= 3 ? 'hidden sm:flex' : ''}`}>
                         <item.icon className="w-5 h-5 text-provia-teal" />
                         <span className="text-sm font-medium text-foreground flex-1">{item.feature}</span>
                         <Check className="w-4 h-4 text-provia-teal" />
@@ -346,7 +349,7 @@ const PourLesEquipesTerrain = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 max-w-6xl mx-auto">
             {[
               {
                 icon: Clock,
@@ -379,7 +382,7 @@ const PourLesEquipesTerrain = () => {
                 description: "Rapport signé sur place, validation immédiate"
               },
             ].map((benefit, i) => (
-              <div key={i} className="glass-card p-6 hover:shadow-lg transition-shadow">
+              <div key={i} className={`glass-card p-4 sm:p-6 hover:shadow-lg transition-shadow ${i >= 3 ? 'hidden sm:block' : ''}`}>
                 <div className="w-12 h-12 rounded-xl bg-provia-teal/10 flex items-center justify-center mb-4">
                   <benefit.icon className="w-6 h-6 text-provia-teal" />
                 </div>
@@ -397,23 +400,26 @@ const PourLesEquipesTerrain = () => {
       <section className="py-20 lg:py-32">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-6">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold mb-6">
               Équipez vos <span className="text-gradient-orange">équipes terrain</span> dès maintenant
             </h2>
-            <p className="text-muted-foreground mb-8 text-lg">
+            <p className="text-muted-foreground mb-8 text-base sm:hidden">
+              Démonstration personnalisée de l'app mobile Provia BASE.
+            </p>
+            <p className="text-muted-foreground mb-8 text-lg hidden sm:block">
               Découvrez comment l'application mobile Provia BASE peut améliorer la productivité et la satisfaction de vos techniciens. Démonstration personnalisée disponible.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/demo"
-                className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
+                className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold inline-flex items-center justify-center gap-2"
               >
                 Demander une démo gratuite
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 to="/#tarifs"
-                className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
+                className="text-primary hover:text-primary/80 underline sm:btn-secondary sm:px-8 sm:py-4 sm:rounded-xl sm:text-lg font-semibold flex items-center justify-center"
               >
                 Voir les tarifs
               </Link>

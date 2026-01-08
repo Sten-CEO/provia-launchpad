@@ -36,24 +36,25 @@ const GestionClients = () => {
       <Navbar />
 
       {/* SECTION 1 - HERO (2 colonnes) */}
-      <section className="relative min-h-screen pt-24 lg:pt-32 pb-16 overflow-hidden">
+      <section className="relative min-h-screen pt-24 sm:pt-32 pb-10 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
         <div className="glow-orange top-20 -right-40 animate-pulse-glow" />
         <div className="glow-teal top-1/2 -left-60 animate-pulse-glow" style={{ animationDelay: '1s' }} />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Colonne A - Texte */}
             <div className="space-y-8 animate-fade-in">
-              <p className="text-primary font-semibold text-lg">Fonctionnalité Gestion clients</p>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                Logiciel <span className="text-gradient-orange">CRM</span> et gestion clients pour TPE et PME
+              <p className="text-primary font-semibold text-sm sm:text-lg">Fonctionnalité Gestion clients</p>
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold sm:font-bold leading-tight">
+                <span className="sm:hidden"><span className="text-gradient-orange">CRM</span> et gestion clients TPE/PME</span>
+                <span className="hidden sm:inline">Logiciel <span className="text-gradient-orange">CRM</span> et gestion clients pour TPE et PME</span>
               </h1>
 
-              <p className="text-lg lg:text-xl text-muted-foreground max-w-xl">
+              <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground max-w-xl">
                 Fini les informations éparpillées. Le CRM intégré Provia BASE centralise tout : coordonnées, historique, devis, factures, notes. Chaque interaction devient une opportunité.
               </p>
 
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {[
                   { icon: Database, text: "Fiches clients complètes" },
                   { icon: History, text: "Historique centralisé" },
@@ -69,10 +70,10 @@ const GestionClients = () => {
               </ul>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/demo" className="btn-primary text-center text-base lg:text-lg px-8 py-4">
+                <Link to="/demo" className="btn-primary text-center text-sm sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
                   Voir le CRM en démo
                 </Link>
-                <a href="/#tarifs" className="btn-secondary text-center text-base lg:text-lg px-8 py-4">
+                <a href="/#tarifs" className="btn-secondary text-center text-sm sm:text-lg px-6 sm:px-8 py-3 sm:py-4 max-sm:bg-transparent max-sm:border-0 max-sm:underline max-sm:underline-offset-4">
                   Voir les tarifs
                 </a>
               </div>
@@ -86,7 +87,7 @@ const GestionClients = () => {
 
             {/* Colonne B - Mockup CRM */}
             <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="glass-card p-4 lg:p-6 animate-float">
+              <div className="glass-card p-4 sm:p-6 lg:p-6 animate-float">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-semibold text-foreground">Fiche client</h3>
                   <div className="flex gap-2">
@@ -167,14 +168,14 @@ const GestionClients = () => {
       <SectionDivider />
 
       {/* SECTION 2 - Problème (2 colonnes inversées) */}
-      <section className="py-20 lg:py-32 overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-10 sm:py-20 lg:py-32 overflow-hidden">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Colonne A - Illustration problème */}
             <div className="relative order-2 lg:order-1">
-              <div className="glass-card p-6 lg:p-8">
+              <div className="glass-card p-4 sm:p-6 lg:p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-destructive/10 flex items-center justify-center">
                     <AlertTriangle className="w-6 h-6 text-destructive" />
                   </div>
                   <p className="font-semibold text-foreground">Situation actuelle</p>
@@ -204,11 +205,11 @@ const GestionClients = () => {
 
             {/* Colonne B - Texte problème */}
             <div className="space-y-6 order-1 lg:order-2">
-              <h2 className="text-3xl lg:text-4xl font-bold">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold">
                 Le cauchemar des <span className="text-gradient-orange">infos dispersées</span>
               </h2>
 
-              <p className="text-lg text-muted-foreground">
+              <p className="text-sm sm:text-lg text-muted-foreground">
                 Un client appelle. Vous cherchez ses coordonnées dans Outlook, son dernier devis dans un dossier, l'historique de ses interventions dans un carnet... Cette situation vous parle ?
               </p>
 
@@ -235,22 +236,22 @@ const GestionClients = () => {
       <SectionDivider />
 
       {/* SECTION 3 - Solution (2 colonnes) */}
-      <section className="py-20 lg:py-32 overflow-hidden">
+      <section className="py-10 sm:py-20 lg:py-32 overflow-hidden">
         <div className="glow-teal top-1/2 -right-40" />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Colonne A - Texte solution */}
             <div className="space-y-6">
-              <h2 className="text-3xl lg:text-4xl font-bold">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold">
                 Un <span className="text-gradient-orange">CRM</span> simple et efficace
               </h2>
 
-              <p className="text-lg text-muted-foreground">
+              <p className="text-sm sm:text-lg text-muted-foreground">
                 Provia BASE centralise toute la connaissance client dans des fiches complètes. Coordonnées, historique, documents, notes : tout est accessible en un clic.
               </p>
 
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {[
                   { icon: Database, text: "Fiches clients complètes et structurées" },
                   { icon: History, text: "Historique centralisé de toute la relation" },
@@ -271,7 +272,7 @@ const GestionClients = () => {
 
             {/* Colonne B - Mockup solution */}
             <div className="relative">
-              <div className="glass-card p-4 lg:p-6 border-primary/20">
+              <div className="glass-card p-4 sm:p-6 lg:p-6 border-primary/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl" />
 
                 <div className="relative z-10">
@@ -345,13 +346,13 @@ const GestionClients = () => {
       <SectionDivider />
 
       {/* SECTION 4 - Bénéfices (Cards) */}
-      <section className="py-20 lg:py-32 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-10 sm:py-20 lg:py-32 bg-muted/30">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold mb-4">
               Les avantages d'un <span className="text-gradient-orange">CRM intégré</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto">
               Centralisez, personnalisez et optimisez votre relation client.
             </p>
           </div>
@@ -368,7 +369,7 @@ const GestionClients = () => {
               { icon: FileText, title: "Base pérenne", desc: "Sécurisée et accessible" },
             ].map((benefit, i) => (
               <div key={i} className="glass-card p-6 text-center hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <benefit.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">{benefit.title}</h3>
@@ -382,26 +383,26 @@ const GestionClients = () => {
       <SectionDivider />
 
       {/* SECTION 5 - CTA Final */}
-      <section className="py-20 lg:py-32">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-10 sm:py-20 lg:py-32">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold mb-6">
               Centralisez votre <span className="text-gradient-orange">relation client</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-sm sm:text-lg text-muted-foreground mb-8">
               Découvrez comment le CRM Provia BASE peut améliorer votre connaissance client et votre qualité de service. Démonstration gratuite.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/demo"
-                className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
+                className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold inline-flex items-center justify-center gap-2"
               >
                 Demander une démo gratuite
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a
                 href="/#tarifs"
-                className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
+                className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold max-sm:bg-transparent max-sm:border-0 max-sm:underline max-sm:underline-offset-4"
               >
                 Voir les tarifs
               </a>

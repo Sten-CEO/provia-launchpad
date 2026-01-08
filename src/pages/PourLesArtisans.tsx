@@ -9,26 +9,28 @@ const PourLesArtisans = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="pt-24 sm:pt-32 pb-10 sm:pb-16 lg:pt-40 lg:pb-20">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Un logiciel de gestion pour <span className="text-gradient-orange">artisans</span> et TPE/PME avec équipes terrain
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-semibold sm:font-bold mb-6">
+              <span className="sm:hidden">Logiciel de gestion pour <span className="text-gradient-orange">artisans</span> et TPE/PME</span>
+              <span className="hidden sm:inline">Un logiciel de gestion pour <span className="text-gradient-orange">artisans</span> et TPE/PME avec équipes terrain</span>
             </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground mb-8">
-              Provia BASE est le logiciel de gestion d'entreprise qui répond aux besoins concrets des artisans, des TPE et des PME dont les équipes interviennent sur le terrain. Devis, factures, gestion clients, planning des interventions : tout est centralisé dans un outil simple et accessible.
+            <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground mb-8">
+              <span className="sm:hidden">Devis, factures, planning : tout centralisé pour votre gestion quotidienne.</span>
+              <span className="hidden sm:inline">Provia BASE est le logiciel de gestion d'entreprise qui répond aux besoins concrets des artisans, des TPE et des PME dont les équipes interviennent sur le terrain. Devis, factures, gestion clients, planning des interventions : tout est centralisé dans un outil simple et accessible.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/demo"
-                className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
+                className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold inline-flex items-center justify-center gap-2"
               >
                 Demander une démo
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 to="/fonctionnalites"
-                className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
+                className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold max-sm:bg-transparent max-sm:border-0 max-sm:underline max-sm:underline-offset-4"
               >
                 Voir les fonctionnalités
               </Link>
@@ -42,17 +44,17 @@ const PourLesArtisans = () => {
       </div>
 
       {/* Introduction */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-10 sm:py-16 lg:py-24">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="glass-card p-6 lg:p-8 mb-8">
-              <h2 className="text-2xl lg:text-3xl font-bold mb-6">
+            <div className="glass-card p-4 sm:p-6 lg:p-8 mb-8">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold mb-6">
                 Pourquoi un logiciel de gestion adapté aux <span className="text-gradient-orange">métiers terrain</span> ?
               </h2>
-              <p className="text-muted-foreground mb-4 text-lg">
+              <p className="text-muted-foreground mb-4 text-sm sm:text-lg">
                 Les artisans et les entreprises avec des équipes terrain ont des besoins spécifiques que les logiciels généralistes ne couvrent pas. Entre les devis à envoyer rapidement, les interventions à planifier, les équipes à coordonner et les factures à générer, il vous faut un outil conçu pour votre réalité quotidienne.
               </p>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-muted-foreground text-sm sm:text-lg">
                 Provia BASE est un <strong>logiciel de gestion d'entreprise</strong> pensé pour centraliser toutes ces tâches. Fini les fichiers Excel éparpillés, les oublis de relances et les plannings sur papier. Avec notre <strong>application mobile terrain</strong>, vos équipes accèdent aux informations clients et aux missions directement sur le chantier.
               </p>
             </div>
@@ -61,20 +63,20 @@ const PourLesArtisans = () => {
       </section>
 
       {/* Section TPE Artisans */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-10 sm:py-16 lg:py-24 bg-muted/30">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
                 <Hammer className="w-8 h-8 text-primary" />
               </div>
-              <h2 className="text-2xl lg:text-3xl font-bold">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold">
                 Logiciel de gestion pour <span className="text-gradient-orange">TPE Artisans</span>
               </h2>
             </div>
 
-            <div className="glass-card p-6 lg:p-8 mb-8">
-              <p className="text-muted-foreground mb-6 text-lg">
+            <div className="glass-card p-4 sm:p-6 lg:p-8 mb-8">
+              <p className="text-muted-foreground mb-6 text-sm sm:text-lg">
                 Vous êtes artisan indépendant ou dirigez une petite équipe ? Votre temps est précieux et vous ne pouvez pas vous permettre de perdre des heures sur des tâches administratives. Le <strong>logiciel devis facture</strong> intégré à Provia BASE vous permet de créer des documents professionnels en quelques clics.
               </p>
 
@@ -89,7 +91,7 @@ const PourLesArtisans = () => {
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-provia-teal flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground">{item}</span>
+                    <span className="text-foreground text-sm sm:text-base">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -103,20 +105,20 @@ const PourLesArtisans = () => {
       </section>
 
       {/* Section PME Artisans */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-10 sm:py-16 lg:py-24">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
                 <Building className="w-8 h-8 text-primary" />
               </div>
-              <h2 className="text-2xl lg:text-3xl font-bold">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold">
                 Logiciel de gestion pour <span className="text-gradient-orange">PME Artisans</span>
               </h2>
             </div>
 
-            <div className="glass-card p-6 lg:p-8 mb-8">
-              <p className="text-muted-foreground mb-6 text-lg">
+            <div className="glass-card p-4 sm:p-6 lg:p-8 mb-8">
+              <p className="text-muted-foreground mb-6 text-sm sm:text-lg">
                 Votre entreprise a grandi et vous gérez maintenant plusieurs équipes terrain ? La coordination devient un défi quotidien. Notre <strong>outil de centralisation entreprise</strong> vous offre une vision globale de toutes vos opérations, du bureau jusqu'au chantier.
               </p>
 
@@ -132,7 +134,7 @@ const PourLesArtisans = () => {
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-provia-teal flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground">{item}</span>
+                    <span className="text-foreground text-sm sm:text-base">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -146,20 +148,20 @@ const PourLesArtisans = () => {
       </section>
 
       {/* Section Entreprises de services */}
-      <section className="py-16 lg:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-10 sm:py-16 lg:py-24 bg-muted/30">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
                 <Briefcase className="w-8 h-8 text-primary" />
               </div>
-              <h2 className="text-2xl lg:text-3xl font-bold">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold">
                 Logiciel de gestion pour <span className="text-gradient-orange">entreprises de services</span>
               </h2>
             </div>
 
-            <div className="glass-card p-6 lg:p-8 mb-8">
-              <p className="text-muted-foreground mb-6 text-lg">
+            <div className="glass-card p-4 sm:p-6 lg:p-8 mb-8">
+              <p className="text-muted-foreground mb-6 text-sm sm:text-lg">
                 Vous intervenez régulièrement chez vos clients pour des prestations de services ? Maintenance, dépannage, installation, entretien... Votre métier nécessite une <strong>gestion clients</strong> rigoureuse et un suivi précis des interventions.
               </p>
 
@@ -175,7 +177,7 @@ const PourLesArtisans = () => {
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-provia-teal flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground">{item}</span>
+                    <span className="text-foreground text-sm sm:text-base">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -189,26 +191,28 @@ const PourLesArtisans = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-10 sm:py-16 lg:py-24">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-6">
-              Prêt à simplifier la gestion de votre <span className="text-gradient-orange">entreprise</span> ?
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold mb-6">
+              <span className="sm:hidden">Prêt à simplifier votre gestion ?</span>
+              <span className="hidden sm:inline">Prêt à simplifier la gestion de votre <span className="text-gradient-orange">entreprise</span> ?</span>
             </h2>
-            <p className="text-muted-foreground mb-8 text-lg">
-              Rejoignez les artisans et dirigeants de TPE/PME qui ont choisi Provia BASE pour centraliser leur activité. Demandez une démonstration gratuite et découvrez comment notre logiciel de gestion peut transformer votre quotidien.
+            <p className="text-muted-foreground mb-8 text-sm sm:text-lg">
+              <span className="sm:hidden">Demandez une démo gratuite et transformez votre quotidien.</span>
+              <span className="hidden sm:inline">Rejoignez les artisans et dirigeants de TPE/PME qui ont choisi Provia BASE pour centraliser leur activité. Demandez une démonstration gratuite et découvrez comment notre logiciel de gestion peut transformer votre quotidien.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/demo"
-                className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
+                className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold inline-flex items-center justify-center gap-2"
               >
                 Demander une démo gratuite
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 to="/#tarifs"
-                className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
+                className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold max-sm:bg-transparent max-sm:border-0 max-sm:underline max-sm:underline-offset-4"
               >
                 Voir les tarifs
               </Link>

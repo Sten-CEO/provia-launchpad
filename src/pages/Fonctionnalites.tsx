@@ -87,24 +87,24 @@ const fieldFeatures = [
   }
 ];
 
-const FeatureBlock = ({ 
-  icon: Icon, 
-  title, 
-  description, 
-  reversed 
-}: { 
-  icon: React.ElementType; 
-  title: string; 
-  description: string; 
+const FeatureBlock = ({
+  icon: Icon,
+  title,
+  description,
+  reversed
+}: {
+  icon: React.ElementType;
+  title: string;
+  description: string;
   reversed: boolean;
 }) => (
-  <div className={`flex flex-col ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-6 lg:gap-12`}>
+  <div className={`flex flex-col ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-4 sm:gap-6 lg:gap-12`}>
     <div className="flex-1">
-      <h3 className="text-xl lg:text-2xl font-bold text-foreground mb-3">{title}</h3>
-      <p className="text-muted-foreground text-base lg:text-lg">{description}</p>
+      <h3 className="text-base sm:text-xl lg:text-2xl font-semibold sm:font-bold text-foreground mb-2 sm:mb-3">{title}</h3>
+      <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed">{description}</p>
     </div>
-    <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-2xl glass-card flex items-center justify-center shrink-0">
-      <Icon className="w-10 h-10 lg:w-12 lg:h-12 text-primary" />
+    <div className="w-14 h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-xl sm:rounded-2xl glass-card flex items-center justify-center shrink-0">
+      <Icon className="w-7 h-7 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-primary" />
     </div>
   </div>
 );
@@ -119,14 +119,16 @@ const Fonctionnalites = () => {
       <Navbar />
       
       {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="pt-24 sm:pt-32 pb-10 sm:pb-16 lg:pt-40 lg:pb-20">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Fonctionnalités du <span className="text-gradient-orange">logiciel de gestion</span> Provia BASE
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-semibold sm:font-bold mb-4 sm:mb-6">
+              <span className="sm:hidden">Fonctionnalités <span className="text-gradient-orange">Provia BASE</span></span>
+              <span className="hidden sm:inline">Fonctionnalités du <span className="text-gradient-orange">logiciel de gestion</span> Provia BASE</span>
             </h1>
-            <p className="text-lg lg:text-xl text-muted-foreground">
-              Un outil de centralisation complet pour le dirigeant et une application mobile terrain pour les employés. Gestion clients, devis, factures, équipes : tout au même endroit.
+            <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground">
+              <span className="sm:hidden">Bureau + terrain, tout est synchronisé.</span>
+              <span className="hidden sm:inline">Un outil de centralisation complet pour le dirigeant et une application mobile terrain pour les employés. Gestion clients, devis, factures, équipes : tout au même endroit.</span>
             </p>
           </div>
         </div>
@@ -137,22 +139,24 @@ const Fonctionnalites = () => {
       </div>
 
       {/* Section CRM */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-10 sm:py-16 lg:py-24">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12 lg:mb-16">
-              <div className="inline-flex items-center gap-2 glass-card px-4 py-2 mb-4">
-                <span className="text-sm font-semibold text-primary">Côté bureau</span>
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+              <div className="inline-flex items-center gap-2 glass-card px-3 sm:px-4 py-1.5 sm:py-2 mb-3 sm:mb-4">
+                <span className="text-xs sm:text-sm font-semibold text-primary">Côté bureau</span>
               </div>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                Logiciel gestion entreprise : <span className="text-gradient-orange">côté bureau</span>
+              <h2 className="text-xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold mb-3 sm:mb-4">
+                <span className="sm:hidden">Côté <span className="text-gradient-orange">bureau</span></span>
+                <span className="hidden sm:inline">Logiciel gestion entreprise : <span className="text-gradient-orange">côté bureau</span></span>
               </h2>
-              <p className="text-muted-foreground text-lg">
-                Devis, factures, gestion clients et équipes : tout ce dont le dirigeant a besoin pour piloter son entreprise
+              <p className="text-muted-foreground text-sm sm:text-lg">
+                <span className="sm:hidden">Pilotez votre entreprise depuis un seul endroit.</span>
+                <span className="hidden sm:inline">Devis, factures, gestion clients et équipes : tout ce dont le dirigeant a besoin pour piloter son entreprise</span>
               </p>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {crmFeatures.map((feature, index) => (
                 <div key={index}>
                   <FeatureBlock
@@ -162,7 +166,7 @@ const Fonctionnalites = () => {
                     reversed={index % 2 === 1}
                   />
                   {index < crmFeatures.length - 1 && (
-                    <div className="mt-8">
+                    <div className="mt-6 sm:mt-8">
                       <SectionDivider />
                     </div>
                   )}
@@ -178,22 +182,24 @@ const Fonctionnalites = () => {
       </div>
 
       {/* Section App Terrain */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-10 sm:py-16 lg:py-24">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12 lg:mb-16">
-              <div className="inline-flex items-center gap-2 glass-card px-4 py-2 mb-4 border-primary/30 bg-primary/10">
-                <span className="text-sm font-semibold text-primary">Côté terrain</span>
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+              <div className="inline-flex items-center gap-2 glass-card px-3 sm:px-4 py-1.5 sm:py-2 mb-3 sm:mb-4 border-primary/30 bg-primary/10">
+                <span className="text-xs sm:text-sm font-semibold text-primary">Côté terrain</span>
               </div>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-                Application mobile <span className="text-gradient-orange">intervention</span>
+              <h2 className="text-xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold mb-3 sm:mb-4">
+                <span className="sm:hidden">App <span className="text-gradient-orange">terrain</span></span>
+                <span className="hidden sm:inline">Application mobile <span className="text-gradient-orange">intervention</span></span>
               </h2>
-              <p className="text-muted-foreground text-lg">
-                Une application mobile terrain pour vos employés : planning, interventions, rapports et synchronisation en temps réel
+              <p className="text-muted-foreground text-sm sm:text-lg">
+                <span className="sm:hidden">Planning, rapports, synchronisation temps réel.</span>
+                <span className="hidden sm:inline">Une application mobile terrain pour vos employés : planning, interventions, rapports et synchronisation en temps réel</span>
               </p>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {fieldFeatures.map((feature, index) => (
                 <div key={index}>
                   <FeatureBlock
@@ -203,7 +209,7 @@ const Fonctionnalites = () => {
                     reversed={index % 2 === 0}
                   />
                   {index < fieldFeatures.length - 1 && (
-                    <div className="mt-8">
+                    <div className="mt-6 sm:mt-8">
                       <SectionDivider />
                     </div>
                   )}
@@ -215,21 +221,23 @@ const Fonctionnalites = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="glass-card p-8 lg:p-12 text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-              Prêt à centraliser votre gestion d'entreprise ?
+      <section className="py-10 sm:py-16 lg:py-24">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
+          <div className="glass-card p-5 sm:p-8 lg:p-12 text-center max-w-3xl mx-auto">
+            <h2 className="text-lg sm:text-2xl lg:text-3xl font-semibold sm:font-bold mb-3 sm:mb-4">
+              <span className="sm:hidden">Prêt à centraliser ?</span>
+              <span className="hidden sm:inline">Prêt à centraliser votre gestion d'entreprise ?</span>
             </h2>
-            <p className="text-muted-foreground mb-8">
-              Testez Provia BASE : logiciel devis facture, gestion clients, équipes et application mobile terrain réunis en un seul outil.
+            <p className="text-muted-foreground mb-5 sm:mb-8 text-sm sm:text-base">
+              <span className="sm:hidden">Devis, factures, clients, équipes en un seul outil.</span>
+              <span className="hidden sm:inline">Testez Provia BASE : logiciel devis facture, gestion clients, équipes et application mobile terrain réunis en un seul outil.</span>
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/demo" className="btn-secondary">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Link to="/demo" className="btn-secondary px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base">
                 Réserver une démo
               </Link>
-              <Link to="/#tarifs" className="btn-primary">
-                Commencer maintenant
+              <Link to="/#tarifs" className="btn-primary px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base">
+                Commencer
               </Link>
             </div>
           </div>

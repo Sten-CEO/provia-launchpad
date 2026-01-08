@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 const SectionDivider = () => (
-  <div className="w-full px-4">
+  <div className="w-full px-5 sm:px-4">
     <div className="max-w-6xl mx-auto border-t border-[#dcdcdc]" />
   </div>
 );
@@ -35,22 +35,24 @@ const PourLesPME = () => {
       <Navbar />
 
       {/* HERO Section */}
-      <section className="relative min-h-screen pt-24 lg:pt-32 pb-20 lg:pb-32 overflow-hidden">
+      <section className="relative min-h-[85vh] sm:min-h-screen pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-20 lg:pb-32 overflow-hidden">
         {/* Background Glows */}
-        <div className="glow-orange top-20 -right-40 animate-pulse-glow" />
-        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow" style={{ animationDelay: '1s' }} />
+        <div className="glow-orange top-20 -right-40 animate-pulse-glow opacity-40 sm:opacity-100" />
+        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow opacity-40 sm:opacity-100" style={{ animationDelay: '1s' }} />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left Content */}
-            <div className="space-y-8 animate-fade-in">
-              <p className="text-primary font-semibold text-lg">Logiciel de gestion pour PME</p>
-              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-                Logiciel de gestion pour <span className="text-gradient-orange">PME</span> avec équipes terrain
+            <div className="space-y-5 sm:space-y-8 animate-fade-in">
+              <p className="text-primary font-semibold text-sm sm:text-lg">Logiciel de gestion pour PME</p>
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-semibold sm:font-bold leading-tight">
+                <span className="sm:hidden">Pilotez votre <span className="text-gradient-orange">PME</span> efficacement</span>
+                <span className="hidden sm:inline">Logiciel de gestion pour <span className="text-gradient-orange">PME</span> avec équipes terrain</span>
               </h1>
 
-              <p className="text-lg lg:text-xl text-muted-foreground">
-                Votre entreprise grandit et la complexité augmente ? Provia BASE vous offre les outils pour coordonner vos équipes, suivre votre activité et prendre les bonnes décisions. Un logiciel de gestion PME complet, sans la lourdeur des ERP traditionnels.
+              <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground">
+                <span className="sm:hidden">Coordonnez vos équipes et suivez votre activité en temps réel.</span>
+                <span className="hidden sm:inline">Votre entreprise grandit et la complexité augmente ? Provia BASE vous offre les outils pour coordonner vos équipes, suivre votre activité et prendre les bonnes décisions. Un logiciel de gestion PME complet, sans la lourdeur des ERP traditionnels.</span>
               </p>
 
               <ul className="space-y-4">
@@ -60,10 +62,10 @@ const PourLesPME = () => {
                   { icon: Settings, text: "Workflows personnalisables" },
                 ].map((benefit, index) => (
                   <li key={index} className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                      <benefit.icon className="w-5 h-5 text-primary" />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <benefit.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                     </div>
-                    <span className="text-foreground font-medium">{benefit.text}</span>
+                    <span className="text-foreground text-sm sm:text-base font-medium">{benefit.text}</span>
                   </li>
                 ))}
               </ul>
@@ -71,16 +73,18 @@ const PourLesPME = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/demo"
-                  className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
+                  className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold inline-flex items-center justify-center gap-2"
                 >
-                  Demander une démo gratuite
-                  <ArrowRight className="w-5 h-5" />
+                  <span className="sm:hidden">Démo gratuite</span>
+                  <span className="hidden sm:inline">Demander une démo gratuite</span>
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Link>
                 <Link
                   to="/fonctionnalites"
-                  className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
+                  className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold"
                 >
-                  Voir les fonctionnalités
+                  <span className="sm:hidden">Fonctionnalités</span>
+                  <span className="hidden sm:inline">Voir les fonctionnalités</span>
                 </Link>
               </div>
 
@@ -94,7 +98,7 @@ const PourLesPME = () => {
             </div>
 
             {/* Right - Dashboard Preview */}
-            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="relative animate-fade-in hidden sm:block" style={{ animationDelay: '0.2s' }}>
               <div className="glass-card p-4 lg:p-6 animate-float">
                 {/* Dashboard Header */}
                 <div className="flex items-center justify-between mb-4">
@@ -159,13 +163,13 @@ const PourLesPME = () => {
       <SectionDivider />
 
       {/* PROBLÈME Section - Inverted */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="glow-orange bottom-0 left-0" />
+      <section className="relative py-12 sm:py-20 lg:py-32 overflow-hidden">
+        <div className="glow-orange bottom-0 left-0 opacity-40 sm:opacity-100" />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left - Mockup */}
-            <div className="relative order-2 lg:order-1 animate-fade-in">
+            <div className="relative order-2 lg:order-1 animate-fade-in hidden sm:block">
               <div className="glass-card p-6 relative overflow-hidden">
                 <div className="absolute -top-20 -left-20 w-40 h-40 bg-destructive/10 rounded-full blur-3xl" />
 
@@ -204,30 +208,32 @@ const PourLesPME = () => {
             {/* Right - Text */}
             <div className="order-1 lg:order-2 space-y-6 animate-fade-in">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-destructive/10 flex items-center justify-center">
-                  <Network className="w-7 h-7 text-destructive" />
+                <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-destructive/10 flex items-center justify-center">
+                  <Network className="w-5 h-5 sm:w-7 sm:h-7 text-destructive" />
                 </div>
-                <h2 className="text-2xl lg:text-3xl font-bold">
-                  Les défis de la <span className="text-gradient-orange">croissance</span>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold">
+                  <span className="sm:hidden">Défis de <span className="text-gradient-orange">croissance</span></span>
+                  <span className="hidden sm:inline">Les défis de la <span className="text-gradient-orange">croissance</span></span>
                 </h2>
               </div>
 
-              <p className="text-lg text-muted-foreground">
-                À mesure que votre PME se développe, les processus qui fonctionnaient "à la main" deviennent des freins. La coordination entre services, le suivi des projets et la visibilité sur les performances deviennent critiques.
+              <p className="text-sm sm:text-lg text-muted-foreground">
+                <span className="sm:hidden">En grandissant, les processus manuels deviennent des freins. La coordination et la visibilité sont critiques.</span>
+                <span className="hidden sm:inline">À mesure que votre PME se développe, les processus qui fonctionnaient "à la main" deviennent des freins. La coordination entre services, le suivi des projets et la visibilité sur les performances deviennent critiques.</span>
               </p>
 
               <div className="space-y-3">
                 {[
-                  "Informations dispersées entre plusieurs outils",
-                  "Difficultés à coordonner plusieurs équipes",
-                  "Manque de visibilité sur la rentabilité par projet",
-                  "Temps perdu en réunions de synchronisation",
-                  "Retards dans la facturation et le suivi des paiements",
-                  "Difficultés à déléguer sans perdre le contrôle"
+                  { text: "Informations dispersées entre plusieurs outils", show: true },
+                  { text: "Difficultés à coordonner plusieurs équipes", show: true },
+                  { text: "Manque de visibilité sur la rentabilité par projet", show: true },
+                  { text: "Temps perdu en réunions de synchronisation", show: false },
+                  { text: "Retards dans la facturation et le suivi des paiements", show: false },
+                  { text: "Difficultés à déléguer sans perdre le contrôle", show: false }
                 ].map((problem, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 bg-destructive/5 rounded-lg">
-                    <span className="text-destructive font-bold">✗</span>
-                    <span className="text-foreground">{problem}</span>
+                  <div key={i} className={`flex items-start gap-3 p-3 bg-destructive/5 rounded-lg ${!problem.show ? 'max-sm:hidden' : ''}`}>
+                    <span className="text-destructive font-bold text-sm sm:text-base">✗</span>
+                    <span className="text-foreground text-sm sm:text-base">{problem.text}</span>
                   </div>
                 ))}
               </div>
@@ -239,35 +245,37 @@ const PourLesPME = () => {
       <SectionDivider />
 
       {/* SOLUTION Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="glow-teal top-0 right-0" />
+      <section className="relative py-12 sm:py-20 lg:py-32 overflow-hidden">
+        <div className="glow-teal top-0 right-0 opacity-40 sm:opacity-100" />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left - Text */}
             <div className="space-y-6 animate-fade-in">
-              <h2 className="text-2xl lg:text-3xl font-bold">
-                Une <span className="text-gradient-orange">plateforme unifiée</span> pour toute votre activité
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold">
+                <span className="sm:hidden"><span className="text-gradient-orange">Plateforme unifiée</span> pour votre activité</span>
+                <span className="hidden sm:inline">Une <span className="text-gradient-orange">plateforme unifiée</span> pour toute votre activité</span>
               </h2>
 
-              <p className="text-lg text-muted-foreground">
-                Provia BASE centralise toutes les informations dont vous avez besoin pour piloter votre PME efficacement. Une source unique de vérité pour toute l'entreprise.
+              <p className="text-sm sm:text-lg text-muted-foreground">
+                <span className="sm:hidden">Centralisez toutes vos données. Source unique pour toute l'entreprise.</span>
+                <span className="hidden sm:inline">Provia BASE centralise toutes les informations dont vous avez besoin pour piloter votre PME efficacement. Une source unique de vérité pour toute l'entreprise.</span>
               </p>
 
               <ul className="space-y-4">
                 {[
-                  { icon: Users, title: "Gestion multi-équipes", desc: "Assignez, suivez et coordonnez facilement" },
-                  { icon: BarChart3, title: "Tableaux de bord avancés", desc: "Vision temps réel de votre activité" },
-                  { icon: Settings, title: "Workflows personnalisables", desc: "Adaptez à vos processus métier" },
-                  { icon: Shield, title: "Gestion des droits", desc: "Contrôle fin des accès utilisateurs" },
+                  { icon: Users, title: "Gestion multi-équipes", desc: "Assignez, suivez et coordonnez facilement", show: true },
+                  { icon: BarChart3, title: "Tableaux de bord avancés", desc: "Vision temps réel de votre activité", show: true },
+                  { icon: Settings, title: "Workflows personnalisables", desc: "Adaptez à vos processus métier", show: true },
+                  { icon: Shield, title: "Gestion des droits", desc: "Contrôle fin des accès utilisateurs", show: false },
                 ].map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-provia-teal/10 flex items-center justify-center flex-shrink-0">
-                      <feature.icon className="w-5 h-5 text-provia-teal" />
+                  <li key={i} className={`flex items-start gap-3 ${!feature.show ? 'max-sm:hidden' : ''}`}>
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-provia-teal/10 flex items-center justify-center flex-shrink-0">
+                      <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-provia-teal" />
                     </div>
                     <div>
-                      <span className="text-foreground font-semibold block">{feature.title}</span>
-                      <span className="text-sm text-muted-foreground">{feature.desc}</span>
+                      <span className="text-foreground text-sm sm:text-base font-semibold block">{feature.title}</span>
+                      <span className="text-xs sm:text-sm text-muted-foreground">{feature.desc}</span>
                     </div>
                   </li>
                 ))}
@@ -275,7 +283,7 @@ const PourLesPME = () => {
             </div>
 
             {/* Right - Mockup */}
-            <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="relative animate-fade-in hidden sm:block" style={{ animationDelay: '0.2s' }}>
               <div className="glass-card p-6 relative overflow-hidden animate-float">
                 <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-provia-teal/20 rounded-full blur-3xl" />
 
@@ -325,61 +333,69 @@ const PourLesPME = () => {
       <SectionDivider />
 
       {/* BÉNÉFICES Section - Cards Grid */}
-      <section className="py-20 lg:py-32">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-12 sm:py-20 lg:py-32">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                <Building2 className="w-8 h-8 text-primary" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+                <Building2 className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
               </div>
             </div>
-            <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-              Les bénéfices pour votre <span className="text-gradient-orange">PME</span>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold mb-4">
+              <span className="sm:hidden">Bénéfices pour votre <span className="text-gradient-orange">PME</span></span>
+              <span className="hidden sm:inline">Les bénéfices pour votre <span className="text-gradient-orange">PME</span></span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Transformez votre organisation et accélérez votre croissance
+            <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+              <span className="sm:hidden">Transformez votre organisation</span>
+              <span className="hidden sm:inline">Transformez votre organisation et accélérez votre croissance</span>
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 max-w-6xl mx-auto">
             {[
               {
                 icon: BarChart3,
                 title: "Vision 360°",
-                description: "Visualisez toute votre activité en temps réel"
+                description: "Visualisez toute votre activité en temps réel",
+                show: true
               },
               {
                 icon: Users,
                 title: "Coordination fluide",
-                description: "Bureau et équipes terrain synchronisés"
+                description: "Bureau et équipes terrain synchronisés",
+                show: true
               },
               {
                 icon: Shield,
                 title: "Réduction des erreurs",
-                description: "Centralisation et automatisation"
+                description: "Centralisation et automatisation",
+                show: true
               },
               {
                 icon: TrendingUp,
                 title: "Décisions éclairées",
-                description: "Indicateurs de performance en temps réel"
+                description: "Indicateurs de performance en temps réel",
+                show: false
               },
               {
                 icon: Zap,
                 title: "Scalabilité",
-                description: "L'outil grandit avec votre entreprise"
+                description: "L'outil grandit avec votre entreprise",
+                show: false
               },
               {
                 icon: Settings,
                 title: "Déploiement rapide",
-                description: "Sans projet informatique lourd"
+                description: "Sans projet informatique lourd",
+                show: false
               },
             ].map((benefit, i) => (
-              <div key={i} className="glass-card p-6 hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 rounded-xl bg-provia-teal/10 flex items-center justify-center mb-4">
-                  <benefit.icon className="w-6 h-6 text-provia-teal" />
+              <div key={i} className={`glass-card p-6 hover:shadow-lg transition-shadow ${!benefit.show ? 'max-sm:hidden' : ''}`}>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-provia-teal/10 flex items-center justify-center mb-4">
+                  <benefit.icon className="w-5 h-5 sm:w-6 sm:h-6 text-provia-teal" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
-                <p className="text-muted-foreground">{benefit.description}</p>
+                <h3 className="text-base sm:text-lg font-semibold mb-2">{benefit.title}</h3>
+                <p className="text-sm sm:text-base text-muted-foreground">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -389,28 +405,32 @@ const PourLesPME = () => {
       <SectionDivider />
 
       {/* CTA Final */}
-      <section className="py-20 lg:py-32">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-12 sm:py-20 lg:py-32">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-6">
-              Donnez à votre <span className="text-gradient-orange">PME</span> les outils de sa croissance
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold sm:font-bold mb-6">
+              <span className="sm:hidden">Équipez votre <span className="text-gradient-orange">PME</span> pour la croissance</span>
+              <span className="hidden sm:inline">Donnez à votre <span className="text-gradient-orange">PME</span> les outils de sa croissance</span>
             </h2>
-            <p className="text-muted-foreground mb-8 text-lg">
-              Découvrez comment Provia BASE peut transformer la gestion de votre entreprise. Démonstration personnalisée et conseil sur mesure inclus.
+            <p className="text-muted-foreground mb-8 text-sm sm:text-lg">
+              <span className="sm:hidden">Transformez votre gestion. Démo personnalisée incluse.</span>
+              <span className="hidden sm:inline">Découvrez comment Provia BASE peut transformer la gestion de votre entreprise. Démonstration personnalisée et conseil sur mesure inclus.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/demo"
-                className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
+                className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold inline-flex items-center justify-center gap-2"
               >
-                Demander une démo gratuite
-                <ArrowRight className="w-5 h-5" />
+                <span className="sm:hidden">Démo gratuite</span>
+                <span className="hidden sm:inline">Demander une démo gratuite</span>
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </Link>
               <Link
                 to="/#tarifs"
-                className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold"
+                className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold max-sm:bg-transparent max-sm:border-0 max-sm:underline max-sm:underline-offset-4"
               >
-                Voir les tarifs
+                <span className="sm:hidden">Tarifs</span>
+                <span className="hidden sm:inline">Voir les tarifs</span>
               </Link>
             </div>
           </div>

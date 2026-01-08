@@ -59,29 +59,30 @@ const Installation = () => {
     <div className="min-h-screen">
       <Navbar />
       
-      <section className="pt-32 pb-24 px-4 relative">
+      <section className="pt-24 sm:pt-32 pb-16 sm:pb-24 px-5 sm:px-4 relative">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-20">
-            <h1 className="text-4xl md:text-6xl font-bold mb-8">
-              Comment se déroule votre{" "}
-              <span className="text-gradient-orange">installation</span> ?
+          <div className="text-center mb-10 sm:mb-20">
+            <h1 className="text-2xl sm:text-4xl md:text-6xl font-semibold sm:font-bold mb-4 sm:mb-8">
+              <span className="sm:hidden">Votre <span className="text-gradient-orange">installation</span></span>
+              <span className="hidden sm:inline">Comment se déroule votre{" "}<span className="text-gradient-orange">installation</span> ?</span>
             </h1>
-            <p className="text-muted-foreground max-w-3xl mx-auto text-xl leading-relaxed">
-              Provia BASE a été pensé pour que vous soyez opérationnel dès le premier jour. 
-              Vous choisissez si vous voulez être accompagné… ou tout faire en autonomie.
+            <p className="text-muted-foreground max-w-3xl mx-auto text-sm sm:text-xl leading-relaxed">
+              <span className="sm:hidden">Opérationnel dès le premier jour.</span>
+              <span className="hidden sm:inline">Provia BASE a été pensé pour que vous soyez opérationnel dès le premier jour.
+              Vous choisissez si vous voulez être accompagné… ou tout faire en autonomie.</span>
             </p>
           </div>
 
           {/* Timeline */}
-          <div className="space-y-8">
+          <div className="space-y-5 sm:space-y-8">
             {installationSteps.map((step, index) => (
               <div key={step.id}>
                 {/* Step Card */}
                 <div
-                  className={`relative overflow-hidden rounded-3xl ${
+                  className={`relative overflow-hidden rounded-2xl sm:rounded-3xl ${
                     step.backgroundImage
-                      ? "min-h-[380px]"
+                      ? "min-h-[280px] sm:min-h-[380px]"
                       : "bg-glass/60 backdrop-blur-xl border border-glass-border"
                   }`}
                 >
@@ -92,42 +93,42 @@ const Installation = () => {
                         className="absolute inset-0 bg-cover bg-center"
                         style={{ backgroundImage: `url(${step.backgroundImage})` }}
                       />
-                      <div className="absolute inset-0 bg-background/70 backdrop-blur-sm" />
+                      <div className="absolute inset-0 bg-background/80 sm:bg-background/70 backdrop-blur-sm" />
                     </>
                   )}
 
-                  <div className={`relative z-10 p-10 ${step.image ? "grid md:grid-cols-2 gap-10 items-center" : ""}`}>
+                  <div className={`relative z-10 p-5 sm:p-10 ${step.image ? "grid md:grid-cols-2 gap-6 sm:gap-10 items-center" : ""}`}>
                     {/* Content */}
                     <div className={step.image ? "" : "max-w-4xl"}>
                       {/* Step Number & Icon */}
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className="w-14 h-14 rounded-2xl bg-provia-orange/20 flex items-center justify-center">
-                          <step.icon className="w-7 h-7 text-provia-orange" />
+                      <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 flex-wrap">
+                        <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-provia-orange/20 flex items-center justify-center">
+                          <step.icon className="w-5 h-5 sm:w-7 sm:h-7 text-provia-orange" />
                         </div>
-                        <span className="text-base font-medium text-provia-orange/80">
+                        <span className="text-sm sm:text-base font-medium text-provia-orange/80">
                           Étape {step.id}
                         </span>
                         {step.badge && (
-                          <span className="px-4 py-1.5 text-sm font-medium rounded-full bg-provia-yellow/20 text-provia-yellow border border-provia-yellow/30">
+                          <span className="px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-medium rounded-full bg-provia-yellow/20 text-provia-yellow border border-provia-yellow/30">
                             {step.badge}
                           </span>
                         )}
                       </div>
 
                       {/* Title */}
-                      <h2 className="text-3xl md:text-4xl font-bold mb-5">
+                      <h2 className="text-xl sm:text-3xl md:text-4xl font-semibold sm:font-bold mb-3 sm:mb-5">
                         {step.title}
                       </h2>
 
                       {/* Description */}
-                      <p className="text-muted-foreground text-xl leading-relaxed">
+                      <p className="text-muted-foreground text-sm sm:text-xl leading-relaxed">
                         {step.description}
                       </p>
                     </div>
 
-                    {/* Image Card */}
+                    {/* Image Card - hidden on mobile for cleaner layout */}
                     {step.image && (
-                      <div className="relative">
+                      <div className="relative hidden sm:block">
                         <div className="relative rounded-2xl overflow-hidden bg-glass/40 backdrop-blur-xl border border-glass-border p-4">
                           <div className="absolute inset-0 bg-gradient-to-br from-provia-orange/10 via-transparent to-provia-yellow/10" />
                           <img
@@ -145,8 +146,8 @@ const Installation = () => {
 
                 {/* Separator Line */}
                 {index < installationSteps.length - 1 && (
-                  <div className="flex justify-center py-6">
-                    <div className="w-px h-10 bg-[#dcdcdc]" />
+                  <div className="flex justify-center py-4 sm:py-6">
+                    <div className="w-px h-6 sm:h-10 bg-[#dcdcdc]" />
                   </div>
                 )}
               </div>

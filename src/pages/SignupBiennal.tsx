@@ -46,23 +46,23 @@ const SignupBiennal = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 relative">
-      <div className="glow-orange top-0 left-1/4 w-[600px] h-[600px]" />
-      <div className="glow-teal bottom-0 right-1/4 w-[500px] h-[500px]" />
+    <div className="min-h-screen flex items-center justify-center px-5 sm:p-4 relative">
+      <div className="glow-orange top-0 left-1/4 w-[600px] h-[600px] opacity-40 sm:opacity-100" />
+      <div className="glow-teal bottom-0 right-1/4 w-[500px] h-[500px] opacity-40 sm:opacity-100" />
 
       <div className="w-full max-w-md relative z-10">
         <Link
           to="/#tarifs"
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-6 sm:mb-8 text-sm sm:text-base"
         >
           <ArrowLeft className="w-4 h-4" />
           Retour aux tarifs
         </Link>
 
-        <div className="glass-card p-8">
+        <div className="glass-card p-5 sm:p-8">
           <div className="text-center mb-8">
-            <img src={proviaLogo} alt="Provia" className="h-10 mx-auto mb-6" />
-            <h1 className="text-2xl font-bold mb-2">Créer votre compte</h1>
+            <img src={proviaLogo} alt="Provia" className="h-8 sm:h-10 mx-auto mb-6" />
+            <h1 className="text-xl sm:text-2xl font-semibold sm:font-bold mb-2">Créer votre compte</h1>
             <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-2">
               Engagement 2 ans
             </div>
@@ -78,7 +78,7 @@ const SignupBiennal = () => {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
             <div>
               <label htmlFor="email" className="block text-sm font-medium mb-2">
                 Adresse email
@@ -125,7 +125,7 @@ const SignupBiennal = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn-primary w-full py-3 rounded-xl font-semibold disabled:opacity-50 flex items-center justify-center gap-2"
+              className="btn-primary w-full py-2.5 sm:py-3 rounded-xl font-semibold disabled:opacity-50 flex items-center justify-center gap-2 text-sm sm:text-base"
             >
               {isSubmitting ? (
                 <>
