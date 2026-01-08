@@ -1,78 +1,61 @@
 import { Link } from "react-router-dom";
-import { Eye, Heart, Rocket, Check } from "lucide-react";
+import { Check } from "lucide-react";
 
 export const HeroSection = () => {
-  const benefits = [
-    { icon: Eye, text: "Pilotez votre entreprise d'un seul regard" },
-    { icon: Heart, text: "Une application mobile terrain simple pour vos employés" },
-    { icon: Rocket, text: "Gestion clients, devis et équipe au même endroit" },
-  ];
-
   return (
-    <section className="relative min-h-[100dvh] sm:min-h-screen pt-16 sm:pt-24 lg:pt-32 pb-8 sm:pb-20 lg:pb-16 overflow-hidden flex flex-col justify-center max-sm:py-0">
-      {/* Background Glows - subtler on mobile */}
-      <div className="glow-orange top-20 -right-40 animate-pulse-glow opacity-50 sm:opacity-100" />
-      <div className="glow-teal top-1/2 -left-60 animate-pulse-glow opacity-30 sm:opacity-100" style={{ animationDelay: '1s' }} />
-      <div className="glow-green bottom-20 right-1/4 animate-pulse-glow opacity-30 sm:opacity-100" style={{ animationDelay: '2s' }} />
+    <section className="relative min-h-[100dvh] sm:min-h-screen overflow-hidden flex flex-col justify-center max-sm:px-6">
+      {/* Background Glows - very subtle on mobile */}
+      <div className="glow-orange top-20 -right-40 animate-pulse-glow opacity-20 sm:opacity-100" />
+      <div className="glow-teal top-1/2 -left-60 animate-pulse-glow opacity-15 sm:opacity-100" style={{ animationDelay: '1s' }} />
 
-      <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 max-sm:pt-14">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-          {/* Left Content - Premium mobile typography */}
-          <div className="space-y-6 sm:space-y-6 lg:space-y-8 animate-fade-in">
-            {/* Mobile: lighter weight, better line-height */}
-            <h1 className="text-[1.65rem] leading-[1.25] sm:text-4xl lg:text-5xl xl:text-6xl font-medium sm:font-bold lg:leading-tight tracking-tight">
-              Votre activité enfin{" "}
-              <span className="text-gradient-orange">centralisée</span>
-              <span className="max-sm:hidden">, du bureau jusqu'au terrain</span>
+      <div className="container mx-auto px-0 sm:px-4 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          {/* Left Content - IMPACTFUL mobile */}
+          <div className="max-sm:text-center animate-fade-in">
+            {/* HERO TITLE - Big, bold, impactful */}
+            <h1 className="text-[2rem] leading-[1.15] sm:text-4xl lg:text-5xl xl:text-6xl font-semibold sm:font-bold tracking-tight mb-5 sm:mb-6">
+              <span className="sm:hidden">
+                Votre activité<br />
+                <span className="text-gradient-orange">centralisée</span>
+              </span>
+              <span className="hidden sm:inline">
+                Votre activité enfin{" "}
+                <span className="text-gradient-orange">centralisée</span>
+                , du bureau jusqu'au terrain
+              </span>
             </h1>
 
-            {/* Mobile: shorter, punchier copy - SEO content preserved */}
-            <div className="space-y-3 sm:space-y-0">
-              {/* Mobile-optimized short version */}
-              <p className="text-base leading-relaxed text-muted-foreground sm:hidden">
-                Centralisez devis, factures, clients et équipes.<br />
-                <span className="text-foreground/80">Vos employés terrain restent connectés.</span>
-              </p>
-              {/* Desktop: full SEO text */}
-              <p className="hidden sm:block text-lg lg:text-xl text-muted-foreground max-w-xl">
-                Provia BASE est un logiciel de gestion d'entreprise qui centralise vos devis, factures, clients et équipes. Avec son application mobile intervention, vos employés restent connectés au bureau, où qu'ils soient.
-              </p>
-            </div>
+            {/* Subtitle - Short and punchy on mobile */}
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-8 sm:mb-6 max-w-xl max-sm:mx-auto leading-relaxed">
+              <span className="sm:hidden">
+                Devis, factures, clients et équipes terrain.<br />
+                <span className="text-foreground">Tout au même endroit.</span>
+              </span>
+              <span className="hidden sm:inline">
+                Provia BASE centralise vos devis, factures, clients et équipes. Avec son application mobile, vos employés restent connectés au bureau, où qu'ils soient.
+              </span>
+            </p>
 
-            {/* Benefits - airy spacing on mobile */}
-            <ul className="space-y-3 sm:space-y-4">
-              {benefits.map((benefit, index) => (
-                <li key={index} className="flex items-center gap-3 sm:gap-3">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <benefit.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                  </div>
-                  <span className="text-[0.9rem] sm:text-base text-foreground/85 sm:text-foreground font-normal sm:font-medium leading-snug">{benefit.text}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* CTAs - Single dominant on mobile, more air */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-0">
-              <a href="#tarifs" className="btn-primary text-center text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-3.5 sm:py-4">
+            {/* Single CTA dominant on mobile */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-6 max-sm:items-center">
+              <a href="#tarifs" className="btn-primary text-center text-base sm:text-base lg:text-lg px-8 sm:px-8 py-4 sm:py-4 w-full sm:w-auto max-w-xs">
                 Commencer maintenant
               </a>
-              <Link to="/demo" className="btn-secondary text-center text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-3 sm:py-4 max-sm:bg-transparent max-sm:border-0 max-sm:underline max-sm:underline-offset-4">
-                <span className="sm:hidden">Voir une démo</span>
-                <span className="hidden sm:inline">Réserver une démo avec un expert</span>
+              <Link to="/demo" className="sm:btn-secondary text-center text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-3 sm:py-4 max-sm:text-primary max-sm:underline max-sm:underline-offset-4 max-sm:font-medium">
+                <span className="sm:hidden">Voir une démo →</span>
+                <span className="hidden sm:inline">Réserver une démo</span>
               </Link>
             </div>
 
-            {/* Trust signals - horizontal on mobile, minimal */}
-            <div className="text-[0.7rem] sm:text-sm text-muted-foreground flex flex-row flex-wrap items-center gap-x-4 gap-y-2 sm:gap-3 pt-3 sm:pt-0">
+            {/* Trust signals - minimal on mobile */}
+            <div className="text-xs sm:text-sm text-muted-foreground flex flex-wrap justify-center sm:justify-start items-center gap-x-4 gap-y-1 sm:gap-3">
               <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-provia-teal flex-shrink-0" /> Sans engagement</span>
-              <span className="hidden sm:inline text-border">•</span>
               <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-provia-teal flex-shrink-0" /> Support France</span>
-              <span className="hidden sm:inline text-border">•</span>
-              <span className="flex items-center gap-1.5 max-sm:hidden"><Check className="w-4 h-4 text-provia-teal flex-shrink-0" /> Facturation par utilisateur</span>
+              <span className="flex items-center gap-1.5 max-sm:hidden"><Check className="w-4 h-4 text-provia-teal flex-shrink-0" /> Par utilisateur</span>
             </div>
           </div>
 
-          {/* Right - Dashboard + Mobile Preview Card (hidden on mobile for cleaner UX) */}
+          {/* Right - Dashboard Preview (hidden on mobile) */}
           <div className="hidden lg:block relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <div className="glass-card p-4 lg:p-6 animate-float">
               {/* Dashboard Header */}
@@ -101,9 +84,8 @@ export const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Two Columns: CRM Preview + Mobile Preview */}
+              {/* Two Columns */}
               <div className="grid grid-cols-2 gap-3">
-                {/* CRM Mini Widget */}
                 <div className="glass-card p-3">
                   <p className="text-xs text-muted-foreground mb-2">Clients récents</p>
                   <div className="space-y-2">
@@ -117,8 +99,6 @@ export const HeroSection = () => {
                     ))}
                   </div>
                 </div>
-
-                {/* Mobile Preview */}
                 <div className="glass-card p-3 flex flex-col items-center justify-center">
                   <div className="w-12 h-20 rounded-lg bg-background/50 border border-border/50 flex flex-col items-center justify-center mb-2">
                     <div className="w-8 h-1 rounded-full bg-muted mb-2" />
