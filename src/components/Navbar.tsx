@@ -123,11 +123,11 @@ export const Navbar = () => {
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 glass-navbar">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-between h-14 lg:h-20">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 lg:gap-3">
-              <img src={proviaLogo} alt="Provia BASE" className="h-8 w-8 lg:h-10 lg:w-10 object-contain" />
-              <span className="text-lg lg:text-xl font-semibold lg:font-bold text-foreground">
+          <div className="flex items-center justify-between h-12 sm:h-14 lg:h-20">
+            {/* Logo - more compact on mobile */}
+            <Link to="/" className="flex items-center gap-1.5 sm:gap-2 lg:gap-3">
+              <img src={proviaLogo} alt="Provia BASE" className="h-7 w-7 sm:h-8 sm:w-8 lg:h-10 lg:w-10 object-contain" />
+              <span className="text-base sm:text-lg lg:text-xl font-medium sm:font-semibold lg:font-bold text-foreground">
                 Provia <span className="text-gradient-orange">BASE</span>
               </span>
             </Link>
@@ -176,13 +176,13 @@ export const Navbar = () => {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - compact and premium */}
             <button
               onClick={() => setIsOpen(true)}
-              className="lg:hidden p-1.5 text-muted-foreground hover:text-foreground transition-colors"
+              className="lg:hidden p-1 sm:p-1.5 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Menu"
             >
-              <Menu className="w-5 h-5" />
+              <Menu className="w-5 h-5 sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>
@@ -191,13 +191,13 @@ export const Navbar = () => {
       {/* Mobile Menu Overlay - Premium minimalist design */}
       {isOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="absolute inset-0 bg-background/90 backdrop-blur-md" onClick={closeMenu} />
-          <div className="absolute right-0 top-0 bottom-0 w-72 max-w-[85vw] bg-background/95 backdrop-blur-xl animate-slide-in-right border-l border-border/50 overflow-y-auto">
-            <div className="flex flex-col h-full p-5">
-              {/* Minimal header */}
-              <div className="flex items-center justify-between mb-6">
-                <span className="text-sm font-medium text-muted-foreground">Menu</span>
-                <button onClick={closeMenu} className="p-1.5 text-muted-foreground hover:text-foreground transition-colors">
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" onClick={closeMenu} />
+          <div className="absolute right-0 top-0 bottom-0 w-64 max-w-[80vw] bg-background/98 backdrop-blur-xl animate-slide-in-right border-l border-border/30 overflow-y-auto">
+            <div className="flex flex-col h-full p-4 sm:p-5">
+              {/* Minimal header - more discrete */}
+              <div className="flex items-center justify-between mb-5">
+                <span className="text-xs font-normal text-muted-foreground/70 uppercase tracking-wider">Menu</span>
+                <button onClick={closeMenu} className="p-1 text-muted-foreground hover:text-foreground transition-colors">
                   <X className="w-4 h-4" />
                 </button>
               </div>
@@ -223,25 +223,25 @@ export const Navbar = () => {
                   }}
                 />
 
-                {/* Regular links - lighter weight */}
+                {/* Regular links - lighter weight, more spacing */}
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     to={link.href}
                     onClick={closeMenu}
-                    className="text-base font-normal text-muted-foreground hover:text-foreground transition-colors py-2.5"
+                    className="text-sm font-normal text-muted-foreground hover:text-foreground transition-colors py-2"
                   >
                     {link.label}
                   </Link>
                 ))}
               </div>
 
-              {/* Simplified CTAs */}
-              <div className="flex flex-col gap-2.5 pt-5 mt-auto border-t border-border/50">
-                <Link to="/demo" onClick={closeMenu} className="btn-secondary w-full text-center text-sm py-2.5">
+              {/* Simplified CTAs - more minimal */}
+              <div className="flex flex-col gap-2 pt-4 mt-auto border-t border-border/30">
+                <Link to="/demo" onClick={closeMenu} className="btn-secondary w-full text-center text-xs py-2.5 font-normal">
                   Réserver une démo
                 </Link>
-                <Link to="/#tarifs" onClick={closeMenu} className="btn-primary w-full text-center text-sm py-2.5">
+                <Link to="/#tarifs" onClick={closeMenu} className="btn-primary w-full text-center text-xs py-2.5 font-medium">
                   Commencer
                 </Link>
               </div>

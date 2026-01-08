@@ -50,11 +50,11 @@ const plans = [
 ];
 
 export const PricingSection = () => {
-  // Reorder plans for mobile: popular first
-  const mobilePlans = [plans[1], plans[0], plans[2]];
+  // Mobile order: Mensuel → Engagement 1 an (populaire, centre) → Engagement 2 ans
+  const mobilePlans = [plans[0], plans[1], plans[2]];
 
   return (
-    <section id="tarifs" className="relative py-12 sm:py-16 lg:py-32 overflow-x-clip overflow-y-visible">
+    <section id="tarifs" className="relative min-h-[100dvh] sm:min-h-0 py-12 sm:py-16 lg:py-32 overflow-x-clip overflow-y-visible flex flex-col justify-center">
       <div className="glow-teal top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] opacity-50 sm:opacity-100" />
 
       <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
@@ -69,19 +69,19 @@ export const PricingSection = () => {
           </p>
         </div>
 
-        {/* Mobile: horizontal scroll with popular first */}
-        <div className="sm:hidden -mx-5 px-5 pt-4">
-          <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-3 scrollbar-hide">
-            {mobilePlans.map((plan) => (
+        {/* Mobile: horizontal scroll - Mensuel → Engagement 1 an (centre) → Engagement 2 ans */}
+        <div className="sm:hidden -mx-5 px-5 pt-6">
+          <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
+            {mobilePlans.map((plan, index) => (
               <div
                 key={plan.id}
-                className={`flex-shrink-0 w-[75vw] max-w-[280px] snap-center glass-card p-4 relative ${
-                  plan.popular ? "border-primary/50" : ""
-                }`}
+                className={`flex-shrink-0 w-[72vw] max-w-[260px] snap-center glass-card p-4 relative ${
+                  plan.popular ? "border-primary/40 ring-1 ring-primary/20" : ""
+                } ${index === 1 ? "scale-[1.02]" : ""}`}
               >
                 {plan.popular && (
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                    <span className="badge-popular whitespace-nowrap text-xs px-2 py-1">Populaire</span>
+                    <span className="badge-popular whitespace-nowrap text-[0.65rem] px-2.5 py-1 flex items-center justify-center text-center">Populaire</span>
                   </div>
                 )}
 

@@ -35,16 +35,16 @@ const SuiviInterventions = () => {
       <Navbar />
 
       {/* SECTION 1 - HERO (2 colonnes) */}
-      <section className="relative min-h-screen pt-24 sm:pt-32 pb-10 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
-        <div className="glow-orange top-20 -right-40 animate-pulse-glow" />
-        <div className="glow-teal top-1/2 -left-60 animate-pulse-glow" style={{ animationDelay: '1s' }} />
+      <section className="relative min-h-[100dvh] flex flex-col justify-center max-sm:py-0 pt-16 sm:pt-32 pb-8 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
+        <div className="glow-orange top-20 -right-40 opacity-30 animate-pulse-glow" />
+        <div className="glow-teal top-1/2 -left-60 opacity-30 animate-pulse-glow" style={{ animationDelay: '1s' }} />
 
-        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 max-sm:pt-14">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Colonne A - Texte */}
-            <div className="space-y-8 animate-fade-in">
-              <p className="text-primary font-semibold text-sm sm:text-lg">Fonctionnalité Suivi</p>
-              <h1 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold sm:font-bold leading-tight">
+            <div className="space-y-6 animate-fade-in">
+              <p className="text-primary font-medium text-xs sm:text-lg">Fonctionnalité Suivi</p>
+              <h1 className="text-[1.65rem] leading-[1.25] font-medium tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl sm:font-bold">
                 <span className="sm:hidden"><span className="text-gradient-orange">Suivi</span> des interventions terrain</span>
                 <span className="hidden sm:inline">Logiciel de <span className="text-gradient-orange">suivi des interventions</span> pour équipes terrain</span>
               </h1>

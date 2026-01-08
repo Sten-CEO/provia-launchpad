@@ -5,10 +5,10 @@ import employeeImage from "@/assets/employee-mobile.png";
 export const FeaturesSection = () => {
   return (
     <section id="features" className="relative py-12 sm:py-16 lg:py-32 overflow-hidden">
-      <div className="glow-orange top-0 right-0 opacity-40 sm:opacity-100" />
-      <div className="glow-green bottom-0 left-0 opacity-40 sm:opacity-100" />
+      <div className="glow-orange top-0 right-0 opacity-30 sm:opacity-100" />
+      <div className="glow-green bottom-0 left-0 opacity-30 sm:opacity-100" />
 
-      <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 space-y-12 sm:space-y-16 lg:space-y-24">
+      <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 space-y-16 sm:space-y-16 lg:space-y-24">
 
         {/* Block A - CRM Dirigeant */}
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">

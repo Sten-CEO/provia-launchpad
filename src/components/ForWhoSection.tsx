@@ -31,13 +31,13 @@ export const ForWhoSection = () => {
   const activeAudience = audiences.find((a) => a.id === active)!;
 
   return (
-    <section id="pour-qui" className="relative py-12 sm:py-16 lg:py-32 overflow-hidden">
-      <div className="glow-teal top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50 sm:opacity-100" />
+    <section id="pour-qui" className="relative min-h-[100dvh] sm:min-h-0 py-12 sm:py-16 lg:py-32 overflow-hidden flex flex-col justify-center">
+      <div className="glow-teal top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-40 sm:opacity-100" />
 
       <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
         {/* Header - minimal on mobile */}
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold mb-3 sm:mb-4">
+        <div className="text-center mb-6 sm:mb-12">
+          <h2 className="text-[1.4rem] sm:text-3xl lg:text-4xl font-medium sm:font-bold mb-2 sm:mb-4 tracking-tight">
             Pensé pour <span className="text-gradient-orange">vous</span>
           </h2>
           {/* Mobile: short tagline */}
