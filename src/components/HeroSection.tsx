@@ -4,28 +4,28 @@ import proviaMainImage from "@/assets/provia-main.png";
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[100dvh] sm:min-h-screen overflow-hidden flex flex-col max-sm:justify-start sm:justify-center max-sm:px-6 max-sm:pt-12">
+    <section className="relative min-h-[100dvh] sm:min-h-screen overflow-hidden flex flex-col max-sm:justify-start sm:justify-center max-sm:pt-12">
       {/* Background Glows - very subtle on mobile */}
       <div className="glow-orange top-20 -right-40 animate-pulse-glow opacity-20 sm:opacity-100" />
       <div className="glow-teal top-1/2 -left-60 animate-pulse-glow opacity-15 sm:opacity-100" style={{ animationDelay: '1s' }} />
 
-      <div className="container mx-auto px-0 sm:px-4 lg:px-8 relative z-10 max-sm:mt-0">
+      {/* Hero Image - Mobile only, full width, directly under navbar */}
+      <div className="sm:hidden w-full relative">
+        <img
+          src={proviaMainImage}
+          alt="Entrepreneur satisfait utilisant Provia BASE"
+          className="w-full h-auto"
+          style={{
+            maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-6 sm:px-4 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Content - IMPACTFUL mobile */}
           <div className="max-sm:text-center animate-fade-in">
-            {/* Hero Image - Mobile only, full width above title */}
-            <div className="sm:hidden mb-8 -mx-6 relative">
-              <img
-                src={proviaMainImage}
-                alt="Entrepreneur satisfait utilisant Provia BASE"
-                className="w-full h-auto"
-                style={{
-                  maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
-                }}
-              />
-            </div>
-
             {/* HERO TITLE - Big, bold, impactful */}
             <h1 className="text-[2.1rem] leading-[1.2] sm:text-4xl lg:text-5xl xl:text-6xl font-semibold sm:font-bold tracking-tight mb-6 sm:mb-6">
               <span className="sm:hidden">
