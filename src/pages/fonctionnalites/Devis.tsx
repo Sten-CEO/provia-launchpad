@@ -60,7 +60,7 @@ const Devis = () => {
           </div>
 
           {/* Mobile: Content below image */}
-          <div className="sm:hidden text-center space-y-5 animate-fade-in mt-[12vh]">
+          <div className="sm:hidden text-center space-y-5 animate-fade-in mt-[8vh]">
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
               Créez des devis professionnels en 2 minutes. Envoi automatique, suivi des relances, conversion en facture.
             </p>
