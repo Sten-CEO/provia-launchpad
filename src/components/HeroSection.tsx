@@ -4,12 +4,12 @@ import proviaMainImage from "@/assets/provia-main.png";
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[100dvh] sm:min-h-screen overflow-hidden flex flex-col justify-center max-sm:px-6">
+    <section className="relative min-h-[100dvh] sm:min-h-screen overflow-hidden flex flex-col max-sm:justify-start sm:justify-center max-sm:px-6 max-sm:pt-12">
       {/* Background Glows - very subtle on mobile */}
       <div className="glow-orange top-20 -right-40 animate-pulse-glow opacity-20 sm:opacity-100" />
       <div className="glow-teal top-1/2 -left-60 animate-pulse-glow opacity-15 sm:opacity-100" style={{ animationDelay: '1s' }} />
 
-      <div className="container mx-auto px-0 sm:px-4 lg:px-8 relative z-10">
+      <div className="container mx-auto px-0 sm:px-4 lg:px-8 relative z-10 max-sm:mt-0">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Content - IMPACTFUL mobile */}
           <div className="max-sm:text-center animate-fade-in">
