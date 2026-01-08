@@ -324,11 +324,11 @@
     line-height: 1.75;
   }
 
-  /* Premium section spacing - each section = 1 full screen */
+  /* Premium section spacing - reduced for mobile */
   section {
     position: relative;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   /* Hero section - no top padding on mobile */
