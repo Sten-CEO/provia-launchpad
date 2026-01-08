@@ -36,26 +36,26 @@ const Devis = () => {
       <Navbar />
 
       {/* SECTION 1 - HERO (2 colonnes) */}
-      <section className="relative min-h-[100dvh] flex flex-col justify-center max-sm:py-0 pt-16 sm:pt-32 pb-8 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
+      <section className="relative min-h-[100dvh] flex flex-col max-sm:justify-start justify-center max-sm:py-0 pt-16 sm:pt-32 pb-8 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
         {/* Mobile Hero Image - Right side, top section only */}
-        <div className="sm:hidden absolute top-0 -right-8 w-[50%] h-[70%] z-0">
+        <div className="sm:hidden absolute top-0 -right-4 w-[40%] h-[55%] z-0">
           <div
-            className="absolute inset-0 bg-cover bg-top bg-no-repeat"
+            className="absolute inset-0 bg-contain bg-top bg-no-repeat"
             style={{ backgroundImage: `url(${heroImageDevis})` }}
           />
           {/* Gradient fade to left and bottom */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
 
         <div className="glow-orange top-20 -right-40 opacity-30 animate-pulse-glow max-sm:hidden" />
         <div className="glow-teal top-1/2 -left-60 opacity-30 animate-pulse-glow max-sm:hidden" style={{ animationDelay: '1s' }} />
 
-        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 max-sm:pt-14">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 max-sm:pt-20">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Colonne A - Texte */}
-            <div className="space-y-6 animate-fade-in max-sm:max-w-[75%]">
-              <p className="text-primary font-medium text-xs sm:text-lg">Fonctionnalité Devis</p>
+            <div className="space-y-6 animate-fade-in max-sm:max-w-[85%]">
+              <span className="inline-block text-primary font-medium text-xs sm:text-lg max-sm:px-3 max-sm:py-1.5 max-sm:border max-sm:border-primary/40 max-sm:rounded-full max-sm:bg-primary/5">Fonctionnalité Devis</span>
               <h1 className="text-[1.65rem] leading-[1.25] font-medium tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl sm:font-bold">
                 <span className="sm:hidden">Logiciel de <span className="text-gradient-orange">devis</span> TPE/PME</span>
                 <span className="hidden sm:inline">Logiciel de <span className="text-gradient-orange">devis</span> pour artisans et TPE/PME</span>
@@ -324,16 +324,16 @@ const Devis = () => {
       {/* SECTION 4 - Bénéfices (Cards) */}
       <section className="py-10 sm:py-20 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-5 sm:px-4 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold mb-3 sm:mb-4">
               Les avantages du <span className="text-gradient-orange">logiciel de devis</span>
             </h2>
-            <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xs sm:text-lg text-muted-foreground max-w-2xl mx-auto">
               Gagnez du temps, réduisez les erreurs et améliorez votre image professionnelle.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 max-w-6xl mx-auto">
             {[
               { icon: Clock, title: "Gain de temps", desc: "2 min au lieu de 30 min par devis" },
               { icon: CheckCircle2, title: "Zéro erreur", desc: "Calculs automatiques et TVA intégrée" },
@@ -344,12 +344,12 @@ const Devis = () => {
               { icon: Euro, title: "Facturation", desc: "Conversion en 1 clic" },
               { icon: FileText, title: "Historique", desc: "Tous vos devis archivés" },
             ].map((benefit, i) => (
-              <div key={i} className="glass-card p-6 text-center hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <benefit.icon className="w-6 h-6 text-primary" />
+              <div key={i} className="glass-card p-3 sm:p-6 text-center hover:shadow-lg transition-shadow">
+                <div className="w-10 h-10 sm:w-16 sm:h-16 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-2 sm:mb-4">
+                  <benefit.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">{benefit.title}</h3>
-                <p className="text-sm text-muted-foreground">{benefit.desc}</p>
+                <h3 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm sm:text-base">{benefit.title}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground max-sm:hidden">{benefit.desc}</p>
               </div>
             ))}
           </div>
