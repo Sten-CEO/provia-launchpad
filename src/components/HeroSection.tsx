@@ -13,7 +13,7 @@ export const HeroSection = () => {
           {/* Left Content - IMPACTFUL mobile */}
           <div className="max-sm:text-center animate-fade-in">
             {/* HERO TITLE - Big, bold, impactful */}
-            <h1 className="text-[2rem] leading-[1.15] sm:text-4xl lg:text-5xl xl:text-6xl font-semibold sm:font-bold tracking-tight mb-5 sm:mb-6">
+            <h1 className="text-[2.1rem] leading-[1.2] sm:text-4xl lg:text-5xl xl:text-6xl font-semibold sm:font-bold tracking-tight mb-6 sm:mb-6">
               <span className="sm:hidden">
                 Votre activité<br />
                 <span className="text-gradient-orange">centralisée</span>
@@ -26,10 +26,10 @@ export const HeroSection = () => {
             </h1>
 
             {/* Subtitle - Short and punchy on mobile */}
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-8 sm:mb-6 max-w-xl max-sm:mx-auto leading-relaxed">
+            <p className="text-[1.05rem] leading-[1.6] sm:text-lg lg:text-xl text-muted-foreground mb-10 sm:mb-6 max-w-xl max-sm:mx-auto">
               <span className="sm:hidden">
                 Devis, factures, clients et équipes terrain.<br />
-                <span className="text-foreground">Tout au même endroit.</span>
+                <span className="text-foreground font-medium">Tout au même endroit.</span>
               </span>
               <span className="hidden sm:inline">
                 Provia BASE centralise vos devis, factures, clients et équipes. Avec son application mobile, vos employés restent connectés au bureau, où qu'ils soient.
@@ -37,7 +37,7 @@ export const HeroSection = () => {
             </p>
 
             {/* Single CTA dominant on mobile */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-6 max-sm:items-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-4 mb-8 sm:mb-6 max-sm:items-center">
               <a href="#tarifs" className="btn-primary text-center text-base sm:text-base lg:text-lg px-8 sm:px-8 py-4 sm:py-4 w-full sm:w-auto max-w-xs">
                 Commencer maintenant
               </a>
@@ -48,9 +48,9 @@ export const HeroSection = () => {
             </div>
 
             {/* Trust signals - minimal on mobile */}
-            <div className="text-xs sm:text-sm text-muted-foreground flex flex-wrap justify-center sm:justify-start items-center gap-x-4 gap-y-1 sm:gap-3">
-              <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-provia-teal flex-shrink-0" /> Sans engagement</span>
-              <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-provia-teal flex-shrink-0" /> Support France</span>
+            <div className="text-[0.8rem] sm:text-sm text-muted-foreground flex flex-wrap justify-center sm:justify-start items-center gap-x-5 gap-y-2 sm:gap-3">
+              <span className="flex items-center gap-1.5"><Check className="w-4 h-4 sm:w-4 sm:h-4 text-provia-teal flex-shrink-0" /> Sans engagement</span>
+              <span className="flex items-center gap-1.5"><Check className="w-4 h-4 sm:w-4 sm:h-4 text-provia-teal flex-shrink-0" /> Support France</span>
               <span className="flex items-center gap-1.5 max-sm:hidden"><Check className="w-4 h-4 text-provia-teal flex-shrink-0" /> Par utilisateur</span>
             </div>
           </div>
