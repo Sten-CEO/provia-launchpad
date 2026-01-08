@@ -60,7 +60,7 @@ const PlanningInterventions = () => {
           </div>
 
           {/* Mobile: Content below image */}
-          <div className="sm:hidden text-center space-y-5 animate-fade-in mt-[25vh]">
+          <div className="sm:hidden text-center space-y-5 animate-fade-in mt-4">
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
               Planifiez vos interventions depuis un calendrier intuitif. Assignez les missions et évitez les conflits d'agenda.
             </p>

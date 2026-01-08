@@ -61,7 +61,7 @@ const ApplicationMobile = () => {
           </div>
 
           {/* Mobile: Content below image */}
-          <div className="sm:hidden text-center space-y-5 animate-fade-in mt-[25vh]">
+          <div className="sm:hidden text-center space-y-5 animate-fade-in mt-4">
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
               Missions, fiches clients, rapports et signature. Fonctionne même sans connexion internet.
             </p>
