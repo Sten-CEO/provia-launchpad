@@ -98,7 +98,6 @@ export const HowItWorks = () => {
               </div>
             ))}
           </div>
-        </div>
 
         {/* CTA - simplified on mobile */}
         <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-8 sm:mt-16">
