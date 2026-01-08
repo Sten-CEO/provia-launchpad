@@ -37,23 +37,24 @@ const GestionEquipes = () => {
       <Navbar />
 
       {/* SECTION 1 - HERO */}
-      <section className="relative min-h-screen pt-24 lg:pt-32 pb-16 overflow-hidden">
+      <section className="relative min-h-screen pt-24 sm:pt-32 pb-10 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
         <div className="glow-orange top-20 -right-40 animate-pulse-glow" />
         <div className="glow-teal top-1/2 -left-60 animate-pulse-glow" style={{ animationDelay: '1s' }} />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-8 animate-fade-in">
-              <p className="text-primary font-semibold text-lg">Fonctionnalité Gestion équipes</p>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                Logiciel de <span className="text-gradient-orange">gestion des équipes</span> terrain
+              <p className="text-primary font-semibold text-sm sm:text-lg">Fonctionnalité Gestion équipes</p>
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold sm:font-bold leading-tight">
+                <span className="sm:hidden">Gestion des <span className="text-gradient-orange">équipes</span> terrain</span>
+                <span className="hidden sm:inline">Logiciel de <span className="text-gradient-orange">gestion des équipes</span> terrain</span>
               </h1>
 
-              <p className="text-lg lg:text-xl text-muted-foreground max-w-xl">
+              <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground max-w-xl">
                 Coordonnez vos techniciens, affectez les missions et suivez l'activité de chacun en temps réel. Fini les appels et SMS incessants.
               </p>
 
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {[
                   { icon: Users, text: "Vision globale de toutes vos équipes" },
                   { icon: Calendar, text: "Plannings centralisés et partagés" },
@@ -69,10 +70,10 @@ const GestionEquipes = () => {
               </ul>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/demo" className="btn-primary text-center text-base lg:text-lg px-8 py-4">
+                <Link to="/demo" className="btn-primary text-center text-sm sm:text-lg px-6 sm:px-8 py-3 sm:py-4">
                   Voir la gestion d'équipes
                 </Link>
-                <a href="/#tarifs" className="btn-secondary text-center text-base lg:text-lg px-8 py-4">
+                <a href="/#tarifs" className="btn-secondary text-center text-sm sm:text-lg px-6 sm:px-8 py-3 sm:py-4 max-sm:bg-transparent max-sm:border-0 max-sm:underline max-sm:underline-offset-4">
                   Voir les tarifs
                 </a>
               </div>
@@ -86,7 +87,7 @@ const GestionEquipes = () => {
 
             {/* Mockup Équipes */}
             <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="glass-card p-4 lg:p-6 animate-float">
+              <div className="glass-card p-4 sm:p-6 lg:p-6 animate-float">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-semibold text-foreground">Équipes terrain</h3>
                   <div className="flex gap-2">
@@ -145,13 +146,13 @@ const GestionEquipes = () => {
       <SectionDivider />
 
       {/* SECTION 2 - Problème */}
-      <section className="py-20 lg:py-32 overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-10 sm:py-20 lg:py-32 overflow-hidden">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="relative order-2 lg:order-1">
-              <div className="glass-card p-6 lg:p-8">
+              <div className="glass-card p-4 sm:p-6 lg:p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-destructive/10 flex items-center justify-center">
                     <AlertTriangle className="w-6 h-6 text-destructive" />
                   </div>
                   <p className="font-semibold text-foreground">Gestion chaotique</p>
@@ -180,11 +181,11 @@ const GestionEquipes = () => {
             </div>
 
             <div className="space-y-6 order-1 lg:order-2">
-              <h2 className="text-3xl lg:text-4xl font-bold">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold">
                 Le casse-tête de la <span className="text-gradient-orange">coordination terrain</span>
               </h2>
 
-              <p className="text-lg text-muted-foreground">
+              <p className="text-sm sm:text-lg text-muted-foreground">
                 Gérer des équipes terrain sans outil adapté, c'est une perte de temps considérable et une source de stress quotidien.
               </p>
 
@@ -210,21 +211,21 @@ const GestionEquipes = () => {
       <SectionDivider />
 
       {/* SECTION 3 - Solution */}
-      <section className="py-20 lg:py-32 overflow-hidden">
+      <section className="py-10 sm:py-20 lg:py-32 overflow-hidden">
         <div className="glow-teal top-1/2 -right-40" />
 
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl lg:text-4xl font-bold">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold">
                 <span className="text-gradient-orange">Coordonnez</span> vos équipes sans effort
               </h2>
 
-              <p className="text-lg text-muted-foreground">
+              <p className="text-sm sm:text-lg text-muted-foreground">
                 Provia BASE centralise toute la gestion de vos équipes. Affectez les missions, suivez l'avancement et communiquez efficacement.
               </p>
 
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {[
                   { icon: UserCheck, text: "Fiches employés (compétences, disponibilités)" },
                   { icon: Calendar, text: "Planning partagé en temps réel" },
@@ -244,7 +245,7 @@ const GestionEquipes = () => {
             </div>
 
             <div className="relative">
-              <div className="glass-card p-4 lg:p-6 border-primary/20">
+              <div className="glass-card p-4 sm:p-6 lg:p-6 border-primary/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl" />
 
                 <div className="relative z-10">
@@ -285,13 +286,13 @@ const GestionEquipes = () => {
       <SectionDivider />
 
       {/* SECTION 4 - Bénéfices */}
-      <section className="py-20 lg:py-32 bg-muted/30">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-10 sm:py-20 lg:py-32 bg-muted/30">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold mb-4">
               Les avantages de la <span className="text-gradient-orange">gestion centralisée</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto">
               Gagnez du temps, réduisez le stress et améliorez la productivité de vos équipes.
             </p>
           </div>
@@ -307,8 +308,8 @@ const GestionEquipes = () => {
               { icon: MapPin, title: "Suivi GPS", desc: "Position en temps réel" },
               { icon: CheckCircle2, title: "Productivité", desc: "Plus d'interventions/jour" },
             ].map((benefit, i) => (
-              <div key={i} className="glass-card p-6 text-center hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+              <div key={i} className="glass-card p-4 sm:p-6 text-center hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <benefit.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">{benefit.title}</h3>
@@ -322,24 +323,24 @@ const GestionEquipes = () => {
       <SectionDivider />
 
       {/* SECTION 5 - CTA */}
-      <section className="py-20 lg:py-32">
-        <div className="container mx-auto px-4 lg:px-8">
+      <section className="py-10 sm:py-20 lg:py-32">
+        <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold mb-6">
               Simplifiez la gestion de vos <span className="text-gradient-orange">équipes</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-sm sm:text-lg text-muted-foreground mb-8">
               Découvrez comment Provia BASE peut transformer la coordination de vos équipes terrain.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/demo"
-                className="btn-primary px-8 py-4 rounded-xl text-lg font-semibold inline-flex items-center justify-center gap-2"
+                className="btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold inline-flex items-center justify-center gap-2"
               >
                 Demander une démo gratuite
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <a href="/#tarifs" className="btn-secondary px-8 py-4 rounded-xl text-lg font-semibold">
+              <a href="/#tarifs" className="btn-secondary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold max-sm:bg-transparent max-sm:border-0 max-sm:underline max-sm:underline-offset-4">
                 Voir les tarifs
               </a>
             </div>
