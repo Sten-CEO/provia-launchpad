@@ -9,7 +9,7 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen pt-24 lg:pt-32 pb-16 overflow-hidden">
+    <section className="relative min-h-screen pt-24 lg:pt-32 pb-20 lg:pb-16 overflow-hidden">
       {/* Background Glows */}
       <div className="glow-orange top-20 -right-40 animate-pulse-glow" />
       <div className="glow-teal top-1/2 -left-60 animate-pulse-glow" style={{ animationDelay: '1s' }} />
@@ -18,7 +18,7 @@ export const HeroSection = () => {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
-          <div className="space-y-8 animate-fade-in">
+          <div className="space-y-6 sm:space-y-8 animate-fade-in">
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
               Votre activité enfin{" "}
               <span className="text-gradient-orange">centralisée</span>, du bureau jusqu'au terrain
@@ -48,17 +48,17 @@ export const HeroSection = () => {
               </Link>
             </div>
 
-            <p className="text-sm text-muted-foreground flex flex-wrap items-center gap-2">
-              <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Sans engagement</span>
-              <span className="text-border">•</span>
-              <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Facturation par utilisateur</span>
-              <span className="text-border">•</span>
-              <span className="flex items-center gap-1"><Check className="w-4 h-4 text-provia-teal" /> Support basé en France</span>
-            </p>
+            <div className="text-sm text-muted-foreground flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-2 sm:gap-3">
+              <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-provia-teal flex-shrink-0" /> Sans engagement</span>
+              <span className="hidden sm:inline text-border">•</span>
+              <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-provia-teal flex-shrink-0" /> Facturation par utilisateur</span>
+              <span className="hidden sm:inline text-border">•</span>
+              <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-provia-teal flex-shrink-0" /> Support basé en France</span>
+            </div>
           </div>
 
-          {/* Right - Dashboard + Mobile Preview Card */}
-          <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          {/* Right - Dashboard + Mobile Preview Card (hidden on mobile for cleaner UX) */}
+          <div className="hidden lg:block relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <div className="glass-card p-4 lg:p-6 animate-float">
               {/* Dashboard Header */}
               <div className="flex items-center justify-between mb-4">

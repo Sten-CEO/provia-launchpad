@@ -51,11 +51,11 @@ const plans = [
 
 export const PricingSection = () => {
   return (
-    <section id="tarifs" className="relative py-20 lg:py-32 overflow-x-clip overflow-y-visible">
+    <section id="tarifs" className="relative py-16 sm:py-20 lg:py-32 overflow-x-clip overflow-y-visible">
       <div className="glow-teal top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
             Un prix <span className="text-gradient-orange">clair</span>. Pour chaque personne dans votre équipe.
           </h2>
@@ -64,12 +64,12 @@ export const PricingSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto pt-4">
+        <div className="grid md:grid-cols-3 gap-5 sm:gap-6 max-w-5xl mx-auto pt-4">
           {plans.map((plan) => (
             <div
               key={plan.id}
-              className={`glass-card-hover overflow-visible p-6 lg:p-8 relative ${
-                plan.popular ? "border-primary/50 scale-105 z-10 mt-2" : ""
+              className={`glass-card-hover overflow-visible p-5 sm:p-6 lg:p-8 relative ${
+                plan.popular ? "border-primary/50 md:scale-105 z-10 md:mt-2" : ""
               }`}
             >
               {plan.popular && (
@@ -91,7 +91,7 @@ export const PricingSection = () => {
                 <span className="text-muted-foreground text-sm block">{plan.period}</span>
               </div>
 
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="w-5 h-5 rounded-full bg-provia-teal/20 flex items-center justify-center mt-0.5">

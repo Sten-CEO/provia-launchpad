@@ -2,7 +2,7 @@ import sunsetImage from "@/assets/sunset-vision.jpeg";
 
 export const VisionSection = () => {
   return (
-    <section className="relative py-24 lg:py-40 overflow-hidden">
+    <section className="relative py-20 sm:py-24 lg:py-40 overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
@@ -25,7 +25,7 @@ export const VisionSection = () => {
             <span className="text-gradient-orange">structure</span> qu'elle mérite
           </h2>
           
-          <p className="text-2xl lg:text-3xl font-medium text-foreground/90">
+          <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-foreground/90">
             Avancez plus vite, plus sereinement, plus loin
           </p>
           
