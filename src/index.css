@@ -276,11 +276,11 @@
    MOBILE UX PREMIUM STYLES
    ============================================== */
 
-/* Mobile Section Animation - fade + translateY */
+/* Mobile Section Animation - SYNCHRONIZED fade + translateY */
 @keyframes mobile-section-reveal {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
@@ -288,85 +288,100 @@
   }
 }
 
+/* All elements animate TOGETHER - synchronized */
 .mobile-section-animate {
-  opacity: 0;
-  animation: mobile-section-reveal 0.6s ease-out forwards;
-}
-
-/* Staggered delays for child elements */
-.mobile-section-animate > * {
-  opacity: 0;
   animation: mobile-section-reveal 0.5s ease-out forwards;
 }
 
-.mobile-section-animate > *:nth-child(1) { animation-delay: 0.1s; }
-.mobile-section-animate > *:nth-child(2) { animation-delay: 0.15s; }
-.mobile-section-animate > *:nth-child(3) { animation-delay: 0.2s; }
-.mobile-section-animate > *:nth-child(4) { animation-delay: 0.25s; }
-.mobile-section-animate > *:nth-child(5) { animation-delay: 0.3s; }
-
-/* Mobile Typography - lighter, more air */
+/* Mobile Typography & Layout */
 @media (max-width: 640px) {
-  /* Lighter font weights for mobile */
-  h1, h2, h3 {
+  /* CRITICAL: Prevent ALL horizontal overflow */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    position: relative;
+  }
+
+  /* Hero title - IMPACTFUL */
+  h1 {
+    font-weight: 600 !important;
+    letter-spacing: -0.025em;
+  }
+
+  /* Section titles - clean */
+  h2 {
+    font-weight: 600 !important;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
     font-weight: 500 !important;
     letter-spacing: -0.01em;
   }
 
   /* More line-height for readability */
-  p, li, span {
-    line-height: 1.7;
+  p, li {
+    line-height: 1.75;
   }
 
-  /* Prevent horizontal overflow */
-  body {
-    overflow-x: hidden;
-  }
-
-  /* Premium section spacing */
+  /* Premium section spacing - each section = 1 full screen */
   section {
     position: relative;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 
-  /* Badge global styles - never overflow */
-  .badge-popular,
+  /* Badge global styles - NEVER cut off */
+  .badge-popular {
+    position: relative;
+    z-index: 50;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    overflow: visible !important;
+  }
+
   .badge-soon,
   [class*="badge"] {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    word-break: break-word;
     max-width: 100%;
     white-space: nowrap;
   }
+
+  /* Glass cards - NO overflow */
+  .glass-card {
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  /* Section dividers - very subtle */
+  [class*="border-t"][class*="border-"] {
+    opacity: 0.4;
+  }
 }
 
-/* Mobile full screen sections */
+/* Full screen sections on mobile */
 @media (max-width: 640px) {
   .mobile-fullscreen {
     min-height: 100vh;
-    min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
-  /* Ensure sections don't overflow */
-  .mobile-section-contained {
-    max-width: 100vw;
-    overflow-x: hidden;
+  /* NO horizontal scroll anywhere */
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
   }
-}
 
-/* Intersection Observer Animation Trigger */
-.mobile-observe {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.mobile-observe.visible {
-  opacity: 1;
-  transform: translateY(0);
+  /* Ensure nothing creates hidden space */
+  * {
+    max-width: 100vw;
+  }
 }

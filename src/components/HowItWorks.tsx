@@ -31,52 +31,46 @@ const steps = [
 
 export const HowItWorks = () => {
   return (
-    <section className="relative min-h-[100dvh] sm:min-h-0 py-12 sm:py-16 lg:py-32 overflow-hidden flex flex-col justify-center">
+    <section className="relative min-h-[100dvh] sm:min-h-0 py-10 sm:py-16 lg:py-32 overflow-hidden flex flex-col justify-center max-sm:px-5">
       {/* Subtle background */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-1/2 bg-cover bg-bottom opacity-3 sm:opacity-10"
+        className="absolute bottom-0 left-0 right-0 h-1/2 bg-cover bg-bottom opacity-0 sm:opacity-10"
         style={{ backgroundImage: `url(${sunsetImage})` }}
       />
       <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-background to-transparent" />
 
-      {/* Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] sm:w-[600px] h-[150px] sm:h-[300px] bg-provia-orange/8 sm:bg-provia-orange/10 rounded-full blur-[60px] sm:blur-[100px]" />
+      {/* Glow - subtle on mobile */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[250px] sm:w-[600px] h-[100px] sm:h-[300px] bg-provia-orange/5 sm:bg-provia-orange/10 rounded-full blur-[50px] sm:blur-[100px]" />
 
-      <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
-        <div className="text-center mb-6 sm:mb-16">
-          <h2 className="text-[1.4rem] sm:text-3xl lg:text-4xl font-medium sm:font-bold mb-2 sm:mb-4 tracking-tight">
+      <div className="container mx-auto px-0 sm:px-4 lg:px-8 relative z-10">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-[1.5rem] sm:text-3xl lg:text-4xl font-semibold sm:font-bold mb-3 sm:mb-4 tracking-tight">
             Comment ça <span className="text-gradient-orange">marche</span> ?
           </h2>
-          <p className="text-[0.8rem] sm:text-base text-muted-foreground max-w-2xl mx-auto">
-            <span className="sm:hidden">Opérationnel en quelques minutes.</span>
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+            <span className="sm:hidden">Opérationnel en quelques minutes</span>
             <span className="hidden sm:inline">Provia BASE est conçu pour être opérationnel en quelques minutes, pas en quelques jours.</span>
           </p>
         </div>
 
-        {/* Timeline - horizontal scroll on mobile */}
-        <div className="max-w-4xl mx-auto">
-          {/* Mobile: horizontal scroll */}
-          <div className="sm:hidden -mx-5 px-5">
-            <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-3 scrollbar-hide">
-              {steps.map((step, index) => (
-                <div key={index} className="flex-shrink-0 w-[70vw] max-w-[260px] snap-center">
-                  <div className="glass-card p-4 text-center h-full">
-                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-2">
-                      <span className="text-primary font-semibold text-xs">{step.number}</span>
-                    </div>
-                    <h3 className="font-medium mb-1 text-sm leading-tight">{step.title}</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{step.description}</p>
-                  </div>
+        {/* Mobile: Clean vertical timeline */}
+        <div className="sm:hidden">
+          <div className="space-y-4">
+            {steps.map((step, index) => (
+              <div key={index} className="flex gap-4 items-start">
+                {/* Step number circle */}
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center">
+                  <span className="text-primary font-bold text-sm">{step.number}</span>
                 </div>
-              ))}
-            </div>
-            {/* Scroll indicator */}
-            <div className="flex justify-center gap-1.5 mt-2">
-              {steps.map((_, i) => (
-                <div key={i} className="w-1.5 h-1.5 rounded-full bg-primary/30" />
-              ))}
-            </div>
+                {/* Content */}
+                <div className="flex-1 pt-1">
+                  <h3 className="font-semibold text-sm mb-1 leading-snug">{step.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{step.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
+        </div>
 
           {/* Desktop: grid */}
           <div className="hidden sm:grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 relative">
