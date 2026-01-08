@@ -36,7 +36,7 @@ const PlanningInterventions = () => {
       <Navbar />
 
       {/* SECTION 1 - HERO (2 colonnes) */}
-      <section className="relative min-h-[100dvh] flex flex-col max-sm:justify-start justify-center max-sm:py-0 max-sm:pb-4 pt-16 sm:pt-32 pb-8 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
+      <section className="relative min-h-[100dvh] max-sm:min-h-0 flex flex-col max-sm:justify-start justify-center max-sm:py-0 max-sm:pb-4 pt-16 sm:pt-32 pb-8 sm:pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
         {/* Mobile Hero Image - Right side, top section only */}
         <div className="sm:hidden absolute top-0 -right-4 w-[40%] h-[55%] z-0">
           <div
