@@ -23,50 +23,51 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return (
-    <section id="avis" className="relative py-16 sm:py-20 lg:py-32 overflow-hidden">
-      <div className="glow-orange top-0 left-1/4" />
+    <section id="avis" className="relative py-10 sm:py-16 lg:py-32 overflow-hidden">
+      <div className="glow-orange top-0 left-1/4 opacity-40 sm:opacity-100" />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Ce que disent nos{" "}
-            <span className="text-gradient-orange">clients</span>
+      <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
+        <div className="text-center mb-6 sm:mb-16">
+          <h2 className="text-xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold mb-2 sm:mb-4">
+            <span className="sm:hidden">Avis <span className="text-gradient-orange">clients</span></span>
+            <span className="hidden sm:inline">Ce que disent nos <span className="text-gradient-orange">clients</span></span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
-            Des dirigeants de TPE et PME partagent leur expérience avec Provia BASE.
+          <p className="text-muted-foreground max-w-2xl mx-auto text-xs sm:text-base">
+            <span className="sm:hidden">Ils utilisent Provia BASE au quotidien.</span>
+            <span className="hidden sm:inline">Des dirigeants de TPE et PME partagent leur expérience avec Provia BASE.</span>
           </p>
         </div>
 
-        {/* Mobile: Horizontal scroll carousel (SEO-safe - all content in DOM) */}
-        <div className="md:hidden -mx-4 px-4">
-          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
+        {/* Mobile: Horizontal scroll carousel (SEO-safe) */}
+        <div className="md:hidden -mx-5 px-5">
+          <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-3 scrollbar-hide">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="glass-card-hover p-5 flex-shrink-0 w-[85vw] max-w-[320px] snap-center"
+                className="glass-card p-4 flex-shrink-0 w-[78vw] max-w-[280px] snap-center"
               >
-                {/* Stars */}
-                <div className="flex gap-1 mb-3">
+                {/* Stars - smaller */}
+                <div className="flex gap-0.5 mb-2">
                   {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    <Star key={i} className="w-3 h-3 fill-primary text-primary" />
                   ))}
                 </div>
 
                 {/* Content */}
-                <p className="text-foreground mb-4 leading-relaxed text-sm">
+                <p className="text-foreground/90 mb-3 leading-relaxed text-xs">
                   "{testimonial.content}"
                 </p>
 
-                {/* Author */}
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center">
-                    <span className="text-primary font-semibold text-sm">
+                {/* Author - compact */}
+                <div className="flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center">
+                    <span className="text-primary font-medium text-[10px]">
                       {testimonial.name.split(" ").map((n) => n[0]).join("")}
                     </span>
                   </div>
                   <div>
-                    <p className="font-medium text-sm">{testimonial.name}</p>
-                    <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                    <p className="font-medium text-xs">{testimonial.name}</p>
+                    <p className="text-[10px] text-muted-foreground">{testimonial.role}</p>
                   </div>
                 </div>
               </div>
