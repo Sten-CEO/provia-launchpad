@@ -2,9 +2,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2024-12-18.acacia",
-});
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 const supabaseAdmin = createClient(
   process.env.VITE_SUPABASE_URL!,
@@ -62,6 +60,7 @@ async function syncSubscription(subscription: Stripe.Subscription) {
   const item = subscription.items?.data?.[0];
   const priceId = item?.price?.id;
   const plan = priceId ? PRICE_TO_PLAN[priceId] || null : null;
+  const periodEnd = (subscription as unknown as { current_period_end: number }).current_period_end;
 
   const { error: upsertError } = await supabaseAdmin
     .from("billing_subscriptions")
@@ -74,7 +73,7 @@ async function syncSubscription(subscription: Stripe.Subscription) {
         plan: plan,
         status: subscription.status,
         quantity: item?.quantity || 1,
-        current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
+        current_period_end: new Date(periodEnd * 1000).toISOString(),
         updated_at: new Date().toISOString(),
       },
       { onConflict: "user_id" }
@@ -170,8 +169,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const invoice = event.data.object as Stripe.Invoice;
         console.log("Invoice paid:", invoice.id);
 
-        if (invoice.subscription) {
-          const subscription = await stripe.subscriptions.retrieve(invoice.subscription as string);
+        const paidInvoiceSub = (invoice as unknown as { subscription: string | null }).subscription;
+        if (paidInvoiceSub) {
+          const subscription = await stripe.subscriptions.retrieve(paidInvoiceSub);
           await syncSubscription(subscription);
         }
         break;
@@ -181,8 +181,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const invoice = event.data.object as Stripe.Invoice;
         console.log("Invoice payment failed:", invoice.id);
 
-        if (invoice.subscription) {
-          const subscription = await stripe.subscriptions.retrieve(invoice.subscription as string);
+        const failedInvoiceSub = (invoice as unknown as { subscription: string | null }).subscription;
+        if (failedInvoiceSub) {
+          const subscription = await stripe.subscriptions.retrieve(failedInvoiceSub);
           await syncSubscription(subscription);
         }
         break;

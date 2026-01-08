@@ -9,9 +9,7 @@ const PRICE_IDS: Record<string, string> = {
   "24m": "price_1SidLQ2O0pumL0260VbUZ8tn",
 };
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2024-12-18.acacia",
-});
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 const supabaseAdmin = createClient(
   process.env.VITE_SUPABASE_URL!,

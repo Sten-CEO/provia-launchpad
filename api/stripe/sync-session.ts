@@ -2,9 +2,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2024-12-18.acacia",
-});
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 const supabaseAdmin = createClient(
   process.env.VITE_SUPABASE_URL!,
@@ -59,6 +57,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const item = subscription.items.data[0];
     const priceId = item?.price?.id;
     const plan = priceId ? PRICE_TO_PLAN[priceId] || null : null;
+    const periodEnd = (subscription as unknown as { current_period_end: number }).current_period_end;
 
     // Sync to Supabase
     const { error: upsertError } = await supabaseAdmin
@@ -72,7 +71,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           plan: plan,
           status: subscription.status,
           quantity: item?.quantity || 1,
-          current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
+          current_period_end: new Date(periodEnd * 1000).toISOString(),
           updated_at: new Date().toISOString(),
         },
         { onConflict: "user_id" }
@@ -89,7 +88,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         id: subscription.id,
         status: subscription.status,
         plan: plan,
-        current_period_end: subscription.current_period_end,
+        current_period_end: periodEnd,
       },
     });
   } catch (error) {
