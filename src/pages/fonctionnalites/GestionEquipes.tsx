@@ -62,7 +62,7 @@ const GestionEquipes = () => {
           </div>
 
           {/* Mobile: Content below image */}
-          <div className="sm:hidden text-center space-y-5 animate-fade-in mt-4">
+          <div className="sm:hidden text-center space-y-5 animate-fade-in mt-[12vh]">
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
               Coordonnez vos techniciens et suivez leur activité en temps réel. Fini les appels et SMS incessants.
             </p>
