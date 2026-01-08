@@ -23,16 +23,16 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return (
-    <section id="avis" className="relative py-10 sm:py-16 lg:py-32 overflow-hidden">
-      <div className="glow-orange top-0 left-1/4 opacity-40 sm:opacity-100" />
+    <section id="avis" className="relative min-h-[90dvh] sm:min-h-0 py-10 sm:py-16 lg:py-32 overflow-hidden flex flex-col justify-center">
+      <div className="glow-orange top-0 left-1/4 opacity-30 sm:opacity-100" />
 
       <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
-        <div className="text-center mb-6 sm:mb-16">
-          <h2 className="text-xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold mb-2 sm:mb-4">
+        <div className="text-center mb-5 sm:mb-16">
+          <h2 className="text-[1.3rem] sm:text-3xl lg:text-4xl font-medium sm:font-bold mb-2 sm:mb-4 tracking-tight">
             <span className="sm:hidden">Avis <span className="text-gradient-orange">clients</span></span>
             <span className="hidden sm:inline">Ce que disent nos <span className="text-gradient-orange">clients</span></span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-xs sm:text-base">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-[0.75rem] sm:text-base">
             <span className="sm:hidden">Ils utilisent Provia BASE au quotidien.</span>
             <span className="hidden sm:inline">Des dirigeants de TPE et PME partagent leur expérience avec Provia BASE.</span>
           </p>

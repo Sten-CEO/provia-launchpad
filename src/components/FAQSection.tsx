@@ -42,15 +42,15 @@ export const FAQSection = () => {
 
   return (
     <section id="faq" className="relative py-10 sm:py-16 lg:py-32 overflow-hidden">
-      <div className="glow-teal bottom-0 right-0 opacity-40 sm:opacity-100" />
+      <div className="glow-teal bottom-0 right-0 opacity-30 sm:opacity-100" />
 
       <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
-        <div className="text-center mb-6 sm:mb-16">
-          <h2 className="text-xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold mb-2 sm:mb-4">
+        <div className="text-center mb-5 sm:mb-16">
+          <h2 className="text-[1.3rem] sm:text-3xl lg:text-4xl font-medium sm:font-bold mb-2 sm:mb-4 tracking-tight">
             <span className="sm:hidden"><span className="text-gradient-orange">FAQ</span></span>
             <span className="hidden sm:inline">Questions <span className="text-gradient-orange">fréquentes</span></span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-xs sm:text-base">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-[0.75rem] sm:text-base">
             <span className="sm:hidden">Réponses à vos questions.</span>
             <span className="hidden sm:inline">Tout ce que vous devez savoir sur ce logiciel de gestion avant de vous lancer.</span>
           </p>

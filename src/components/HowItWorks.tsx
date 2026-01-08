@@ -31,23 +31,23 @@ const steps = [
 
 export const HowItWorks = () => {
   return (
-    <section className="relative py-12 sm:py-16 lg:py-32 overflow-hidden">
+    <section className="relative min-h-[100dvh] sm:min-h-0 py-12 sm:py-16 lg:py-32 overflow-hidden flex flex-col justify-center">
       {/* Subtle background */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-1/2 bg-cover bg-bottom opacity-5 sm:opacity-10"
+        className="absolute bottom-0 left-0 right-0 h-1/2 bg-cover bg-bottom opacity-3 sm:opacity-10"
         style={{ backgroundImage: `url(${sunsetImage})` }}
       />
       <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-background to-transparent" />
 
       {/* Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] sm:w-[600px] h-[200px] sm:h-[300px] bg-provia-orange/10 rounded-full blur-[80px] sm:blur-[100px]" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] sm:w-[600px] h-[150px] sm:h-[300px] bg-provia-orange/8 sm:bg-provia-orange/10 rounded-full blur-[60px] sm:blur-[100px]" />
 
       <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
-        <div className="text-center mb-8 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold sm:font-bold mb-2 sm:mb-4">
+        <div className="text-center mb-6 sm:mb-16">
+          <h2 className="text-[1.4rem] sm:text-3xl lg:text-4xl font-medium sm:font-bold mb-2 sm:mb-4 tracking-tight">
             Comment ça <span className="text-gradient-orange">marche</span> ?
           </h2>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-[0.8rem] sm:text-base text-muted-foreground max-w-2xl mx-auto">
             <span className="sm:hidden">Opérationnel en quelques minutes.</span>
             <span className="hidden sm:inline">Provia BASE est conçu pour être opérationnel en quelques minutes, pas en quelques jours.</span>
           </p>

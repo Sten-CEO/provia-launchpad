@@ -9,18 +9,18 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-[85vh] sm:min-h-screen pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-20 lg:pb-16 overflow-hidden">
+    <section className="relative min-h-[100dvh] sm:min-h-screen pt-16 sm:pt-24 lg:pt-32 pb-8 sm:pb-20 lg:pb-16 overflow-hidden flex flex-col justify-center max-sm:py-0">
       {/* Background Glows - subtler on mobile */}
       <div className="glow-orange top-20 -right-40 animate-pulse-glow opacity-50 sm:opacity-100" />
       <div className="glow-teal top-1/2 -left-60 animate-pulse-glow opacity-30 sm:opacity-100" style={{ animationDelay: '1s' }} />
       <div className="glow-green bottom-20 right-1/4 animate-pulse-glow opacity-30 sm:opacity-100" style={{ animationDelay: '2s' }} />
 
-      <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content - Refined mobile typography */}
-          <div className="space-y-5 sm:space-y-6 lg:space-y-8 animate-fade-in">
-            {/* Mobile: lighter weight, smaller size */}
-            <h1 className="text-[1.75rem] leading-[1.2] sm:text-4xl lg:text-5xl xl:text-6xl font-semibold sm:font-bold lg:leading-tight">
+      <div className="container mx-auto px-5 sm:px-4 lg:px-8 relative z-10 max-sm:pt-14">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+          {/* Left Content - Premium mobile typography */}
+          <div className="space-y-6 sm:space-y-6 lg:space-y-8 animate-fade-in">
+            {/* Mobile: lighter weight, better line-height */}
+            <h1 className="text-[1.65rem] leading-[1.25] sm:text-4xl lg:text-5xl xl:text-6xl font-medium sm:font-bold lg:leading-tight tracking-tight">
               Votre activité enfin{" "}
               <span className="text-gradient-orange">centralisée</span>
               <span className="max-sm:hidden">, du bureau jusqu'au terrain</span>
@@ -39,31 +39,31 @@ export const HeroSection = () => {
               </p>
             </div>
 
-            {/* Benefits - compact on mobile */}
-            <ul className="space-y-2.5 sm:space-y-4">
+            {/* Benefits - airy spacing on mobile */}
+            <ul className="space-y-3 sm:space-y-4">
               {benefits.map((benefit, index) => (
-                <li key={index} className="flex items-center gap-2.5 sm:gap-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <li key={index} className="flex items-center gap-3 sm:gap-3">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <benefit.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                   </div>
-                  <span className="text-sm sm:text-base text-foreground/90 sm:text-foreground font-normal sm:font-medium">{benefit.text}</span>
+                  <span className="text-[0.9rem] sm:text-base text-foreground/85 sm:text-foreground font-normal sm:font-medium leading-snug">{benefit.text}</span>
                 </li>
               ))}
             </ul>
 
-            {/* CTAs - Single dominant on mobile */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-0">
-              <a href="#tarifs" className="btn-primary text-center text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-3 sm:py-4">
+            {/* CTAs - Single dominant on mobile, more air */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-0">
+              <a href="#tarifs" className="btn-primary text-center text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-3.5 sm:py-4">
                 Commencer maintenant
               </a>
-              <Link to="/demo" className="btn-secondary text-center text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-2.5 sm:py-4 max-sm:bg-transparent max-sm:border-0 max-sm:underline max-sm:underline-offset-4">
+              <Link to="/demo" className="btn-secondary text-center text-sm sm:text-base lg:text-lg px-6 sm:px-8 py-3 sm:py-4 max-sm:bg-transparent max-sm:border-0 max-sm:underline max-sm:underline-offset-4">
                 <span className="sm:hidden">Voir une démo</span>
                 <span className="hidden sm:inline">Réserver une démo avec un expert</span>
               </Link>
             </div>
 
             {/* Trust signals - horizontal on mobile, minimal */}
-            <div className="text-xs sm:text-sm text-muted-foreground flex flex-row flex-wrap items-center gap-x-4 gap-y-1.5 sm:gap-3 pt-2 sm:pt-0">
+            <div className="text-[0.7rem] sm:text-sm text-muted-foreground flex flex-row flex-wrap items-center gap-x-4 gap-y-2 sm:gap-3 pt-3 sm:pt-0">
               <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-provia-teal flex-shrink-0" /> Sans engagement</span>
               <span className="hidden sm:inline text-border">•</span>
               <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-provia-teal flex-shrink-0" /> Support France</span>
