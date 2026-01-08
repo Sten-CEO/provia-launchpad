@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
-import proviaMainImage from "@/assets/provia main.png";
+import proviaMainImage from "@/assets/provia-main.png";
 
 export const HeroSection = () => {
   return (
@@ -13,6 +13,19 @@ export const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Content - IMPACTFUL mobile */}
           <div className="max-sm:text-center animate-fade-in">
+            {/* Hero Image - Mobile only, full width above title */}
+            <div className="sm:hidden mb-8 -mx-6 relative">
+              <img
+                src={proviaMainImage}
+                alt="Entrepreneur satisfait utilisant Provia BASE"
+                className="w-full h-auto"
+                style={{
+                  maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
+                }}
+              />
+            </div>
+
             {/* HERO TITLE - Big, bold, impactful */}
             <h1 className="text-[2.1rem] leading-[1.2] sm:text-4xl lg:text-5xl xl:text-6xl font-semibold sm:font-bold tracking-tight mb-6 sm:mb-6">
               <span className="sm:hidden">
@@ -55,20 +68,6 @@ export const HeroSection = () => {
               <span className="flex items-center gap-1.5 max-sm:hidden"><Check className="w-4 h-4 text-provia-teal flex-shrink-0" /> Par utilisateur</span>
             </div>
 
-            {/* Hero Image - Mobile only */}
-            <div className="sm:hidden mt-10 relative">
-              <div className="relative w-full max-w-sm mx-auto">
-                <img
-                  src={proviaMainImage}
-                  alt="Entrepreneur satisfait utilisant Provia BASE"
-                  className="w-full h-auto rounded-2xl opacity-90"
-                  style={{
-                    maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)'
-                  }}
-                />
-              </div>
-            </div>
           </div>
 
           {/* Right - Dashboard Preview (hidden on mobile) */}
