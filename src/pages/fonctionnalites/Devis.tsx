@@ -378,7 +378,7 @@ const Devis = () => {
                   <benefit.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
                 <h3 className="font-semibold text-foreground mb-1 sm:mb-2 text-sm sm:text-base">{benefit.title}</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground max-sm:hidden">{benefit.desc}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">{benefit.desc}</p>
               </div>
             ))}
           </div>
