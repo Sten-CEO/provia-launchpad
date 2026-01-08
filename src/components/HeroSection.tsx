@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
+import proviaMainImage from "@/assets/provia main.png";
 
 export const HeroSection = () => {
   return (
@@ -52,6 +53,21 @@ export const HeroSection = () => {
               <span className="flex items-center gap-1.5"><Check className="w-4 h-4 sm:w-4 sm:h-4 text-provia-teal flex-shrink-0" /> Sans engagement</span>
               <span className="flex items-center gap-1.5"><Check className="w-4 h-4 sm:w-4 sm:h-4 text-provia-teal flex-shrink-0" /> Support France</span>
               <span className="flex items-center gap-1.5 max-sm:hidden"><Check className="w-4 h-4 text-provia-teal flex-shrink-0" /> Par utilisateur</span>
+            </div>
+
+            {/* Hero Image - Mobile only */}
+            <div className="sm:hidden mt-10 relative">
+              <div className="relative w-full max-w-sm mx-auto">
+                <img
+                  src={proviaMainImage}
+                  alt="Entrepreneur satisfait utilisant Provia BASE"
+                  className="w-full h-auto rounded-2xl opacity-90"
+                  style={{
+                    maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)'
+                  }}
+                />
+              </div>
             </div>
           </div>
 
