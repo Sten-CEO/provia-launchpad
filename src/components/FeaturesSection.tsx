@@ -4,11 +4,11 @@ import employeeImage from "@/assets/employee-mobile.png";
 
 export const FeaturesSection = () => {
   return (
-    <section id="features" className="relative py-20 lg:py-32 overflow-hidden">
+    <section id="features" className="relative py-16 sm:py-20 lg:py-32 overflow-hidden">
       <div className="glow-orange top-0 right-0" />
       <div className="glow-green bottom-0 left-0" />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 space-y-24">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 space-y-16 sm:space-y-20 lg:space-y-24">
         
         {/* Block A - CRM Dirigeant */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -20,7 +20,7 @@ export const FeaturesSection = () => {
               Depuis votre tableau de bord, gardez un contrôle total sur votre entreprise. Provia BASE unifie vos devis, vos clients, vos équipes et votre organisation interne dans un espace intuitif et moderne.
             </p>
             
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {[
                 { icon: FileText, text: "Devis & factures en quelques clics" },
                 { icon: Users, text: "Fiches clients propres et simples" },
@@ -29,11 +29,18 @@ export const FeaturesSection = () => {
                 { icon: ClipboardList, text: "Rapport d'intervention depuis le CRM" },
                 { icon: BarChart3, text: "Dashboard en temps réel (vision globale)" },
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <item.icon className="w-5 h-5 text-primary" />
+                <li
+                  key={i}
+                  className={`flex items-center gap-3 transition-all ${
+                    i >= 4 ? 'max-sm:opacity-70 max-sm:scale-95 max-sm:origin-left' : ''
+                  }`}
+                >
+                  <div className={`rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 ${
+                    i >= 4 ? 'w-8 h-8 sm:w-10 sm:h-10' : 'w-10 h-10'
+                  }`}>
+                    <item.icon className={`text-primary ${i >= 4 ? 'w-4 h-4 sm:w-5 sm:h-5' : 'w-5 h-5'}`} />
                   </div>
-                  <span className="text-foreground font-medium text-lg">{item.text}</span>
+                  <span className={`text-foreground font-medium ${i >= 4 ? 'text-base sm:text-lg' : 'text-lg'}`}>{item.text}</span>
                 </li>
               ))}
             </ul>
@@ -94,7 +101,7 @@ export const FeaturesSection = () => {
                 Vos employés accèdent à leurs missions du jour, aux informations clients, aux validations et aux rapports… tout depuis leur app terrain dédiée, synchronisée en temps réel avec votre CRM.
               </p>
               
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {[
                   { icon: PenTool, text: "Signature électronique des interventions" },
                   { icon: ClipboardList, text: "Gestion complète de l'intervention avec le client" },
@@ -103,11 +110,18 @@ export const FeaturesSection = () => {
                   { icon: CalendarDays, text: "Planning employé relié au CRM" },
                   { icon: CheckCircle, text: "Check-list personnalisée" },
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                      <item.icon className="w-5 h-5 text-primary" />
+                  <li
+                    key={i}
+                    className={`flex items-center gap-3 transition-all ${
+                      i >= 4 ? 'max-sm:opacity-70 max-sm:scale-95 max-sm:origin-left' : ''
+                    }`}
+                  >
+                    <div className={`rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 ${
+                      i >= 4 ? 'w-8 h-8 sm:w-10 sm:h-10' : 'w-10 h-10'
+                    }`}>
+                      <item.icon className={`text-primary ${i >= 4 ? 'w-4 h-4 sm:w-5 sm:h-5' : 'w-5 h-5'}`} />
                     </div>
-                    <span className="text-foreground font-medium text-lg">{item.text}</span>
+                    <span className={`text-foreground font-medium ${i >= 4 ? 'text-base sm:text-lg' : 'text-lg'}`}>{item.text}</span>
                   </li>
                 ))}
               </ul>

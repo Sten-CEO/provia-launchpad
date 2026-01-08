@@ -31,7 +31,7 @@ export const ForWhoSection = () => {
   const activeAudience = audiences.find((a) => a.id === active)!;
 
   return (
-    <section id="pour-qui" className="relative py-20 lg:py-32 overflow-hidden">
+    <section id="pour-qui" className="relative py-16 sm:py-20 lg:py-32 overflow-hidden">
       <div className="glow-teal top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
@@ -52,12 +52,12 @@ export const ForWhoSection = () => {
 
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 max-w-5xl mx-auto">
           {/* Tabs */}
-          <div className="flex lg:flex-col gap-2 lg:gap-3 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 scrollbar-hide">
+          <div className="flex lg:flex-col gap-2 lg:gap-3 overflow-x-auto lg:overflow-visible pb-3 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 scrollbar-hide snap-x snap-mandatory">
             {audiences.map((audience) => (
               <button
                 key={audience.id}
                 onClick={() => setActive(audience.id)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl whitespace-nowrap transition-all ${
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl whitespace-nowrap transition-all snap-start ${
                   active === audience.id
                     ? "glass-card border-primary/50 bg-primary/5"
                     : "hover:bg-muted/30"

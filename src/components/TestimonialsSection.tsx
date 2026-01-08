@@ -23,21 +23,65 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return (
-    <section id="avis" className="relative py-20 lg:py-32 overflow-hidden">
+    <section id="avis" className="relative py-16 sm:py-20 lg:py-32 overflow-hidden">
       <div className="glow-orange top-0 left-1/4" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
             Ce que disent nos{" "}
             <span className="text-gradient-orange">clients</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Des dirigeants de TPE et PME partagent leur expérience avec Provia BASE. Ce qu'ils apprécient le plus : la simplicité d'utilisation, la centralisation de leur gestion, et l'application mobile pour le terrain.
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
+            Des dirigeants de TPE et PME partagent leur expérience avec Provia BASE.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {/* Mobile: Horizontal scroll carousel (SEO-safe - all content in DOM) */}
+        <div className="md:hidden -mx-4 px-4">
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="glass-card-hover p-5 flex-shrink-0 w-[85vw] max-w-[320px] snap-center"
+              >
+                {/* Stars */}
+                <div className="flex gap-1 mb-3">
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                  ))}
+                </div>
+
+                {/* Content */}
+                <p className="text-foreground mb-4 leading-relaxed text-sm">
+                  "{testimonial.content}"
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-primary/20 flex items-center justify-center">
+                    <span className="text-primary font-semibold text-sm">
+                      {testimonial.name.split(" ").map((n) => n[0]).join("")}
+                    </span>
+                  </div>
+                  <div>
+                    <p className="font-medium text-sm">{testimonial.name}</p>
+                    <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Scroll indicator */}
+          <div className="flex justify-center gap-1.5 mt-2">
+            {testimonials.map((_, i) => (
+              <div key={i} className="w-1.5 h-1.5 rounded-full bg-primary/30" />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: Grid layout */}
+        <div className="hidden md:grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="glass-card-hover p-6">
               {/* Stars */}

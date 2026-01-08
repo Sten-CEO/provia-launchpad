@@ -31,7 +31,7 @@ const steps = [
 
 export const HowItWorks = () => {
   return (
-    <section className="relative py-20 lg:py-32 overflow-hidden">
+    <section className="relative py-16 sm:py-20 lg:py-32 overflow-hidden">
       {/* Subtle background with sunset image fade */}
       <div 
         className="absolute bottom-0 left-0 right-0 h-1/2 bg-cover bg-bottom opacity-10"
@@ -43,7 +43,7 @@ export const HowItWorks = () => {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-provia-orange/10 rounded-full blur-[100px]" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
             Comment ça <span className="text-gradient-orange">marche</span> ?
           </h2>
@@ -54,30 +54,30 @@ export const HowItWorks = () => {
 
         {/* Timeline */}
         <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 relative">
             {/* Connection Line (Desktop) */}
             <div className="hidden lg:block absolute top-16 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20" />
             
             {steps.map((step, index) => (
               <div key={index} className="relative">
-                <div className="glass-card-hover p-6 text-center h-full">
+                <div className="glass-card-hover p-4 sm:p-6 text-center h-full">
                   {/* Number Badge */}
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4 relative z-10">
-                    <span className="text-primary font-bold">{step.number}</span>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-3 sm:mb-4 relative z-10">
+                    <span className="text-primary font-bold text-sm sm:text-base">{step.number}</span>
                   </div>
-                  
-                  <div className="w-10 h-10 rounded-xl bg-muted/30 flex items-center justify-center mx-auto mb-3">
-                    <step.icon className="w-5 h-5 text-muted-foreground" />
+
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-muted/30 flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                    <step.icon className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground" />
                   </div>
-                  
-                  <h3 className="font-semibold mb-2">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground">{step.description}</p>
+
+                  <h3 className="font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">{step.title}</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">{step.description}</p>
                 </div>
 
                 {/* Arrow (Mobile/Tablet) */}
                 {index < steps.length - 1 && (
-                  <div className="lg:hidden flex justify-center my-4">
-                    <div className="w-0.5 h-8 bg-gradient-to-b from-primary/40 to-primary/10" />
+                  <div className="lg:hidden flex justify-center my-2 sm:my-4">
+                    <div className="w-0.5 h-5 sm:h-8 bg-gradient-to-b from-primary/40 to-primary/10" />
                   </div>
                 )}
               </div>
@@ -86,7 +86,7 @@ export const HowItWorks = () => {
         </div>
 
         {/* CTA */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-16">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-10 sm:mt-16">
           <a href="#tarifs" className="btn-primary text-center px-8 py-4">
             Commencer maintenant
           </a>
