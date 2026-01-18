@@ -8,7 +8,7 @@ interface SEOProps {
 }
 
 export const SEO = ({ title, description, keywords, canonical }: SEOProps) => {
-  const baseUrl = "https://www.proviabase.fr";
+  const baseUrl = "https://proviabase.fr";
   const fullTitle = `${title} | Provia BASE`;
   const canonicalUrl = canonical ? `${baseUrl}${canonical}` : undefined;
 
