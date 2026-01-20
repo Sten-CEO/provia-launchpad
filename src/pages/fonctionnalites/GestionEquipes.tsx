@@ -57,7 +57,7 @@ const GestionEquipes = () => {
           <div className="sm:hidden space-y-4 animate-fade-in max-w-[75%] mb-8">
             <span className="inline-block text-primary font-medium text-xs px-3 py-1.5 border border-primary/40 rounded-full bg-primary/5">Fonctionnalité Gestion équipes</span>
             <h1 className="text-[1.65rem] leading-[1.25] font-medium tracking-tight">
-              Gestion des <span className="text-gradient-orange">équipes</span> terrain
+              <span className="text-gradient-orange">Gérez vos équipes</span> sur le terrain depuis le bureau
             </h1>
           </div>
 
