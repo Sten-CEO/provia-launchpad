@@ -55,7 +55,7 @@ const PlanningInterventions = () => {
           <div className="sm:hidden space-y-4 animate-fade-in max-w-[75%] mb-8">
             <span className="inline-block text-primary font-medium text-xs px-3 py-1.5 border border-primary/40 rounded-full bg-primary/5">Fonctionnalité Planning</span>
             <h1 className="text-[1.65rem] leading-[1.25] font-medium tracking-tight">
-              <span className="text-gradient-orange">Planning</span> d'interventions terrain
+              <span className="text-gradient-orange">Planning d'interventions</span> pour vos équipes et techniciens
             </h1>
           </div>
 

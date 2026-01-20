@@ -45,8 +45,8 @@ const PourLesTPE = () => {
             <div className="space-y-6 sm:space-y-8 animate-fade-in max-sm:text-center">
               <span className="inline-block text-primary font-medium text-xs sm:text-lg tracking-wide max-sm:px-3 max-sm:py-1.5 max-sm:border max-sm:border-primary/40 max-sm:rounded-full max-sm:bg-primary/5">Logiciel de gestion pour TPE</span>
               <h1 className="text-[1.65rem] leading-[1.25] sm:text-4xl lg:text-5xl font-medium sm:font-bold tracking-tight">
-                <span className="sm:hidden">Gestion <span className="text-gradient-orange">TPE</span> simplifiée</span>
-                <span className="hidden sm:inline">Logiciel de gestion pour <span className="text-gradient-orange">TPE</span> et artisans indépendants</span>
+                <span className="sm:hidden">Logiciel pensé pour <span className="text-gradient-orange">TPE</span> et artisans</span>
+                <span className="hidden sm:inline">Logiciel pensé pour <span className="text-gradient-orange">TPE</span> et artisans indépendants</span>
               </h1>
 
               <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground">

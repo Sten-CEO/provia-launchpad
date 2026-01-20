@@ -46,8 +46,8 @@ const PourLesEntreprisesDeServices = () => {
             <div className="space-y-6 sm:space-y-8 animate-fade-in max-sm:text-center">
               <span className="inline-block text-primary font-medium text-xs sm:text-lg tracking-wide max-sm:px-3 max-sm:py-1.5 max-sm:border max-sm:border-primary/40 max-sm:rounded-full max-sm:bg-primary/5">Logiciel pour entreprises de services</span>
               <h1 className="text-[1.65rem] leading-[1.25] sm:text-4xl lg:text-5xl font-medium sm:font-bold tracking-tight">
-                <span className="hidden sm:inline">Logiciel de gestion pour <span className="text-gradient-orange">entreprises de services</span></span>
-                <span className="sm:hidden">Gérez vos <span className="text-gradient-orange">interventions</span> clients</span>
+                <span className="hidden sm:inline">Logiciel pensé pour les <span className="text-gradient-orange">entreprises de services</span></span>
+                <span className="sm:hidden">Logiciel pour <span className="text-gradient-orange">entreprises de services</span></span>
               </h1>
 
               <p className="hidden sm:block text-lg lg:text-xl text-muted-foreground">
