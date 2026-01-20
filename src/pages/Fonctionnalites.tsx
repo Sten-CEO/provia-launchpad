@@ -123,8 +123,8 @@ const Fonctionnalites = () => {
         <div className="container mx-auto px-5 sm:px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-semibold sm:font-bold mb-4 sm:mb-6">
-              <span className="sm:hidden">Fonctionnalités <span className="text-gradient-orange">Provia BASE</span></span>
-              <span className="hidden sm:inline">Fonctionnalités du <span className="text-gradient-orange">logiciel de gestion</span> Provia BASE</span>
+              <span className="sm:hidden">Fonctionnalités <span className="text-gradient-orange">tout-en-un</span></span>
+              <span className="hidden sm:inline">Fonctionnalités <span className="text-gradient-orange">tout-en-un</span> pour gérer votre entreprise</span>
             </h1>
             <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground">
               <span className="sm:hidden">Bureau + terrain, tout est synchronisé.</span>

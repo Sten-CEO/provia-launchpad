@@ -29,11 +29,11 @@ export const HeroSection = () => {
             {/* HERO TITLE - Big, bold, impactful */}
             <h1 className="text-[2.1rem] leading-[1.2] sm:text-4xl lg:text-5xl xl:text-6xl font-semibold sm:font-bold tracking-tight mb-6 sm:mb-6">
               <span className="sm:hidden">
-                Votre activité<br />
+                Votre entreprise<br />
                 <span className="text-gradient-orange">centralisée</span>
               </span>
               <span className="hidden sm:inline">
-                Votre activité enfin{" "}
+                Votre entreprise enfin{" "}
                 <span className="text-gradient-orange">centralisée</span>
                 , du bureau jusqu'au terrain
               </span>
