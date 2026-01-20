@@ -46,8 +46,8 @@ const GestionClients = () => {
             <div className="space-y-6 animate-fade-in">
               <p className="text-primary font-medium text-xs sm:text-lg">Fonctionnalité Gestion clients</p>
               <h1 className="text-[1.65rem] leading-[1.25] font-medium tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl sm:font-bold">
-                <span className="sm:hidden"><span className="text-gradient-orange">CRM</span> et gestion clients TPE/PME</span>
-                <span className="hidden sm:inline">Logiciel <span className="text-gradient-orange">CRM</span> et gestion clients pour TPE et PME</span>
+                <span className="sm:hidden"><span className="text-gradient-orange">Gestion clients</span> en quelques clics</span>
+                <span className="hidden sm:inline"><span className="text-gradient-orange">Gestion clients</span> en quelques clics</span>
               </h1>
 
               <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground max-w-xl">

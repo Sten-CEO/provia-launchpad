@@ -45,8 +45,8 @@ const SuiviInterventions = () => {
             <div className="space-y-6 animate-fade-in">
               <p className="text-primary font-medium text-xs sm:text-lg">Fonctionnalité Suivi</p>
               <h1 className="text-[1.65rem] leading-[1.25] font-medium tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl sm:font-bold">
-                <span className="sm:hidden"><span className="text-gradient-orange">Suivi</span> des interventions terrain</span>
-                <span className="hidden sm:inline">Logiciel de <span className="text-gradient-orange">suivi des interventions</span> pour équipes terrain</span>
+                <span className="sm:hidden"><span className="text-gradient-orange">Suivez</span> chaque intervention client depuis votre bureau</span>
+                <span className="hidden sm:inline"><span className="text-gradient-orange">Suivez</span> chaque intervention client depuis votre bureau</span>
               </h1>
 
               <p className="text-sm sm:text-lg lg:text-xl text-muted-foreground max-w-xl">

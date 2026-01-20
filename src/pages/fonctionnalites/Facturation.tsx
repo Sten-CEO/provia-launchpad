@@ -57,7 +57,7 @@ const Facturation = () => {
           <div className="sm:hidden space-y-4 animate-fade-in max-w-[75%] mb-8">
             <span className="inline-block text-primary font-medium text-xs px-3 py-1.5 border border-primary/40 rounded-full bg-primary/5">Fonctionnalité Facturation</span>
             <h1 className="text-[1.65rem] leading-[1.25] font-medium tracking-tight">
-              Logiciel de <span className="text-gradient-orange">facturation</span> TPE/PME
+              <span className="text-gradient-orange">Création et envoi</span> de factures
             </h1>
           </div>
 
